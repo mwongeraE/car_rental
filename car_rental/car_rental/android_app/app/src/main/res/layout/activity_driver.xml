@@ -1,0 +1,80 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:fitsSystemWindows="true">
+
+  <android.support.design.widget.AppBarLayout
+    android:id="@+id/appbar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:fitsSystemWindows="true"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <android.support.design.widget.CollapsingToolbarLayout
+      android:id="@+id/collapsing_toolbar_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fitsSystemWindows="true"
+      app:contentScrim="?attr/colorPrimary"
+      app:expandedTitleMarginEnd="50dp"
+      app:expandedTitleMarginStart="50dp"
+      app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+      <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        app:layout_collapseMode="parallax"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:id="@+id/image_view_user_picture"
+        android:onClick="onClick"/>
+
+      <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Theme.ToolBar"
+        app:layout_collapseMode="pin"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/Theme.ToolBar"/>
+
+    </android.support.design.widget.CollapsingToolbarLayout>
+
+  </android.support.design.widget.AppBarLayout>
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/floating_action_button_photo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:clickable="true"
+    android:src="@mipmap/ic_local_see_white_48dp"
+    app:backgroundTint="@color/label_text_light"
+    app:rippleColor="@color/label_text_dark"
+    app:layout_anchor="@id/appbar_layout"
+    app:layout_anchorGravity="bottom|right|end"
+    android:onClick="onClick"/>
+
+  <android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:paddingTop="32dp">
+
+      <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_profile_driver"/>
+
+    </LinearLayout>
+
+  </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

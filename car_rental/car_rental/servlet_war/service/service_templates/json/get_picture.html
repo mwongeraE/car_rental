@@ -1,0 +1,23 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("picture_id")%set_param
+      %set_param8=@this.getExtra("object_name")%set_param
+
+      %set_param20=@this.getStringValue("SELECT picture FROM %param8%param WHERE id=%param7%param")%set_param
+
+      %if "param20!=''" %if
+        {"results":[{"picture":"%param20%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             tools:context="autozvit.com.fireart.forms.TipFragment"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:scrollbars="horizontal"
+    android:background="@color/fragment_transparent_background">
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="10dp"
+      android:paddingLeft="10dp"
+      android:paddingBottom="10dp">
+
+      <TextView
+        android:id="@+id/text_view_tip"
+        style="@style/Widget.Style.TipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THIS IS A TIP\nOF THE DAY"
+        android:layout_gravity="left|top"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginBottom="10dp"/>
+
+      <Button
+        android:id="@+id/button_tip_agree"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_tip"
+        android:onClick="onClick"
+        android:text="@string/button_agree"/>
+
+      <Button
+        style="@style/Widget.TransWhiteButton"
+        android:id="@+id/button_do_not_show"
+        android:text="@string/button_do_not_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button_tip_agree"
+        android:layout_toEndOf="@+id/button_tip_agree"/>
+
+      <ImageView
+        android:id="@+id/image_view_picture"
+        android:src="@drawable/close_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

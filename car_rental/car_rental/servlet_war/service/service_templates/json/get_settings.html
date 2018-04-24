@@ -1,0 +1,48 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("settings_code")%set_param
+      %if "param9" %if
+        %invoke_methodthis.setParam(9,"WHERE code LIKE '%param9%param'")%invoke_method
+      %endif%endif
+
+      %if "param6=1" %if
+      
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'settings_code',CHAR(34),':',CHAR(34),code,CHAR(34),',',
+        CHAR(34),'settings_name',CHAR(34),':',CHAR(34),replace_text(name),CHAR(34),',',
+        CHAR(34),'settings_value',CHAR(34),':',CHAR(34),IF(value IS NULL,'',replace_text(value)),CHAR(34),'}') AS CHAR)
+        FROM settings %param9%param %param8%param",",")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+        %invoke_methodthis.setParam(20,"")%invoke_method
+      %endif%endif
+      
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

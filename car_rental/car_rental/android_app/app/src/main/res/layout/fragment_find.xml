@@ -1,0 +1,78 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="autozvit.com.fireart.forms.FindFragment">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:scrollbars="horizontal"
+    android:background="@color/fragment_list_background">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="10dp"
+      android:paddingLeft="10dp"
+      android:paddingBottom="10dp">
+
+      <TextView
+        style="@style/Widget.Style.TipTextView"
+        android:id="@+id/text_view_tip"
+        android:text="FIND THE ADDRESS\nTO THE TRIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginBottom="10dp"/>
+
+      <Button
+        style="@style/Widget.Style.Button"
+        android:id="@+id/button_find"
+        android:text="@string/button_find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:layout_alignBottom="@+id/text_view_tip"
+        android:layout_toRightOf="@+id/text_view_tip"
+        android:layout_toEndOf="@+id/text_view_tip"
+        android:layout_marginLeft="10dp"/>
+
+      <ImageView
+        android:id="@+id/image_view_picture"
+        android:src="@drawable/close_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_view_tip"/>
+
+      <EditText
+        android:id="@+id/edit_text_pickup_address"
+        android:hint="@string/order_pickup_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_below="@+id/text_view_tip"
+        android:layout_toRightOf="@+id/image_view_picture"
+        android:layout_alignRight="@+id/button_find"
+        android:layout_alignEnd="@+id/button_find"/>
+
+      <EditText
+        android:id="@+id/edit_text_destination_address"
+        android:hint="@string/order_destination_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_below="@+id/edit_text_pickup_address"
+        android:layout_toRightOf="@+id/image_view_picture"
+        android:layout_alignRight="@+id/edit_text_pickup_address"
+        android:layout_alignEnd="@+id/edit_text_pickup_address"/>
+    </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

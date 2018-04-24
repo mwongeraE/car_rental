@@ -1,0 +1,11 @@
+get order for driver (user_type_id==2)
+---------------------------------
+
+Limiting orders for driver preview by status_id==1 (accepted)
+
+get_order_AB_near, get_order_AB_near2 limit user_type_id==2 for order with status_id==1 (accepted)
+
+      %set_param12=@this.getExtra("status_id")%set_param
+      %if "param6=2&param9=%" %if  <- | "param6=2&param9!=user_id" (user_id is client of driver's order?)
+        %invoke_methodthis.setParam(12,"1")%invoke_method
+      %endif%endif

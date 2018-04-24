@@ -1,0 +1,86 @@
+<!--Footer Start-->
+<div class="templatemo_footer">
+  <div class="container">
+    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+      <h2>fireArt</h2>
+      <p>Open source CRM. Good Ideas for Bussiness!</p>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+      <h2 id="text_bussiness">Bussiness Platforms</h2>
+      <ul>
+        <li id="text_bussiness_1">Taxi services</li>
+        <li id="text_bussiness_2">Hotels and Accomodations</li>
+        <li id="text_bussiness_3">Products delivery</li>
+        <li id="text_bussiness_4">Market stores</li>
+        <li id="text_bussiness_5">Pizzerias and Sushi Bars</li>
+      </ul>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+      <h2 id="text_how">How to join</h2>
+      <p id="text_join">Join is Free. Get API key Easy</p>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+      <h2 id="text_contacts">Contacts</h2>
+      <span class="left col-xs-1 fa fa-map-marker"></span>
+      <span id="text_address" class="right col-xs-11">Ukraine, Kiev</span>
+      <div class="clear height10"></div>
+      <span class="left col-xs-1 fa fa-phone"></span>
+      <span class="right col-xs-11">+38 (067) 800-50-96</span>
+      <div class="clear height10"></div>
+      <span class="left col-xs-1 fa fa-envelope"></span>
+      <span class="right col-xs-11"><a href="mailto:admin@autozvit.com"> admin@autozvit.com</a></span>
+      <div class="clear height10"></div>
+      <span class="left col-xs-1 fa fa-globe"></span>
+      <span class="right col-xs-11"><a href="http://www.247.autozvit.com" target="_parent"> www.247.autozvit.com</a></span>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<!--Footer End-->
+<!-- Bottom Start -->
+<div class="templatemo_bottom">
+  <div class="container">
+    <div class="row">
+      <div class="left">
+        &copy; 2015 - 2017 ABTO3BIT <a href="http://fa.autozvit.com" target="_parent">fireArt</a>&nbsp;
+      </div>
+      <div class="right">
+        <a href="https://twitter.com/anhen99"><div class="fa fa-twitter soc"></div></a>
+        <a href="https://www.facebook.com/geozvit/"><div class="fa fa-facebook soc"></div></a>
+        <a href="https://plus.google.com/u/0/111438445114993267926/about/p/pub"><div class="fa fa-google-plus soc"></div></a>
+        <a href="https://www.youtube.com/channel/UCHo6qtKV8qDYnYhWjs-Rdmg"><div class="fa fa-youtube soc"></div></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Bottom End-->
+
+<!--js-->
+<script type="text/javascript">
+  /*MULTI LANGUAGE*/
+  function updateFooterLanguage(language){
+    var text_bussiness=document.getElementById('text_bussiness');
+    var text_bussiness_1=document.getElementById('text_bussiness_1');
+    var text_bussiness_2=document.getElementById('text_bussiness_2');
+    var text_bussiness_3=document.getElementById('text_bussiness_3');
+    var text_bussiness_4=document.getElementById('text_bussiness_4');
+    var text_bussiness_5=document.getElementById('text_bussiness_5');
+    var text_how=document.getElementById('text_how');
+    var text_join=document.getElementById('text_join');
+    var text_contacts=document.getElementById('text_contacts');
+    var text_address=document.getElementById('text_address');
+
+    /*captions*/
+    text_bussiness.innerHTML=getMessage(language,2001);
+    text_bussiness_1.innerHTML=getMessage(language,2002);
+    text_bussiness_2.innerHTML=getMessage(language,2003);
+    text_bussiness_3.innerHTML=getMessage(language,2004);
+    text_bussiness_4.innerHTML=getMessage(language,2005);
+    text_bussiness_5.innerHTML=getMessage(language,2006);
+    text_how.innerHTML=getMessage(language,2007);
+    text_join.innerHTML=getMessage(language,2008);
+    text_contacts.innerHTML=getMessage(language,2009);
+    text_address.innerHTML=getMessage(language,2010);
+  }
+  updateFooterLanguage(fa.language);
+</script>

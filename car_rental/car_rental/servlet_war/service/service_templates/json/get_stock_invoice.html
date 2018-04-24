@@ -1,0 +1,92 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %if "param6=1" %if
+      
+      %set_param9=@this.getExtra("stock_invoice_id")%set_param
+      %set_param10=@this.getExtra("invoice_code")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND si.invoice_code LIKE '%param10%param'")%invoke_method
+      %endif%endif
+      %set_param11=@this.getExtra("invoice_date")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND si.invoice_date LIKE '%param11%param'")%invoke_method
+      %endif%endif
+      %set_param12=@this.getExtra("supplier")%set_param
+      %if "param12" %if
+        %invoke_methodthis.setParam(12," AND si.supplier LIKE '%param12%param'")%invoke_method
+      %endif%endif
+      %set_param13=@this.getExtra("phone")%set_param
+      %if "param13" %if
+        %invoke_methodthis.setParam(13," AND si.phone LIKE '%param13%param'")%invoke_method
+      %endif%endif
+      %set_param14=@this.getExtra("delivery_id")%set_param
+      %if "param14" %if
+        %invoke_methodthis.setParam(14," AND si.delivery_id LIKE '%param14%param'")%invoke_method
+      %endif%endif
+      %set_param15=@this.getExtra("delivery_date")%set_param
+      %if "param15" %if
+        %invoke_methodthis.setParam(15," AND si.delivery_date LIKE '%param15%param'")%invoke_method
+      %endif%endif
+      %set_param16=@this.getExtra("create_date")%set_param    
+      %if "param16" %if
+        %invoke_methodthis.setParam(16," AND si.create_date LIKE '%param16%param'")%invoke_method
+      %endif%endif
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'stock_invoice_id',CHAR(34),':',si.id,',',
+        CHAR(34),'invoice_code',CHAR(34),':',CHAR(34),IFNULL(si.invoice_code,''),CHAR(34),',',
+        CHAR(34),'invoice_date',CHAR(34),':',CHAR(34),IFNULL(si.invoice_date,''),CHAR(34),',',
+        CHAR(34),'total_price',CHAR(34),':',si.total_price,',',
+        CHAR(34),'total_tax',CHAR(34),':',si.total_tax,',',
+        CHAR(34),'supplier',CHAR(34),':',CHAR(34),IF(si.supplier IS NULL,'',replace_text(si.supplier)),CHAR(34),',',
+        CHAR(34),'phone',CHAR(34),':',CHAR(34),IFNULL(si.phone,''),CHAR(34),',',
+        CHAR(34),'delivery_id',CHAR(34),':',IFNULL(si.delivery_id,'null'),',',
+        CHAR(34),'delivery_code',CHAR(34),':',CHAR(34),IF(si.delivery_code IS NULL,'',replace_text(si.delivery_code)),CHAR(34),',',
+        CHAR(34),'delivery_type_id',CHAR(34),':',IFNULL(si.delivery_type_id,'null'),',',
+        CHAR(34),'delivery_type_name',CHAR(34),':',CHAR(34),IF(si.delivery_type_id IS NULL,'',replace_text(dt.name)),CHAR(34),',',
+        CHAR(34),'delivery_date',CHAR(34),':',CHAR(34),IFNULL(si.delivery_date,''),CHAR(34),',',
+        CHAR(34),'delivery_price',CHAR(34),':',IFNULL(si.delivery_price,'null'),',',
+        CHAR(34),'payment_date',CHAR(34),':',CHAR(34),IFNULL(si.payment_date,''),CHAR(34),',',
+        CHAR(34),'payment_info',CHAR(34),':',CHAR(34),replace_text(si.payment_info),CHAR(34),',',
+        CHAR(34),'payment_amount',CHAR(34),':',IFNULL(si.payment_amount,'null'),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),si.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),si.last_update,CHAR(34),'}') AS CHAR)
+        FROM stock_invoice si LEFT JOIN delivery_type dt ON dt.id=si.delivery_type_id
+        WHERE si.id LIKE '%param9%param'%param10%param%param11%param%param12%param%param13%param%param14%param%param15%param%param16%param
+	ORDER BY si.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

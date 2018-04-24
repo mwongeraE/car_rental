@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/easy_style_list_background">
+
+  <android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="0dp"
+    card_view:cardBackgroundColor="@color/easy_style_card_background"
+    card_view:cardCornerRadius="1dp"
+    card_view:cardElevation="1dp">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <ImageView
+        android:id="@+id/image_view_product_picture"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:padding="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/close_grey"/>
+
+      <TextView
+        android:id="@+id/text_view_product_name"
+        style="@style/Widget.EasyStyle.SmallTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_view_product_picture"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="Name"/>
+
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,80 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %if "param6=3"|"param6=2" %if
+        %set_param7=SELECT id FROM user WHERE username=?0%set_param
+        %invoke_methodthis.setParam(8," WHERE user_id=%param7%param")%invoke_method
+        %invoke_methodthis.setParam(9," AND user_id=%param7%param")%invoke_method
+        %invoke_methodthis.setParam(10," AND userB_id=%param7%param")%invoke_method
+        %invoke_methodthis.setParam(11," AND userA_id=%param7%param")%invoke_method
+        %invoke_methodthis.setParam(12," WHERE username LIKE '%param0%param'")%invoke_method
+        %invoke_methodthis.setParam(13,"SELECT IFNULL(SUM(pa.amount),0) FROM payment pa,purchase pu WHERE pa.purchase_id=pu.id AND pu.user_id=%param7%param")%invoke_method
+      %elseif%elseif
+        %invoke_methodthis.setParam(8,"")%invoke_method
+        %invoke_methodthis.setParam(9,"")%invoke_method
+        %invoke_methodthis.setParam(10,"")%invoke_method
+        %invoke_methodthis.setParam(11,"")%invoke_method
+        %invoke_methodthis.setParam(12,"")%invoke_method
+        %invoke_methodthis.setParam(13,"SELECT IFNULL(SUM(amount),0) FROM payment")%invoke_method
+      %endif%endif
+
+      %invoke_methodthis.setParam(14,"SELECT COUNT(o.id) FROM order_AB o,transport t,sensor s WHERE o.transport_id=t.id AND t.sensor_id=s.id AND s.user_id=%param7%param")%invoke_method
+      %invoke_methodthis.setParam(15,"SELECT COUNT(o.id) FROM order_AB o,transport t,sensor s WHERE o.order_status_id=5 AND o.transport_id=t.id AND t.sensor_id=s.id AND s.user_id=%param7%param")%invoke_method
+      %invoke_methodthis.setParam(16,"SELECT COUNT(o.id) FROM order_AB o,transport t,sensor s WHERE o.order_status_id>0 AND o.order_status_id<5 AND o.transport_id=t.id AND t.sensor_id=s.id AND s.user_id=%param7%param")%invoke_method
+      %invoke_methodthis.setParam(17,"SELECT IFNULL(SUM(o.total_price),0) FROM order_AB o,transport t,sensor s WHERE o.transport_id=t.id AND t.sensor_id=s.id AND s.user_id=%param7%param")%invoke_method
+      %invoke_methodthis.setParam(18,"SELECT IFNULL(SUM(p.payment_amount),0) FROM order_AB o,transport t,sensor s,purchase p WHERE p.order_id=o.id AND o.transport_id=t.id AND t.sensor_id=s.id AND s.user_id=%param7%param")%invoke_method
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT CAST(CONCAT('{',
+        CHAR(34),'audit',CHAR(34),':',IF(audit=1,'true','false'),',',
+        CHAR(34),'driver_count',CHAR(34),':',(SELECT COUNT(id) FROM user WHERE type=2),',',
+        CHAR(34),'client_count',CHAR(34),':',(SELECT COUNT(id) FROM user WHERE type=3),',',
+        CHAR(34),'driver_active_sensor_count',CHAR(34),':',(SELECT count(u.id) FROM user u,sensor s WHERE u.type=2 AND s.user_id=u.id AND s.active=1),',',
+        CHAR(34),'client_active_sensor_count',CHAR(34),':',(SELECT count(u.id) FROM user u,sensor s WHERE u.type=1 AND s.user_id=u.id AND s.active=1),',',
+        CHAR(34),'transport_count',CHAR(34),':',(SELECT count(id) FROM transport),',',
+        CHAR(34),'manufacture_count',CHAR(34),':',(SELECT count(id) FROM manufacture),',',
+        CHAR(34),'product_count',CHAR(34),':',(SELECT count(id) FROM product),',',
+        CHAR(34),'store_count',CHAR(34),':',(SELECT count(id) FROM store),',',
+        CHAR(34),'order_count',CHAR(34),':',(SELECT count(id) FROM order_AB%param8%param),',',
+        CHAR(34),'order_completed_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id=5%param9%param),',',
+        CHAR(34),'order_cancelled_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id<0%param9%param),',',
+        CHAR(34),'order_pending_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id>0 AND order_status_id<5%param9%param),',',
+        CHAR(34),'order_today_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE create_date>=CURDATE()%param9%param),',',
+        CHAR(34),'order_yesterday_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE create_date>=DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND create_date<CURDATE()%param9%param),',',
+        CHAR(34),'order_week_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE YEAR(create_date)=YEAR(NOW()) AND WEEK(create_date)=WEEK(NOW())%param9%param),',',
+        CHAR(34),'order_month_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE YEAR(create_date)=YEAR(NOW()) AND MONTH(create_date)=MONTH(NOW())%param9%param),',',
+        CHAR(34),'order_today_completed_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id=5 AND create_date>=CURDATE()%param9%param),',',
+        CHAR(34),'order_today_cancelled_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id<0 AND create_date>=CURDATE()%param9%param),',',
+        CHAR(34),'order_today_pending_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id>0 AND order_status_id<5 AND create_date>=CURDATE()%param9%param),',',
+        CHAR(34),'order_yesterday_completed_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id=5 AND create_date>=DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND create_date<CURDATE()%param9%param),',',
+        CHAR(34),'order_yesterday_cancelled_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id<0 AND create_date>=DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND create_date<CURDATE()%param9%param),',',
+        CHAR(34),'order_yesterday_pending_count',CHAR(34),':',(SELECT count(id) FROM order_AB WHERE order_status_id>0 AND order_status_id<5 AND create_date>=DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND create_date<CURDATE()%param9%param),',',
+        CHAR(34),'order_total_price',CHAR(34),':',(SELECT IFNULL(SUM(total_price),0) FROM order_AB WHERE order_status_id=5%param9%param),',',
+        CHAR(34),'purchase_payment_amount',CHAR(34),':',(SELECT IFNULL(SUM(payment_amount),0) FROM purchase%param8%param),',',
+        CHAR(34),'payment_amount',CHAR(34),':',(%param13%param),',',
+        CHAR(34),'driver_order_count',CHAR(34),':',(%param14%param),',',
+        CHAR(34),'driver_order_completed_count',CHAR(34),':',(%param15%param),',',
+        CHAR(34),'driver_order_pending_count',CHAR(34),':',(%param16%param),',',
+        CHAR(34),'driver_order_total_price',CHAR(34),':',(%param17%param),',',
+        CHAR(34),'driver_purchase_payment_amount',CHAR(34),':',(%param18%param),',',
+        CHAR(34),'input_messages_count',CHAR(34),':',(SELECT count(id) FROM message WHERE type=1%param10%param),',',
+        CHAR(34),'output_messages_count',CHAR(34),':',(SELECT count(id) FROM message WHERE type=2%param11%param),',',
+        CHAR(34),'audit_count',CHAR(34),':',(SELECT COUNT(id) FROM audit%param12%param),'}') AS CHAR)
+        FROM preferences WHERE code LIKE 'fA'",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        {"results":[%param20%param],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

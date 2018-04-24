@@ -1,0 +1,8 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+  %set_param7=SELECT get_token(?0,?1)%set_param 
+  {"results":[{"token":"%param7%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

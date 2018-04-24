@@ -1,0 +1,104 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %if "param6=1"|"param6=2" %if
+        %set_param9=@this.getExtra("user_id")%set_param
+        %if "param9" %if
+          %invoke_methodthis.setParam(9,"%param9%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(9,"%")%invoke_method
+        %endif%endif
+      %elseif%elseif
+        %set_param9=SELECT id FROM user WHERE username=?0%set_param
+      %endif%endif
+
+      %set_param10=@this.getExtra("order_lat")%set_param
+      %set_param11=@this.getExtra("order_lon")%set_param
+
+      %set_param12=@this.getExtra("status_id")%set_param
+      %if "param6=2&param9=%" %if
+        %invoke_methodthis.setParam(12,"1")%invoke_method
+      %endif%endif
+
+      %set_param13=@this.getExtra("distance")%set_param
+      %set_param14=@this.getExtra("distance_measure")%set_param
+      %if "param14='mile'" %if
+        %invoke_methodthis.setParam(15,"3959")%invoke_method
+      %elseif%elseif
+        %invoke_methodthis.setParam(15,"6371")%invoke_method
+        %invoke_methodthis.setParam(14,"km")%invoke_method
+        %set_param13=SELECT %param13%param*0.621371192%set_param
+      %endif%endif
+
+      %set_param16=@this.getExtra("language")%set_param
+
+      %set_param17=SELECT %param11%param-%param13%param/abs(cos(radians(%param10%param))*69)%set_param
+      %set_param18=SELECT %param11%param+%param13%param/abs(cos(radians(%param10%param))*69)%set_param
+      %set_param19=SELECT %param10%param-(%param13%param/69)%set_param
+      %set_param20=SELECT %param10%param+(%param13%param/69)%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'order_id',CHAR(34),':',o.id,',',
+        CHAR(34),'user_id',CHAR(34),':',o.user_id,',',
+        CHAR(34),'user',CHAR(34),':[',get_user(o.user_id,'%param16%param'),'],',
+        CHAR(34),'status_id',CHAR(34),':',os.id,',',
+        CHAR(34),'status_name',CHAR(34),':',CHAR(34),replace_text(os.name),CHAR(34),',',
+        CHAR(34),'status_attr',CHAR(34),':[',get_attr_part(os.id,'order_status','%param16%param'),'],',
+        CHAR(34),'transport_id',CHAR(34),':',IFNULL(o.transport_id,'null'),',',
+        CHAR(34),'transport',CHAR(34),':[',IF(o.transport_id IS NULL,'',get_transport(o.transport_id,'%param16%param')),'],',
+        CHAR(34),'total_price',CHAR(34),':',o.total_price,',',
+        CHAR(34),'route_distance',CHAR(34),':',IFNULL(o.route_distance,'null'),',',
+        CHAR(34),'route_duration',CHAR(34),':',IFNULL(o.route_duration,'null'),',',
+        CHAR(34),'route_data',CHAR(34),':',CHAR(34),IFNULL(REPLACE(REPLACE(TO_BASE64(o.route_data),'\r',''),'\n',''),''),CHAR(34),',',
+        CHAR(34),'order_lat',CHAR(34),':',IFNULL(o.order_lat,'null'),',',
+        CHAR(34),'order_lon',CHAR(34),':',IFNULL(o.order_lon,'null'),',',
+        CHAR(34),'order_address',CHAR(34),':',CHAR(34),IF(o.order_address IS NULL,'',replace_text(o.order_address)),CHAR(34),',',
+        CHAR(34),'delivery_lat',CHAR(34),':',IFNULL(o.delivery_lat,'null'),',',
+        CHAR(34),'delivery_lon',CHAR(34),':',IFNULL(o.delivery_lon,'null'),',',
+        CHAR(34),'delivery_address',CHAR(34),':',CHAR(34),IF(o.delivery_address IS NULL,'',replace_text(o.delivery_address)),CHAR(34),',',
+        CHAR(34),'delivery_type_id',CHAR(34),':',IFNULL(o.delivery_type_id,'null'),',',
+        CHAR(34),'delivery_type_name',CHAR(34),':',CHAR(34),IF(o.delivery_type_id IS NULL,'',replace_text(dt.name)),CHAR(34),',',
+        CHAR(34),'delivery_type_attr',CHAR(34),':[',IF(o.delivery_type_id IS NULL,'',get_attr_part(o.delivery_type_id,'delivery_type','%param16%param')),'],',
+        CHAR(34),'reserved_date',CHAR(34),':',CHAR(34),IFNULL(o.reserved_date,''),CHAR(34),',',
+        CHAR(34),'reserved_hours',CHAR(34),':',IFNULL(o.reserved_hours,'null'),',',
+        CHAR(34),'purchase',CHAR(34),':[',get_purchase(o.id,'%param16%param'),'],',
+        CHAR(34),'distance',CHAR(34),':',(%param15%param*acos(cos(radians(%param10%param))*cos(radians(o.order_lat))*cos(radians(o.order_lon)-radians(%param11%param))+sin(radians(%param10%param))*sin(radians(o.order_lat)))),',',
+        CHAR(34),'distance_measure',CHAR(34),':',CHAR(34),'%param14%param',CHAR(34),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),o.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),o.last_update,CHAR(34),'}') AS CHAR)
+        FROM order_status os,order_AB o
+        LEFT JOIN delivery_type dt ON dt.id=o.delivery_type_id
+        LEFT JOIN transport t ON t.id=o.transport_id
+        WHERE o.user_id LIKE '%param9%param' AND order_status_id=%param12%param
+        AND (o.order_lon BETWEEN %param17%param AND %param18%param) AND (o.order_lat BETWEEN %param19%param and %param20%param)
+        AND os.id=o.order_status_id
+        ORDER BY o.id DESC %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

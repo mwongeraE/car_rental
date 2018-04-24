@@ -1,0 +1,123 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="autozvit.com.fireart.forms.TripFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top"
+    android:background="@color/fragment_background"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="10dp"
+      android:paddingLeft="10dp"
+      android:paddingTop="10dp">
+
+      <TextView
+        android:id="@+id/text_view_duration"
+        style="@style/Widget.Style.ParamTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/text_view_distance"
+        android:layout_gravity="left|top"
+        android:text="@string/route_time"/>
+
+      <TextView
+        android:id="@+id/text_view_distance"
+        style="@style/Widget.Style.ParamTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_gravity="left|top"
+        android:text="@string/route_length"/>
+
+      <Button
+        android:id="@+id/button_book_trip"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/text_view_duration"
+        android:onClick="onClick"
+        android:text="@string/button_book_trip"/>
+
+      <TextView
+        android:id="@+id/text_view_distance_value"
+        style="@style/Widget.Style.ValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_view_distance"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/text_view_distance"
+        android:layout_toRightOf="@+id/text_view_distance"
+        android:text="0"/>
+
+      <TextView
+        android:id="@+id/text_view_duration_value"
+        style="@style/Widget.Style.ValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_view_duration"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/text_view_duration"
+        android:layout_toRightOf="@+id/text_view_duration"
+        android:text="0"/>
+
+      <Button
+        android:id="@+id/button_service"
+        style="@style/Widget.TransWhiteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_book_trip"
+        android:layout_alignParentBottom="false"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/button_book_trip"
+        android:layout_toRightOf="@+id/button_book_trip"
+        android:onClick="onClick"
+        android:text="@string/button_service"/>
+
+      <TextView
+        android:id="@+id/text_view_price"
+        style="@style/Widget.Style.PriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.8"
+        android:text="0.00"/>
+
+      <TextView
+        android:id="@+id/text_view_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_view_price"
+        android:text="USD"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+      <TextView
+        android:id="@+id/text_view_discount"
+        style="@style/Widget.Style.DiscountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_view_currency"
+        android:alpha="0.8"
+        android:text="0.00"/>
+    </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

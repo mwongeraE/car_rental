@@ -1,0 +1,29 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+  %set_param7=@this.getExtra("product_type_id")%set_param
+  %set_param8=@this.getExtra("discount_type")%set_param
+  %set_param9=@this.getExtra("discount_code")%set_param
+  %set_param10=@this.getExtra("discount_name")%set_param
+  %set_param11=@this.getExtra("discount_value")%set_param
+  %set_param12=@this.getExtra("language")%set_param
+  %set_param13=@this.getExtra("start_date")%set_param
+  %set_param14=@this.getExtra("finish_date")%set_param
+
+  %set_param20=SELECT add_discount(?0,?1,?7,?8,?9,?10,?11,?12,?13,?14)%set_param
+
+  %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+  %if "param21=1" %if
+    %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+    {"results":[{"message":"Update data failed","message_code":-11,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+  %elseif%elseif
+    %if "param20>-1" %if
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+    %elseif%elseif
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+  %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

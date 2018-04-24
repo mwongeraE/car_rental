@@ -1,0 +1,862 @@
+[
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/btn_moreinfo.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/btn_moreinfo.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/add_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/add_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/car_hor.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/car_hor.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_line_red.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_line_red.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/history.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/history.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/phone_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/phone_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/bonuspack_bubble.9.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/bonuspack_bubble.9.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/phone_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/phone_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_local_taxi_blue_48dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_local_taxi_blue_48dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/dropoff.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/dropoff.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_local_taxi_pink_48dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_local_taxi_pink_48dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/moreinfo_arrow.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/moreinfo_arrow.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_drive_eta_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_drive_eta_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/menu_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/menu_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_180.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_180.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_power_bue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_power_bue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_menu_mapmode.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/ic_menu_mapmode.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_perm_identity_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_perm_identity_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/mail_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/mail_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_highlight_off_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_highlight_off_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_315.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_315.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_info_outline_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_info_outline_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_query_builder_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_query_builder_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_event_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_event_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/menu_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/menu_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/back_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/back_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/back_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/back_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/mail_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/mail_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_credit_card_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_credit_card_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/marker_default_focused_base.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/marker_default_focused_base.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/phone_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/phone_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/star_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/star_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/mail_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/mail_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/people.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/people.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_email_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_email_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/first_name_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/first_name_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/close_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/close_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/phone_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/phone_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_face_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_face_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/callname_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/callname_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_highlight_off_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_highlight_off_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/close_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/close_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_email_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_email_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/callname_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/callname_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_phone_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_phone_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_room_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_room_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_225.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_225.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/close_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/close_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/marker_b.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/marker_b.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark_focused.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/send_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/send_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_color_lens_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_color_lens_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_autorenew_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_autorenew_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_power_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_power_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_0.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_0.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/next.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/next.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/cart_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/cart_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/star_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/star_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_done_green_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_done_green_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/location_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/location_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/callname_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/callname_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/edit_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/edit_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_do_not_disturb_alt_white_48pt_2x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_do_not_disturb_alt_white_48pt_2x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_question_answer_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_question_answer_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_info_outline_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_info_outline_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_info_outline_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_info_outline_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_drive_eta_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_drive_eta_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/send_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/send_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_reorder_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_reorder_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/center.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/center.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/person.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/person.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_do_not_disturb_alt_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_do_not_disturb_alt_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light_focused.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/car_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/car_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_delete_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_delete_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_star_rate_blue_18dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_star_rate_blue_18dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/6ffe0b281d10e002a5c341dde4d73c44/res/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_45.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_45.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/pickup.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/pickup.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/menu_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/menu_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_account_box_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_account_box_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_event_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_event_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/marker_default.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/marker_default.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/edit_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/edit_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/not_found_red.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/not_found_red.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/app_logo.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/app_logo.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/car_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/car_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_check_circle_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_check_circle_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/6ffe0b281d10e002a5c341dde4d73c44/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_event_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_event_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/moreinfo_arrow_pressed.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/moreinfo_arrow_pressed.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_perm_identity_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_perm_identity_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_local_taxi_grey_48dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_local_taxi_grey_48dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/back_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/back_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/options_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/options_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_credit_card_green_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_credit_card_green_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/first_name_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/first_name_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_delete_green_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_delete_green_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_info_outline_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_info_outline_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/cart_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/cart_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/options_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/options_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_highlight_off_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_highlight_off_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/callname_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/callname_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_query_builder_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_query_builder_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/cart_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/cart_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_credit_card_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_credit_card_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/first_name_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/first_name_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_perm_identity_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_perm_identity_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/car_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/car_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/direction_arrow.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/direction_arrow.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_menu_mylocation.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/ic_menu_mylocation.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_autorenew_green_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_autorenew_green_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_input_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_input_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/back_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/back_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/options_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/options_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/previous.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/previous.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_menu_offline.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/ic_menu_offline.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/cart_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/cart_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/first_name_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/first_name_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_perm_identity_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_perm_identity_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_star_rate_grey_18dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_star_rate_grey_18dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/design_ic_visibility.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/6ffe0b281d10e002a5c341dde4d73c44/res/drawable/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_info_outline_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_info_outline_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/first_screen.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/first_screen.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_done_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_done_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_question_answer_grey_36d.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_question_answer_grey_36d.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/menu_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/menu_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_done_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_done_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_room_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_room_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_90.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_90.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/navto_small.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/navto_small.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/options_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/options_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/shopping_bag.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/shopping_bag.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/exit.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/exit.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/star_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/star_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_phone_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_phone_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_do_not_disturb_white_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_do_not_disturb_white_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/marker_a.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/marker_a.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_reorder_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_reorder_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_done_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_done_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_autorenew_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_autorenew_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_color_lens_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_color_lens_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_error_outline_red_48pt_3x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_error_outline_red_48pt_3x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/mail_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/mail_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/location_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/location_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/edit_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/edit_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/close_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/close_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_menu_compass.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/ic_menu_compass.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_room_grey_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_room_grey_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/lock_red.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/lock_red.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_input_blue_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_input_blue_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_do_not_disturb_white_48pt_2x.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_do_not_disturb_white_48pt_2x.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/send_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/send_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_270.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_270.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/edit_grey.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/edit_grey.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/send_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/send_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/zoom_in.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/zoom_in.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/location_blue.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/location_blue.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/zoom_out.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/osmdroid-android-5.6.4.aar/e8b35b4c84e87afc29b7592ee369e38b/res/drawable/zoom_out.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_settings_phone_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_settings_phone_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/transport_135.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/fireart/drawable/transport_135.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/ic_reorder_pink_36dp.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/drawable/ic_reorder_pink_36dp.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/car_black.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/car_black.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/add_green.png",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/icons/drawable/add_green.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/6ffe0b281d10e002a5c341dde4d73c44/res/drawable/design_snackbar_background.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c52f01d5cf42c9c806dab8085df9bf92/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/drawable/abc_vector_test.xml"
+    }
+]

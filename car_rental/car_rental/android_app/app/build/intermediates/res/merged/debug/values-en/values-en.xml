@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_list_titles_booking_style">
+    <item>Trip</item>
+    <item>Delivery</item>
+    <item>Easy</item>
+    <item>Easy from A to B</item>
+  </string-array>
+    <string-array name="pref_list_titles_distance">
+    <item>No distance</item>
+    <item>20 km</item>
+    <item>10 km</item>
+    <item>5 km</item>
+    <item>2 km</item>
+    <item>1 km</item>
+  </string-array>
+    <string-array name="pref_list_titles_map_provider">
+    <item>Google</item>
+    <!--item>Yandex</item-->
+    <item>OpenStreetMap</item>
+    <!--item>Mapbox</item-->
+  </string-array>
+    <string-array name="pref_list_titles_payment_provider">
+    <!--item>GooglePlay</item-->
+    <item>PayPal</item>
+    <item>Stripe</item>
+  </string-array>
+    <string-array name="pref_list_values_booking_style">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+  </string-array>
+    <string-array name="pref_list_values_distance">
+    <item>-1</item>
+    <item>20</item>
+    <item>10</item>
+    <item>5</item>
+    <item>2</item>
+    <item>1</item>
+  </string-array>
+    <string-array name="pref_list_values_map_provider">
+    <item>1</item>
+    <!--item>2</item-->
+    <item>3</item>
+    <!--item>4</item-->
+  </string-array>
+    <string-array name="pref_list_values_payment_provider">
+    <!--item>0</item-->
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+    <string name="GPSAlertDialogMessage">Please ensure location</string>
+    <string name="acc_label_card_number">"card number"</string>
+    <string name="acc_label_expiry_date">"expiration date"</string>
+    <string name="account_blocked">Your account is blocked!</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_info">Good Ideas for Bussiness!</string>
+    <string name="app_name">Car Rental Dubai</string>
+    <string name="app_phone">+97144327836</string>
+    <string name="app_place"/>
+    <string name="app_policy">By signing up with app\nYou agree to the terms and conditions</string>
+    <string name="app_policy_url">http://taxi.autozvit.com/policy.txt</string>
+    <string name="app_title_delivery">DELIVERY</string>
+    <string name="app_title_dropoff">DROPOFF</string>
+    <string name="app_title_inquiry">INQUIRY</string>
+    <string name="app_title_invoice">INVOICE</string>
+    <string name="app_title_pickup">PICKUP</string>
+    <string name="app_title_ride">RIDE</string>
+    <string name="app_title_trip">TRIP</string>
+    <string name="auth_failure_error">AuthFailureError</string>
+    <string name="back_to_prev">Back to previous</string>
+    <string name="button_add_to_cart">ADD TO CART</string>
+    <string name="button_agree">I AGREE</string>
+    <string name="button_back">BACK</string>
+    <string name="button_book_delivery">BOOK DELIVERY</string>
+    <string name="button_book_now">BOOK NOW</string>
+    <string name="button_book_trip">BOOK TRIP</string>
+    <string name="button_call">CALL</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="button_cash_payment">CASH PAYMENT</string>
+    <string name="button_completed">COMPLETED</string>
+    <string name="button_delivering">DELIVERING</string>
+    <string name="button_demo">TRY DEMO</string>
+    <string name="button_demo_version">I WANT TO TRY DEMO VERSION!</string>
+    <string name="button_do_not_show">DO NOT SHOW</string>
+    <string name="button_easy_register">EASY REGISTER</string>
+    <string name="button_find">FIND</string>
+    <string name="button_forgot_password">Forgot password?</string>
+    <string name="button_history">HISTORY</string>
+    <string name="button_incart">IN CART</string>
+    <string name="button_landing">LANDING</string>
+    <string name="button_next">NEXT</string>
+    <string name="button_no">NO</string>
+    <string name="button_options">OPTIONS</string>
+    <string name="button_payment">PAYMENT</string>
+    <string name="button_prepaid_code">PREPAID WITH PREPAID CODE</string>
+    <string name="button_prepaid_payment">PREPAID WITH PAYMENT CARD</string>
+    <string name="button_purchase">PURCHASE</string>
+    <string name="button_register">REGISTER</string>
+    <string name="button_ride_later">RENT LATER</string>
+    <string name="button_ride_now">RENT NOW</string>
+    <string name="button_save">SAVE</string>
+    <string name="button_select_for_booking">SELECT FOR BOOKING</string>
+    <string name="button_service">SERVICE</string>
+    <string name="button_signin">SIGN IN</string>
+    <string name="button_signup">SIGN UP</string>
+    <string name="button_social_network">WE ARE IN SOCIAL NETWORK</string>
+    <string name="button_take_order">TAKE ORDER</string>
+    <string name="button_transport_review">TRIP BY TRANSPORT REVIEW</string>
+    <string name="button_trip_invoice">TRIP INVOICE</string>
+    <string name="button_user_review">USER REVIEW</string>
+    <string name="button_yes">YES</string>
+    <string name="call">Call to service</string>
+    <string name="call_to_service">Call to service?</string>
+    <string name="callname">Call name (phone)</string>
+    <string name="cancel">cancel</string>
+    <string name="cancel_order">Do You want cancel the order?</string>
+    <string name="cart_count">IN CART:</string>
+    <string name="clear_cart">Do You want to clear shopping cart?</string>
+    <string name="datetime_0_minute_ago">this moment</string>
+    <string name="datetime_1_minute_ago">1 minute ago</string>
+    <string name="datetime_2_4_minutes_ago">%s minutes ago</string>
+    <string name="datetime_minutes_ago">%s minutes ago</string>
+    <string name="datetime_month_1">january</string>
+    <string name="datetime_month_10">october</string>
+    <string name="datetime_month_11">november</string>
+    <string name="datetime_month_12">december</string>
+    <string name="datetime_month_2">february</string>
+    <string name="datetime_month_3">march</string>
+    <string name="datetime_month_4">april</string>
+    <string name="datetime_month_5">may</string>
+    <string name="datetime_month_6">june</string>
+    <string name="datetime_month_7">july</string>
+    <string name="datetime_month_8">august</string>
+    <string name="datetime_month_9">september</string>
+    <string name="datetime_x_1_minutes_ago">%s minutes ago</string>
+    <string name="delivering_tip">PICKUP THE PRODUCTS\nDELIVER TO THE PLACE</string>
+    <string name="delivery_place">The place of delivery is selected on map</string>
+    <string name="delivery_tip">FOR A NEW DELIVERY PLACE\nYOU CAN CLICKING\nON THE MAP ONCE</string>
+    <string name="destination">Set destionation on map</string>
+    <string name="destination_not_selected">Destination not selected</string>
+    <string name="dispatcher_service">Dispatcher service</string>
+    <string name="do_not_show">Do not show tips?</string>
+    <string name="driver_candidate">Driver candidate</string>
+    <string name="driver_candidate_info">Driver candidate must to send:\n - Driver License document\n - Driver Insurance\nHigh quality photo image to the email info@calderme.com and wait for response from Us\nFor success You receiving a notification</string>
+    <string name="driver_delivery_order_accepted_tip">YOU HAVE THE DELIVERING\nGO FOR DELIVERY TAKE...</string>
+    <string name="driver_delivery_order_canceled_tip">DELIVERY CANCELED!</string>
+    <string name="driver_delivery_order_cancellation_tip">DELIVERING CANCELLATION...</string>
+    <string name="driver_delivery_order_completed_tip">ORDER HAS BEEN COMPLETED!</string>
+    <string name="driver_delivery_order_delivering_tip">THE DELIVERING STARTED!\nGO TO DESTINATION</string>
+    <string name="driver_delivery_order_landing_tip">WAIT FOR THE DELIVERY LOADED</string>
+    <string name="driver_delivery_order_processed_tip">DRIVER, YOU TOOK THE ORDER\nGO FOR DELIVERY TAKE...</string>
+    <string name="driver_tip">FOR CLIENT SELECTION\nYOU CAN CLICK\nFIGURE ON THE MAP</string>
+    <string name="driver_trip_order_accepted_tip">YOU HAVE THE TRIP\nGO FOR THE CIENT...</string>
+    <string name="driver_trip_order_canceled_tip">TRIP CANCELED!</string>
+    <string name="driver_trip_order_cancellation_tip">TRIP CANCELLATION...</string>
+    <string name="driver_trip_order_completed_tip">ORDER HAS BEEN COMPLETED!</string>
+    <string name="driver_trip_order_delivering_tip">THE TRIP STARTED!\nGO TO DESTINATION</string>
+    <string name="driver_trip_order_landing_tip">WAIT FOR THE CLIENT\nOR CALL HIM</string>
+    <string name="driver_trip_order_processed_tip">DRIVER, YOU TOOK THE ORDER\nGO FOR THE CLIENT...</string>
+    <string name="dropoff_address">where to return</string>
+    <string name="email">Email</string>
+    <string name="estimate_trip">Estimate a Trip on the Transport\n%s</string>
+    <string name="exit">Exit</string>
+    <string name="expiry_date_hint">MM/YY</string>
+    <string name="firstname">First name</string>
+    <string name="gps_location">Turn On GPS for location</string>
+    <string name="history">Orders history</string>
+    <string name="increase_prepaid_account">Prepaid Account increase success</string>
+    <string name="internet_error">Internet Error! Check Your Connection and Try Again</string>
+    <string name="lastname">Last name</string>
+    <string name="license_plate">License plate</string>
+    <string name="make_order">Do You want to complete the order?</string>
+    <string name="map_error">Map downloads Error! Check Your map profile and Try Again</string>
+    <string name="message_driver_account">You are the driver!</string>
+    <string name="message_error_title">Error</string>
+    <string name="message_fatal_error_title">Fatal error</string>
+    <string name="message_info_title">Information</string>
+    <string name="message_review_created">Your review created successfully</string>
+    <string name="message_success_payment">Your payment successfully done</string>
+    <string name="message_success_title">Success</string>
+    <string name="message_transport_profile_created">Your transport created successfully</string>
+    <string name="message_transport_profile_updated">Your transport updated successfully</string>
+    <string name="message_user_profile_created">User profile created successfully</string>
+    <string name="message_user_profile_error">User profile creation failed</string>
+    <string name="message_user_profile_updated">Your profile updated successfully</string>
+    <string name="message_warning_title">Warning</string>
+    <string name="messages">Messages</string>
+    <string name="network_error">NetworkError</string>
+    <string name="new_message">Message</string>
+    <string name="no_add_fees">No Additional Fees</string>
+    <string name="no_address">Address Not Found</string>
+    <string name="no_connection_error">NoConnectionError</string>
+    <string name="no_distance">Undefined Distance</string>
+    <string name="no_duration">Undefined Duration</string>
+    <string name="no_license_plate">No License Plate</string>
+    <string name="no_transport">Transport Not Found</string>
+    <string name="on_time">On time</string>
+    <string name="order">My order</string>
+    <string name="order_delivery_accepted_tip">ORDER HAS BEEN ACCEPTED!\nPROCESSING AN ORDER...</string>
+    <string name="order_delivery_address">ORDER DELIVERY\nADDRESS</string>
+    <string name="order_delivery_canceled_tip">DELIVERY CANCELED!\nTO ORDER RESTART...</string>
+    <string name="order_delivery_cancellation_tip">DELIVERY CANCELLATION..</string>
+    <string name="order_delivery_completed_tip">ORDER HAS BEEN COMPLETED!\nTO ORDER RESTART...</string>
+    <string name="order_delivery_delivering_tip">SHIPPING DELIVERY!</string>
+    <string name="order_delivery_landing_tip">LOADING OF TRANSPORT...</string>
+    <string name="order_delivery_processed_tip">ORDER WAS PROCESSED\nWAITING FOR DELIVERY...</string>
+    <string name="order_delivery_reminder_tip">YOU HAVE SENT AN ORDER!\nWAITING FOR ACCEPTING...</string>
+    <string name="order_delivery_transport_tip">TRANSPORT FOR DELIVERY\n%s</string>
+    <string name="order_destination_address">Destination address</string>
+    <string name="order_distance">%.1f km</string>
+    <string name="order_duration">%1$d h %2$d min</string>
+    <string name="order_find_address">FIND THE ADDRESS\nTO THE TRIP</string>
+    <string name="order_number">Order number: %d</string>
+    <string name="order_pickup_address">Pickup address</string>
+    <string name="order_status_changed">Trip order status changed!</string>
+    <string name="order_status_waiting">STATUS WAITING...</string>
+    <string name="order_trip_accepted_tip">TAXI BOOKED SUCCESS!\nFIND A CAR...</string>
+    <string name="order_trip_canceled_tip">TRIP CANCELED!\nTO ORDER RESTART...</string>
+    <string name="order_trip_cancellation_tip">TRIP CANCELLATION...</string>
+    <string name="order_trip_completed_tip">ORDER HAS BEEN COMPLETED!\nTO ORDER RESTART...</string>
+    <string name="order_trip_delivering_tip">THE TRIP STARTED!</string>
+    <string name="order_trip_landing_tip">CAR NEAR YOU!\nGOTO THE LANDING!</string>
+    <string name="order_trip_processed_tip">YOUR CAR FOR TRIP\nWAITING FOR LANDING...</string>
+    <string name="order_trip_reminder_tip">YOU HAVE AN ORDER!\nWAITING FOR STATUS...</string>
+    <string name="order_trip_transport_tip">YOUR CAR FOR TRIP\n%s\nWAITING FOR LANDING...</string>
+    <string name="orders">My orders</string>
+    <string name="parse_error">ParseError</string>
+    <string name="password">Password</string>
+    <string name="password_recovery">Your password has been sent to email</string>
+    <string name="pay_order">Do You want to pay by order?</string>
+    <string name="payment_amount">Paid\n</string>
+    <string name="payment_for_trip">Payment for the trip</string>
+    <string name="payment_info">Specify the payment card details\nThe card data is not saved and is not collected</string>
+    <string name="phone">Phone number</string>
+    <string name="phone_number">Need to input phone number</string>
+    <string name="pickup_address">where to get</string>
+    <string name="pref_default_hostname">http://247.autozvit.com</string>
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_apikey">API key</string>
+    <string name="pref_title_booking_style">Booking style</string>
+    <string name="pref_title_distance">Distance</string>
+    <string name="pref_title_hostname">Hostname</string>
+    <string name="pref_title_map_provider">Map provider</string>
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_payment_provider">Payment provider</string>
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_title_show_tips">Show tips</string>
+    <string name="pref_title_toolbar">Toolbar</string>
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="preferences">Preferences</string>
+    <string name="prepaid">Prepaid</string>
+    <string name="prepaid_account">Prepaid Your Account</string>
+    <string name="prepaid_amount">Prepaid amount</string>
+    <string name="prepaid_card">Enter prepaid code from Your card</string>
+    <string name="prepaid_code">Prepaid code</string>
+    <string name="product_selected">I WANT BOOK!</string>
+    <string name="products_and_services">Products and services</string>
+    <string name="profile">Profile</string>
+    <string name="profile_subtitle">Set the user profile data</string>
+    <string name="recipient">Recipient</string>
+    <string name="reload_app">Do You want to reload?</string>
+    <string name="riding_tip">PICKUP THE PASSANGER\nGOOD LUCK FOR RIDING!</string>
+    <string name="route_length">ROUTE LENGTH:</string>
+    <string name="route_time">ROUTE TIME:</string>
+    <string name="route_tip">FOR TRIP ROUTE SELECTION\nYOU CAN CLICKING\nON THE MAP TWICE</string>
+    <string name="select_google_play_payment">Do you want to pay for?</string>
+    <string name="select_options">Additional booking options</string>
+    <string name="send_order">Do You want to deliver the order to the address?</string>
+    <string name="server_error">ServerError</string>
+    <string name="service">Service</string>
+    <string name="service_activated">Service activated</string>
+    <string name="service_deactivated">Service deactivated</string>
+    <string name="service_goto_activity">Goto service activity</string>
+    <string name="service_notify">Service notify</string>
+    <string name="services">Services</string>
+    <string name="settings">Settings</string>
+    <string name="settings_subtitle">Set the parameters of the service</string>
+    <string name="short_minute">  %dm.</string>
+    <string name="signup">Fast signup</string>
+    <string name="social">Social network</string>
+    <string name="social_network">We are in Social Networks</string>
+    <string name="splash">Splash</string>
+    <string name="start_driver">Do You want to start a driving?</string>
+    <string name="stat">Statistic</string>
+    <string name="stat_driver">Driver</string>
+    <string name="stat_order">Order</string>
+    <string name="stat_order_alltime">All time</string>
+    <string name="stat_order_cancelled">Cancelled</string>
+    <string name="stat_order_completed">Completed</string>
+    <string name="stat_order_count">Count</string>
+    <string name="stat_order_month">Last month</string>
+    <string name="stat_order_payment">Payment</string>
+    <string name="stat_order_payment_amount">Card amount</string>
+    <string name="stat_order_pending">Pending</string>
+    <string name="stat_order_purchase_amount">Paid amount</string>
+    <string name="stat_order_today">Today</string>
+    <string name="stat_order_total_price">Total price</string>
+    <string name="stat_order_week">Last week</string>
+    <string name="stat_order_yesterday">Yesterday</string>
+    <string name="stat_service">Service</string>
+    <string name="stat_service_active_client">Active client</string>
+    <string name="stat_service_active_driver">Active driver</string>
+    <string name="stat_service_audit">Audit</string>
+    <string name="stat_service_client">Client</string>
+    <string name="stat_service_count">Count</string>
+    <string name="stat_service_driver">Driver</string>
+    <string name="stat_service_input">Input</string>
+    <string name="stat_service_messages">Messages</string>
+    <string name="stat_service_output">Output</string>
+    <string name="stat_service_transport">Transport</string>
+    <string name="stop_driver">Do You want to stop a driving?</string>
+    <string name="take_order">Do You want to deliver the customer?</string>
+    <string name="timeout_error">TimeoutError</string>
+    <string name="transport_error">You are not a driver!</string>
+    <string name="transport_name">Car model</string>
+    <string name="transport_reviewed">Trip by Transport reviewed\n%s</string>
+    <string name="update_order_status">Do You want to update order status?</string>
+    <string name="user_error">Invalid user Error!</string>
+</resources>

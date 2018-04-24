@@ -1,0 +1,7 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+  {"results":[{"user_type":%param6%param}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

@@ -1,0 +1,67 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("delivery_id")%set_param
+
+      %if "param6!=1" %if
+        %set_param10=SELECT is_my_delivery(?0,?9)%set_param
+      %elseif%elseif
+        %invoke_methodthis.setParam(10,"1")%invoke_method
+      %endif%endif
+
+      %if "param10=1" %if
+
+      %set_param10=@this.getExtra("location_address")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND d.address LIKE '%param10%param'")%invoke_method
+      %endif%endif
+      %set_param11=@this.getExtra("create_date")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND d.create_date LIKE '%param11%param'")%invoke_method
+      %endif%endif
+
+      %set_param12=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'delivery_id',CHAR(34),':',d.id,',',
+        CHAR(34),'user_id',CHAR(34),':',d.user_id,',',
+        CHAR(34),'user',CHAR(34),':[',get_user(d.user_id,'%param12%param'),'],',
+        CHAR(34),'transport_id',CHAR(34),':',CHAR(34),IFNULL(d.transport_id,''),CHAR(34),',',
+        CHAR(34),'transport',CHAR(34),':[',IF(d.transport_id IS NULL,'',get_transport(d.transport_id,'%param8%param')),'],',
+        CHAR(34),'latitude',CHAR(34),':',IFNULL(d.latitude,'null'),',',
+        CHAR(34),'longitude',CHAR(34),':',IFNULL(d.longitude,'null'),',',
+        CHAR(34),'address',CHAR(34),':',CHAR(34),IF(d.address IS NULL,'',replace_text(d.address)),CHAR(34),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),d.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),d.last_update,CHAR(34),'}') AS CHAR)
+        FROM user u,delivery d LEFT JOIN transport t ON t.id=d.transport_id
+        WHERE d.id LIKE '%param9%param'%param10%param%param11%param AND d.user_id=u.id
+	ORDER BY d.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

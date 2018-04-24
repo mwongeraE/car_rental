@@ -1,0 +1,343 @@
+<!--content-->
+<!--ERROR-->
+<div class="row" id="div_error">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8 container">
+    <div id="div_need_to_register">
+      <center>
+      <img id="img_need_to_register" src="" class="img-responsive" alt="NEED_TO_REGISTER">
+      <h1 id="text_need_to_register">Need to register</h1>
+      </center>
+    </div>
+    <div id="div_user_deactivated">
+      <center>
+      <img id="img_user_deactivated" src="" class="img-responsive" alt="USER_DEACTIVATED">
+      <h1 id="text_user_deactivated">User deactivated</h1>
+      </center>
+    </div>
+    <div id="div_message"></div>
+    <div id="div_error_message"><center><h4 id="text_error_message" style="color:red"></h4></center></div>
+    <div id="div_loading"><center><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:buttonface;"></i></center></div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+<!--TRANSPORT-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 container">
+      <div id="div_user_discount"></div>
+      <div class="row" id="div_transport">
+        <div class="well" id="div_transport_form">
+          <div class="panel-heading"><h2 id="text_transport_order" contenteditable="true">Transport order</h2></div>
+          <div class="panel-body">
+            <div class="col-sm-4"><img id="img_transport_picture" src="" class="img-responsive" style="width:100%" alt="TRANSPORT_PICTURE"></div>
+            <div class="col-sm-8">
+              <h4 contenteditable="true"><i class="fa fa-taxi"></i><b id="text_transport_name"></b></h4>
+              <hr>
+              <small id="text_transport_license_plate"></small>&nbsp;
+              <i class="fa fa-circle" style="font-size:24px;" id="transport_color"></i>&nbsp;
+              <small id="text_transport_type"></small>
+              <hr>
+              <div id="div_transport_product">
+                <small id="text_transport_product"></small>
+                <hr>
+              </div>
+
+              <div class="col-lg-6 col-md-6 form-group">
+                <label id="text_order_time" class="control-label templatemo-block">Order on time</label>
+                <div class="form-group">
+                  <div class="input-group date" id="div_datetimepicker">
+                    <input type="text" id="input_datetime" class="form-control" placeholder="Fast as service can">
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6 form-group">
+                <label id="text_order_hourly" class="control-label templatemo-block">Order hourly</label>
+                <select id="select_hourly" class="form-control">
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="6">6</option>
+                  <option value="12">12</option>
+                  <option value="24">24</option>
+                </select>
+
+                <br>
+                <input type="button" id="input_send_order" onclick="sendOrder();" class="templatemo-blue-button" value="Send">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="div_transport_list"></div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+<!--PAGES-->
+<div class="row" id="div_pages">
+  <div class="col-sm-7">
+    <div class="pagination-wrap">
+      <ul id="pages" class="pagination">
+        <li><a href="javascript:gotoPage(-1);" aria-label="Prev">&lt;</a></li>
+        <li class="active"><a href="javascript:gotoPage(0);">1</a></li>
+        <li><a href="javascript:gotoPage(1);">2</a></li>
+        <li><a href="javascript:gotoPage(2);">3</a></li>
+        <li><a href="javascript:gotoPage(3);">4</a></li>
+        <li><a href="javascript:gotoPage(4);">5</a></li>
+        <li><a href="javascript:gotoPage(-2);" aria-label="Next">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  $("#div_need_to_register").hide();
+  $("#div_user_deactivated").hide();
+  $("#div_transport").hide();
+  $("#div_pages").hide();
+
+  $("#img_need_to_register").attr("src",picture_cancel);
+  $("#img_user_deactivated").attr("src",picture_cancel);
+  $("#img_transport_picture").attr("src",picture_do_not_disturb);
+
+  var transport_id_list=[];
+  PAGE_SET=0;PAGE_CURR=0;PAGE_COUNT=0;
+  function getData(language){
+    $("#text_error_message").empty();
+    if(fa.username===DEFAULT_USERNAME){$("#div_need_to_register").show();return;}
+    else if((user_type===null||user_type<1)){
+      var message_code=parseInt(fa.getResultMessageCode());
+      $("#text_error_message").html(getMessage(language,message_code));
+      $("#div_need_to_register").show();return;
+    }
+    PAGE_ROWS=2;
+    fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+    var transport=new faTransport();
+    transport.id="%";/*all transports*/
+    fa.transport_list.length=0;
+    fa.getTransport(transport,language,"#text_error_message",afterTransport);
+    $(document).one("ajaxStop",function(){
+      showCurrency();showUserDiscount();
+      if(current_user!==null&&parseInt(current_user.active)!==1){
+        $("#div_user_deactivated").show();
+        $("#div_transport_list").hide();
+        $("#div_pages").hide();
+      }
+    });
+  }
+  function afterTransport(){
+    $("#div_transport_list").empty();
+    found_rows=fa.getFoundRows();
+    fa.offset=null;fa.rows=null;
+    if(fa.transport_list.length>0){
+      var j,transport,attr;
+      transport_id_list.length=0;
+      fa.transport_product_part_list.length=0;
+      for(j=0;j<fa.transport_list.length;j++){
+        transport=fa.transport_list[j];
+        transport_id_list.push(transport.id);
+        var $clone=$("#div_transport").clone();
+        $clone.find("#div_transport_form").attr("id","div_transport_form_"+transport.id);
+        $clone.find("#input_send_order").attr("onclick","sendOrder("+transport.id+");");
+        $clone.find("#text_transport_name").html("&nbsp;"+transport.name);
+        $clone.find("#text_transport_license_plate").html(transport.license_plate);
+        attr=$clone.find("#transport_color").attr("style");
+        $clone.find("#transport_color").attr("style",attr+"color:"+transport.color);
+        $clone.find("#text_transport_type").html(parseTypeList(transport.type_list));
+        $("#div_transport_list").append($clone.html());
+        $("#div_transport_form_"+transport.id).find("#div_transport_product").hide();
+        fa.getPicture(transport,transport.id,"transport",null,afterTransportPicture,transport);
+        fa.getTransportProductPart(transport.id,fa.language,null,afterTransportProductPart,transport);
+      }
+
+      /*super objects*/
+      for(var j=0;j<transport_id_list.length;j++){
+        var transport_id=transport_id_list[j];
+        var datetime_picker=$("#div_transport_form_"+transport_id).find("#div_datetimepicker");
+        var $clone=datetime_picker.clone();
+        $clone.datetimepicker({language:getLanguageCode(fa.language),format:'DD.MM.YYYY HH:mm'});
+        datetime_picker.html($clone);
+      }
+
+    }
+
+    /*pages*/
+    showPages();
+  }
+  function afterTransportPicture(ptr){
+    if(ptr){
+      $("#div_transport_form_"+ptr.id).find("#img_transport_picture").attr("src","data:image/jpeg;base64,"+ptr.picture);
+    }
+  }
+  function afterTransportProductPart(ptr){
+    var list=fa.transport_product_part_list,product,attr,title,about;
+    var s="";
+    if(list.length>0){
+      var k,l;
+      for(k=0;k<list.length;k++){
+        if(list[k].transport_id===ptr.id){
+          product=list[k].product;
+          if(product.attr_list.length>0){
+            title="";about="";
+            for(l=0;l<product.attr_list.length;l++){
+              attr=product.attr_list[l];
+              if(attr.name==="title")title=attr.value;
+              else if(attr.name==="about")about=attr.value;
+            }
+            s+="<text>"+title+(about!==""?" ("+about+") ":about)+product.price+" </text><br>";
+          }
+          else{
+            s+="<text>"+product.name+(product.description!==""?" ("+product.description+") ":product.description)+product.price+" </text><br>";
+          }
+          /*if(product.type_list.length>0){
+            alert(product.type_list[0].name);
+          }*/
+        }
+      }
+    }
+    $("#div_transport_form_"+ptr.id).find("#text_transport_product").html(s);
+    if(s.length>0)$("#div_transport_form_"+ptr.id).find("#div_transport_product").show();
+  }
+  function showCurrency(){
+    var j;
+    for(j=0;j<transport_id_list.length;j++){
+      $("#div_transport_form_"+transport_id_list[j]).find("#div_transport_product text").each(function(){
+        $(this).append("&nbsp;"+currency_title);
+      });
+    }
+  }
+  function showUserDiscount(){
+    $("#div_user_discount").empty();
+    if(fa.user_list.length>0){
+      var user=fa.user_list[0];
+      if(user.discount){
+        var curr_time=new Date().getTime(),is_actual=true;
+        if(user.discount.start_date.length>0&&user.discount.finish_date.length>0){
+          if(curr_time<parseMySQLDatetime(user.discount.start_date).getTime()||
+             curr_time>parseMySQLDatetime(user.discount.finish_date).getTime())is_actual=false;
+        }
+        if(is_actual)
+          $("#div_user_discount").html("<h3>"+getMessage(fa.language,1096)+"</h3><h5>"+
+                                       getDiscountByType(user.discount.type,user.discount.value,fa.language,currency_title)+"</h5>");
+      }
+    }
+  }
+  /*send order*/
+  function sendOrder(transport_id){
+    if(fa.user_list.length>0){
+      var user=fa.user_list[0];
+      addOrder(user.id,transport_id);
+    }
+  }
+  function addOrder(user_id,transport_id){
+    var order=new faOrderAB();
+    order.user_id=user_id;
+    order.transport_id=transport_id;
+    order.delivery_type_id=1;/*owner service*/
+    order.route_distance=-1;
+    order.route_duration=-1;
+
+    var date=$("#div_transport_form_"+transport_id).find("#input_datetime").val().trim();/*value without sec*/
+    date=date.length>0?toMySQLDatetimeString(date+":00"):"";
+    order.reserved_date=date;
+
+    var hours=$("#div_transport_form_"+transport_id).find("#select_hourly option:selected").val();
+    order.reserved_hours=hours;
+
+    fa.addOrderAB(order,"#text_error_message",afterOrder,order);
+  }
+  function afterOrder(ptr){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        $("#div_message").html('OrderId='+ret_val.value);
+        var product=getTransportRentProduct(ptr.transport_id);
+        if(product!==null){
+          addOrderPart(ret_val.value,product.id,product.price);
+        }
+        else gotoCabinet();
+      }
+    }
+  }
+  function addOrderPart(order_id,product_id,product_price){
+    var order_part=new faOrderABPart();
+    order_part.order_id=order_id;
+    order_part.product_id=product_id;
+    order_part.product_count=1;
+    order_part.total_price=product_price;
+    fa.addOrderABPart(order_part,"#text_error_message",afterOrderPart,order_part);
+  }
+  function afterOrderPart(order_part){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        gotoCabinet();
+      }
+    }
+  }
+
+  function getTransportRentProduct(transport_id){
+    var ret_val=null;
+    var list=fa.transport_product_part_list,product,type;
+    var rent_product_found=false;
+    if(list.length>0){
+      var k,l;
+      for(k=0;k<list.length;k++){
+        if(parseInt(list[k].transport_id)===parseInt(transport_id)){
+          product=list[k].product;
+          if(product.type_list.length===1){/*product with only one rent type*/
+            type=product.type_list[0];
+            if(parseInt(type.id)===PRODUCT_TYPE_RENT_PRICE)rent_product_found=true;
+          }
+        }
+        if(rent_product_found){ret_val=product;break;}
+      }
+    }
+    return ret_val;
+  }
+
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var input_datetime=document.getElementById('input_datetime');
+    var input_send_order=document.getElementById('input_send_order');
+
+    var text_transport_order=document.getElementById('text_transport_order');
+    var text_order_time=document.getElementById('text_order_time');
+    var text_order_hourly=document.getElementById('text_order_hourly');
+
+    var text_need_to_register=document.getElementById('text_need_to_register');
+    var text_user_deactivated=document.getElementById('text_user_deactivated');
+
+    /*objects*/
+    input_datetime.placeholder=getMessage(language,1083);
+    input_datetime.title=getMessage(language,1083);
+
+    /*captions*/
+    text_transport_order.innerHTML="&nbsp;"+getMessage(language,1101);
+    text_order_time.innerHTML=getMessage(language,1085);
+    text_order_hourly.innerHTML=getMessage(language,1102);
+    input_send_order.value=getMessage(language,1089);
+    input_send_order.title=getMessage(language,1090);
+
+    text_need_to_register.innerHTML=getMessage(language,1401);
+    text_user_deactivated.innerHTML=getMessage(language,1402);
+
+    getData(language);
+  }
+  updateContentLanguage(fa.language);
+  $(document).ajaxStart(function(){$("#div_loading").show();}).ajaxStop(function(){$("#div_loading").hide();});
+</script>

@@ -1,0 +1,213 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="autozvit.com.fireart.forms.TaximeterFragment">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top"
+    android:background="@color/fragment_transparent_background"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="10dp"
+      android:paddingLeft="10dp"
+      android:paddingTop="10dp">
+
+      <RatingBar
+        android:id="@+id/rating_bar_user_rate"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view_user_picture"
+        android:alpha="0.8"
+        android:clickable="false"
+        android:focusable="false"
+        android:numStars="5"
+        android:progressTint="@color/Green"
+        android:rating="0"
+        android:stepSize="1"/>
+
+      <TextView
+        android:id="@+id/text_view_distance"
+        style="@style/Widget.Style.OrderDistanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/image_view_B"
+        android:layout_marginTop="8dp"
+        android:text="0 km"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+      <ImageView
+        android:id="@+id/image_view_B"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/marker_b"/>
+
+      <TextView
+        android:id="@+id/text_view_order_status"
+        style="@style/Widget.Style.DiscountSmallTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_currency"
+        android:layout_alignStart="@+id/text_view_currency"
+        android:layout_below="@+id/text_view_currency"
+        android:alpha="0.8"
+        android:text="accepted"
+        android:visibility="visible"/>
+
+      <TextView
+        android:id="@+id/text_view_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_price"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/text_view_price"
+        android:layout_below="@+id/text_view_price"
+        android:text="USD"
+        android:textSize="18dp"/>
+
+      <!--https://github.com/hdodenhof/CircleImageView-->
+      <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/image_view_user_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_view_distance"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_do_not_disturb_alt_white_48pt_2x"
+        app:civ_border_color="@color/app_circle_border"
+        app:civ_border_width="1dp"/>
+
+      <TextView
+        android:id="@+id/text_view_price"
+        style="@style/Widget.Style.PriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.8"
+        android:text="0.00"
+        android:textSize="28dp"/>
+
+      <TextView
+        android:id="@+id/text_view_order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_view_price"
+        android:text="123"
+        android:textSize="22sp"/>
+
+      <Button
+        android:id="@+id/button_payment"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/text_view_currency"
+        android:layout_toStartOf="@+id/text_view_currency"
+        android:text="@string/button_cash_payment"/>
+
+      <Button
+        android:id="@+id/button_completed"
+        style="@style/Widget.IndigoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/button_completed"/>
+
+      <Button
+        android:id="@+id/button_landing"
+        style="@style/Widget.GreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_delivering"
+        android:layout_toStartOf="@+id/button_delivering"
+        android:text="@string/button_landing"/>
+
+      <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_button_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/image_view_user_picture"
+        android:layout_toEndOf="@+id/image_view_user_picture"
+        android:layout_toRightOf="@+id/image_view_user_picture"
+        android:clickable="true"
+        android:onClick="onClick"
+        app:fabSize="mini"
+        app:srcCompat="@mipmap/ic_phone"/>
+
+      <Chronometer
+        android:id="@+id/chronometer_trip_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text_view_distance"
+        android:layout_toEndOf="@+id/text_view_trip_distance"
+        android:layout_toRightOf="@+id/text_view_trip_distance"
+        android:textColor="@color/Black"
+        android:textSize="30sp"/>
+
+      <TextView
+        android:id="@+id/text_view_trip_distance"
+        style="@style/Widget.Style.DiscountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text_view_order_id"
+        android:layout_toEndOf="@+id/image_view_B"
+        android:layout_toRightOf="@+id/image_view_B"
+        android:text="0.0"/>
+
+      <Button
+        android:id="@+id/button_delivering"
+        style="@style/Widget.GreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_completed"
+        android:layout_toStartOf="@+id/button_completed"
+        android:text="@string/button_delivering"/>
+
+      <Chronometer
+        android:id="@+id/chronometer_landing_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_trip_distance"
+        android:layout_alignLeft="@+id/text_view_trip_distance"
+        android:textColor="@color/WhiteSmoke"
+        android:textSize="18sp"/>
+
+      <Button
+        android:id="@+id/button_invoice"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button_payment"
+        android:layout_alignRight="@+id/button_payment"
+        android:layout_below="@+id/chronometer_trip_duration"
+        android:onClick="onClick"
+        android:text="@string/button_trip_invoice"/>
+
+    </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

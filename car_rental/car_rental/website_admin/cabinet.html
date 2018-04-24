@@ -1,0 +1,1445 @@
+<!--content-->
+<!--TABS-->
+<div class="row" id="div_tabs">
+  <div class="col-sm-12">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active"><a id="tab_order" data-toggle="pill" href="#div_tab_order" onclick="javascript:tab(0,true);">Sent orders</a></li>
+    <li><a id="tab_report" data-toggle="pill" href="#div_tab_report" onclick="javascript:tab(1,true);">Map</a></li>
+    <li><a id="tab_message" data-toggle="pill" href="#div_tab_message" onclick="javascript:tab(2,true);">Messages</a></li>
+    <li><a id="tab_profile" data-toggle="pill" href="#div_tab_profile" onclick="javascript:tab(3,true);">Profile</a></li>
+  </ul>
+  </div>
+</div>
+<!--ERROR-->
+<div id="div_error" class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8 container">
+    <div id="div_need_to_register">
+      <center>
+      <img id="img_need_to_register" src="" class="img-responsive" alt="NEED_TO_REGISTER">
+      <h1 id="text_need_to_register">Need to register</h1>
+      </center>
+    </div>
+    <div id="div_user_deactivated">
+      <center>
+      <img id="img_user_deactivated" src="" class="img-responsive" alt="USER_DEACTIVATED">
+      <h1 id="text_user_deactivated">User deactivated</h1>
+      </center>
+    </div>
+    <div id="div_message"></div>
+    <div id="div_error_message"><center><h4 id="text_error_message" style="color:red"></h4></center></div>
+    <div id="div_loading"><center><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:buttonface;"></i></center></div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+<!--tabs_content-->
+<div class="tab-content">
+<!--ORDER-->
+<div id="div_tab_order" class="tab-pane fade in active">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 container">
+      <div id="div_user_discount"></div>
+      <div class="row" id="div_order">
+        <div class="well" id="div_order_form">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-sm-6" id="div_order_header">
+                <h4>
+                  <big id="text_order_id"></big>&nbsp;
+                  <small id="text_order_status"></small>
+                  <i class="fa fa-circle" style="font-size:12px;color:white" id="text_status_color"></i>
+                  <button type="button" class="btn btn-default btn-sm" onclick="getData(fa.language);">
+                    <span class="fa fa-refresh"></span>
+                  </button>
+                </h4>
+                <h2 id="text_sent_order" contenteditable="true">Sent order</h2>
+                <h5 id="text_call_name_phone"></h5><h5 id="text_times_ago"></h5>
+              </div>
+              <div id="button_paypal"></div>
+              <div class="col-sm-6 text-right" id="div_order_options">
+
+                <div class="row">
+                  <div class="col-sm-6 text-right">
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="button_transport_dropdown"><span class="caret"></span><b id="text_complete_order"></b></button>
+                      <ul class="dropdown-menu" id="ul_transport">
+                        <li class="dropdown-header" id="text_select_transport">Select a car...</li>
+                        <li class="divider"></li>
+                      </ul>
+                  </div>
+                  </div>
+                  <div class="col-sm-6 text-right">
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="button_status_dropdown"><span class="caret"></span><b id="text_reset_status"></b></button>
+                      <ul class="dropdown-menu" id="ul_status">
+                        <li class="dropdown-header" id="text_select_status">Select a status...</li>
+                        <li class="divider"></li>
+                      </ul>
+                  </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="col-sm-3">
+              <img id="img_transport_picture" src="" class="img-responsive" style="width:100%" alt="TRANSPORT_PICTURE">
+              <h4 id="text_payment_order"></h4>
+              <hr>
+              <h1>
+                <big id="text_total_price"></big>
+                <button type="button" class="btn btn-default btn-sm" id="button_calculate_order" onclick="calculateOrder();">
+                  <span class="glyphicon glyphicon-repeat"></span>
+                </button>
+              </h1>
+              <h4 id="text_currency"></h4>
+              <hr>
+              <input type="button" class="templatemo-blue-button" id="input_cancel_order" onclick="cancelOrder();" value="Cancel">
+            </div>
+            <div class="col-sm-6">
+              <h4 contenteditable="true"><i class="fa fa-taxi"></i><big id="text_transport_name"></big></h4>
+              <hr>
+              <b id="text_transport_license_plate"></b>
+              <i class="fa fa-circle" style="font-size:24px;color:white" id="transport_color"></i>
+              <small id="text_transport_type"></small>
+              <hr>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i> A</div>
+                  <input type="text" id="input_address_A" class="form-control col-sm-6" placeholder="From" disabled>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i> B</div>
+                  <input type="text" id="input_address_B" class="form-control col-sm-6" placeholder="To" disabled>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label id="text_order_time" class="control-label templatemo-block">Order on time</label>
+                <input type="text" id="input_datetime" class="form-control" placeholder="Fast as service can" disabled>
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label id="text_order_hourly" class="control-label templatemo-block">Order hourly</label>
+                <input type="text" id="input_hourly" class="form-control" disabled>
+              </div>
+              <div id="div_product">
+              <div class="col-lg-12 col-md-12 form-group">
+                <h3 id="text_product_count"></h3>
+                <h5 id="text_product_name"></h5>
+                <h6 id="text_product_discount"></h6>
+                <div id="div_product_param">
+                  <div id="div_param">
+                    <input type="checkbox" id="input_product_param" value="" checked>
+                    <label class="font-weight-400"><span></span><b id="text_product_param"></b></label>
+                  </div>
+                  <div id="div_param_list"></div>
+                </div>
+              </div>
+              </div>
+              <div id="div_product_list"></div>
+            </div>
+            <div class="col-sm-3">
+              <h3 id="text_order_route">Route</h3>
+              <div id="div_route_map"></div>
+              <div id="div_route_distance"></div>
+              <input type="button" class="templatemo-blue-button" id="input_map" onclick="gotoMap();" value="Map">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="div_order_list"></div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+</div>
+<!--REPORT-->
+<div id="div_tab_report" class="tab-pane fade">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 container">
+      <div class="well">
+        <div class="panel-heading"><h2 id="text_report" contenteditable="true">Report</h2></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="div_map_no_activity">
+                <center>
+                <img id="img_no_report" src="" class="img-responsive" alt="NO_REPORT">
+                <h1 id="text_no_report"></h1>
+                <h1 id="report">
+                  <a id="report_order_summary" href="javascript:fa.getReport('report_order_summary',null,null,null,showReportFilepath,null);">Order report</a>
+                </h1>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+</div>
+<!--MESSAGE-->
+<div id="div_tab_message" class="tab-pane fade">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 container">
+      <div class="well">
+        <div class="panel-heading">
+          <button type="button" class="btn btn-default btn-sm" onclick="getData(fa.language);">
+            <span class="fa fa-refresh"></span><!--glyphicon glyphicon-refresh-->
+          </button>
+          <h2 id="text_messages" contenteditable="true">Messages</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row" id="div_recv">
+          <div id="div_recv_message" class="container-fluid">
+            <div class="row">
+              <div class="col-sm-2">
+                <img id="img_recv_picture" src="" class="img-rounded" style="width: 100%; display: inline;" alt="USER_PICTURE">
+                <h5><i class='fa fa-comment-o'></i>&nbsp;<span class="label label-warning"><b id="text_username"></b></span></h5>
+                <h4><span class="glyphicon glyphicon-time"></span><small id="text_message_time"></small></h4>
+              </div>
+              <div class="col-sm-8">
+                <div class="alert alert-warning"><span id="text_message"></span></div>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+            <hr>
+          </div>
+          </div>
+          <div class="row" id="div_sent">
+          <div id="div_sent_message" class="container-fluid">
+            <div class="row text-right">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-8">
+                <div class="alert alert-info"><span id="text_message"></span></div>
+              </div>
+              <div class="col-sm-2">
+                <img id="img_sent_picture" src="" class="img-rounded" style="width: 100%; display: inline;" alt="USER_PICTURE">
+                <h5><i class='fa fa-comment-o'></i>&nbsp;<span class="label label-info"><b id="text_username"></b></span></h5>
+                <h4><span class="glyphicon glyphicon-time"></span><small id="text_message_time"></small></h4>
+              </div>
+            </div>
+            <hr>
+          </div>
+          </div>
+          <div id="div_message_list"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-8">
+                <form action="" onsubmit="return sendMessage();">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <input class="btn btn-default" type="text" id="input_to" placeholder="To" data-toggle="popover" data-placement="top">
+                      <!--button class="btn btn-default" type="button" id="button_to" disabled><i class="fa fa-envelope"></i></button-->
+                    </span>
+                    <input type="text" id="input_message" class="form-control" placeholder="Text..." data-toggle="tooltip" data-placement="top">
+                    <span class="input-group-btn">
+                      <button id="button_send_message" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+</div>
+<!--PROFILE-->
+<div id="div_tab_profile" class="tab-pane fade">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 container">
+      <div class="well">
+        <div class="panel-heading"><h2 id="text_profile" contenteditable="true">Profile</h2></div>
+        <div class="panel-body">
+          <!--user_profile-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-4">
+                <img id="img_user_profile_picture" src="" class="img-rounded" style="width: 100%; display: inline;" alt="USER_PICTURE">
+                <h5><i class='fa fa-comment-o'></i>&nbsp;<span class="label label-warning"><b id="text_profile_username"></b></span></h5>
+                <h4 id="text_profile_usertype"></h4>
+                <input type="button" id="input_user_picture" onclick="newUserProfilePicture();" class="templatemo-blue-button" value="New picture">
+                <input type="file" id="input_user_picture_file" accept="image/*">
+                <hr>
+              </div>
+              <div class="col-sm-8">
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i>&nbsp;A</div>
+                    <input type="text" id="input_first_name" class="form-control" placeholder="" data-toggle="tooltip" title="First name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i>&nbsp;B</div>
+                    <input type="text" id="input_last_name" class="form-control" placeholder="" title="Last name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                    <input type="text" id="input_username" class="form-control" placeholder="" title="Login name" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
+                    <input type="text" id="input_call_name" class="form-control" placeholder="" title="Call name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                    <input type="text" id="input_email" class="form-control" placeholder="" title="Email address">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                    <input type="text" id="input_phone" class="form-control" placeholder="" title="Phone number">
+                  </div>
+                </div>
+                <input type="button" id="input_save_user_profile" onclick="updateUserProfile();" class="templatemo-blue-button" value="Save user">
+
+                <hr>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                    <input type="password" id="input_old_password" class="form-control" placeholder="" title="Old Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                    <input type="password" id="input_new_password" class="form-control" placeholder="" title="New password">
+                  </div>
+                </div>
+                <input type="button" id="input_change_password" onclick="updateUserPassword();" class="templatemo-blue-button" value="Change password">
+
+              </div>
+            </div>
+          </div>
+          <!--sensor_transport_profile-->
+          <div class="container-fluid" id="sensor_profile">
+            <div class="row">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-6">
+                <hr>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="button_sensor_dropdown"><span class="caret"></span><b id="text_sensor"></b></button>
+                    <ul class="dropdown-menu" id="ul_sensor">
+                      <li class="dropdown-header" id="text_select_sensor">Select a sensor...</li>
+                      <li class="divider"></li>
+                    </ul>
+                </div>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+          </div>
+          <div class="container-fluid" id="transport_profile">
+            <div class="row">
+              <div class="col-sm-4">
+                <img id="img_transport_profile_picture" src="" class="img-rounded" style="width: 100%; display: inline;" alt="TRASNPORT_PICTURE">
+                <br><br>
+                <input type="button" id="input_transport_picture" onclick="newTransportProfilePicture();" class="templatemo-blue-button" value="New picture">
+                <input type="file" id="input_transport_picture_file" accept="image/*">
+              </div>
+              <div class="col-sm-8">
+                <hr>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-taxi"></i></div>
+                    <input type="text" id="input_transport_name" class="form-control" placeholder="" title="Transport name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+                    <input type="text" id="input_license_plate" class="form-control" placeholder="" title="License plate">
+                  </div>
+                  <br>
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="button_color_dropdown"><span class="caret"></span><b id="text_color"></b></button>
+                      <ul class="dropdown-menu" id="ul_color">
+                        <li class="dropdown-header" id="text_select_color">Select a color...</li>
+                        <li class="divider"></li>
+                      </ul>
+                    <i class='fa fa-circle' style="font-size:24px;color:white" id='curr_transport_color'></i>
+                  </div>
+                </div>
+
+                <input type="button" id="input_save_transport_profile" onclick="updateTransportProfile();" class="templatemo-blue-button" value="Save transport">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+</div>
+
+<!--PAGES-->
+<div class="row" id="div_pages">
+  <div class="col-sm-7">
+    <div class="pagination-wrap">
+      <ul id="pages" class="pagination">
+        <li><a href="javascript:gotoPage(-1);" aria-label="Prev">&lt;</a></li>
+        <li class="active"><a href="javascript:gotoPage(0);">1</a></li>
+        <li><a href="javascript:gotoPage(1);">2</a></li>
+        <li><a href="javascript:gotoPage(2);">3</a></li>
+        <li><a href="javascript:gotoPage(3);">4</a></li>
+        <li><a href="javascript:gotoPage(4);">5</a></li>
+        <li><a href="javascript:gotoPage(-2);" aria-label="Next">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+<!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  $("#div_need_to_register").hide();
+  $("#div_user_deactivated").hide();
+  $("#div_order_options").hide();
+  $("#div_order").hide();
+  $("#div_pages").hide();
+  $("#div_recv").hide();
+  $("#div_sent").hide();
+  $("#input_to").hide();
+  $("#input_user_picture_file").hide();
+  $("#input_transport_picture_file").hide();
+  $("#sensor_profile").hide();
+  $("#transport_profile").hide();
+
+  $("#img_need_to_register").attr("src",picture_cancel);
+  $("#img_user_deactivated").attr("src",picture_cancel);
+  $("#img_no_report").attr("src",picture_cancel);
+
+  $("#img_transport_picture").attr("src",picture_do_not_disturb);
+  $("#img_recv_picture").attr("src",picture_do_not_disturb);
+  $("#img_sent_picture").attr("src",picture_do_not_disturb);
+  $("#img_user_profile_picture").attr("src",picture_do_not_disturb);
+  $("#img_transport_profile_picture").attr("src",picture_do_not_disturb);
+
+  var success_payment_message=getMessage(fa.language,1160);
+  var order_id_list=[],message_id_list=[],user_picture_id_list=[];
+  found_rows=null;
+  PAGE_SET=0;PAGE_CURR=0;PAGE_COUNT=0;
+  tab_page_list.length=0;/*TAB_CURR=0;*/
+  /*profile-sensor-transport*/
+  var curr_transport_color=null,curr_sensor_id=sensor_id=null,curr_transport_id=null;
+  function getData(language,is_not_reload){
+    $("#text_error_message").empty();
+    if(fa.username===DEFAULT_USERNAME){$("#div_need_to_register").show();return;}
+    else if((user_type===null||user_type<1)){
+      var message_code=parseInt(fa.getResultMessageCode());
+      $("#text_error_message").html(getMessage(language,message_code));
+      $("#div_need_to_register").show();return;
+    }
+    /*restore page settings for the tab*/
+    if(tab_page_list[TAB_CURR]&&is_not_reload){
+      var page=tab_page_list[TAB_CURR];
+      found_rows=page.found_rows;
+      PAGE_SET=page.page_set;PAGE_CURR=page.page_curr;PAGE_ROWS=page.page_rows;PAGE_COUNT=page.page_count;
+      showPages();
+      return;/*page already loaded*/
+    }
+    if(TAB_CURR===0){/*tab_order*/
+      if(ORDER_ID===null)PAGE_ROWS=2;
+      fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+      fa.map_list.length=0;
+      fa.marker_list.length=0;
+      fa.polyline_list.length=0;
+      var order=new faOrderAB();
+      order.id=(ORDER_ID!==null?ORDER_ID:"%");/*all orders or find order by id*/
+      fa.order_AB_list.length=0;
+      fa.getOrderAB(order,language,"#text_error_message",afterOrder);
+      $(document).one("ajaxStop",function(){
+        if(current_user!==null&&parseInt(current_user.active)!==1){
+          $("#div_user_deactivated").show();
+          $("#div_order_list").hide();
+          $("#div_pages").hide();
+          return;
+        }
+
+        if(user_type===USER_TYPE_ADMIN||user_type===USER_TYPE_WORKER){
+          fa.offset=null;fa.rows=null;
+          var transport=new faTransport();
+          transport.id="%";
+          if(user_type===USER_TYPE_WORKER)transport.user_id=fa.user_list[0].id;
+          /*transport.sensor_active=1;*//*true*/
+          fa.transport_list.length=0;
+          fa.getTransport(transport,language,null,afterTransport);
+
+          var order_status=new faObjectType();
+          order_status.id="%";
+          fa.order_status_list.length=0;
+          fa.getOrderStatus(order_status,language,null,afterOrderStatus);
+
+        }
+        showCurrency();showUserDiscount("#div_user_discount",fa.user_list[0]);
+      });
+    }
+    else if(TAB_CURR===1){/*tab_report*/
+      fa.offset=null;fa.rows=null;
+      /*$(document).one("ajaxStop",function(){});*/
+      $("#div_pages").hide();
+    }
+    else if(TAB_CURR===2){/*tab_message*/
+      PAGE_ROWS=5;
+      fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+      var message=new faMessage();
+      message.id="%";/*all messages*/
+      fa.message_list.length=0;
+      fa.getMessage(message,language,"#text_error_message",afterMessage);
+      if(user_type===USER_TYPE_ADMIN||user_type===USER_TYPE_WORKER){
+        $("#button_to").hide();$("#input_to").show();
+        $("#input_to").popover();
+      }
+      else{
+        $("#button_to").show();$("#input_to").hide();
+      }
+      $("#input_message").tooltip();
+    }
+    else if(TAB_CURR===3){/*tab_profile*/
+      fa.offset=null;fa.rows=null;
+      var user=fa.user_list[0];
+
+      $("#text_profile_username").html(user.call_name);
+      $("#text_profile_usertype").html(getUserTypenameByType(user.type,language));
+
+      $("#input_first_name").attr("value",user.first_name);
+      $("#input_last_name").attr("value",user.last_name);
+      $("#input_username").attr("value",user.username);
+      $("#input_call_name").attr("value",user.call_name);
+      $("#input_email").attr("value",user.email);
+      $("#input_phone").attr("value",user.phone);
+
+      if(user.picture!==null)afterUserProfilePicture(user);
+      else fa.getPicture(user,user.id,"user",null,afterUserProfilePicture,user);
+
+      if(user_type===USER_TYPE_ADMIN||user_type===USER_TYPE_WORKER){
+        fa.color_list.length=0;
+        var sensor=new faSensor();
+        sensor.id="%";
+        sensor.user_id=user.id;
+        fa.sensor_list.length=0;
+        fa.getSensor(sensor,language,null,afterSensor);
+        fa.getColor(null,afterColor);
+        $("#sensor_profile").show();
+        $("#transport_profile").show();
+      }
+
+      $("#div_pages").hide();
+    }
+  }
+  function afterOrder(){
+    $("#div_order_list").empty();
+    found_rows=fa.getFoundRows();
+    fa.offset=null;fa.rows=null;
+    if(fa.order_AB_list.length>0){
+      var j,i,order,attr,color,status,price;
+      order_id_list.length=0;
+      fa.order_AB_part_list.length=0;
+      for(j=0;j<fa.order_AB_list.length;j++){
+        order=fa.order_AB_list[j];
+        order_id_list.push(order.id);
+        var $clone=$("#div_order").clone();
+        $clone.find("#div_order_form").attr("id","div_order_form_"+order.id);
+        $clone.find("#div_route_map").attr("id","div_route_map_"+order.id);
+        $clone.find("#img_transport_picture").attr("id","img_transport_picture_"+order.id);
+        $clone.find("#input_cancel_order").attr("onclick","cancelOrder("+order.id+");");
+        $clone.find("#button_calculate_order").attr("onclick","calculateOrder("+order.id+");");
+        $clone.find("#text_order_id").html(order.id);
+        /*$clone.find("#button_paypal").attr("onclick","payOrder("+order.id+","+order.total_price+");");*/
+        $clone.find("#button_paypal").attr("id","button_paypal_"+order.id);
+        if(order.order_status_id>=0&&order.order_status_id<2)color="darkgrey";
+        else if(order.order_status_id>1&&order.order_status_id<4)color="green";
+        else if(order.order_status_id>=4)color="blue";
+        else if(order.order_status_id<0)color="red";
+        attr=$clone.find("#text_status_color").attr("style");
+        attr=getStrBefore("color:");
+        $clone.find("#text_status_color").attr("style",attr+"color:"+color);
+        status=parseAttrList(order.status_attr_list);
+        $clone.find("#text_order_status").html(status.length>0?status:order.order_status_name);
+        $clone.find("#text_call_name_phone").html(icon_callname+"<big> "+order.user.call_name+" </big>"+(order.user.phone?icon_phone+"&nbsp;"+order.user.phone:"")+(order.user!==null?"&nbsp;"+parseUserDiscount(order.user,fa.language,currency_title):""));
+        $clone.find("#text_times_ago").html(getTimesAgoFrom(toMySQLDatetimeMilisec(order.create_date),fa.language));
+        $clone.find("#input_address_A").attr("value",order.order_address);
+        $clone.find("#input_address_B").attr("value",order.delivery_address);
+        if(order.reserved_date!==null&&order.reserved_date.length>0)$clone.find("#input_datetime").attr("value",fromMySQLDatetimeString(order.reserved_date));
+        $clone.find("#input_hourly").attr("value",order.reserved_hours);
+        if(order.purchase_list.length>0){
+          var purchase,amount=0;
+          for(i=0;i<order.purchase_list.length;i++){
+            purchase=order.purchase_list[i];
+            if(purchase&&purchase.payment_amount)amount+=parseFloat(purchase.payment_amount);
+          }
+          $clone.find("#text_payment_order").html(icon_check+"<small>"+getMessage(fa.language,1159)+"</small>"+"&nbsp;"+amount.toFixed(2));
+        }
+        price=(parseFloat(order.total_price)).toFixed(2);
+        $clone.find("#text_total_price").html(price);
+        $clone.find("#div_route_distance").html(getMessage(fa.language,1091)+": "+(order.route_distance/1000).toFixed(1)+"&nbsp;"+getMessage(fa.language,111));
+        $clone.find("#div_param").hide();
+        $("#div_order_list").append($clone.html());
+
+        /*PalPay for real payment add 'invoice_number: order.id' to transaction payment part*/
+        payOrder(order.id,order.total_price);
+
+        /*map*/
+        if(order.order_lat!==null&&order.order_lng!==null&&order.delivery_lat!==null&&order.delivery_lng!==null){
+          $("#div_route_map_"+order.id).attr("style","width:100%;height:250px;");
+          if(map_load!==null&&map_load){
+            showMap("div_route_map_"+order.id,0,0,map_zoom,showOrderRoute,order);
+          }
+        }
+        var order_part=new faOrderABPart();
+        order_part.order_id=order.id;
+        fa.getOrderABPart(order_part,fa.language,null/*order can be empty*/,afterOrderABPart,order);
+
+        showOrderTransport(order);
+      }
+    }
+    /*pages*/
+    showPages();
+  }
+  function afterOrderABPart(ptr){
+    var part_list=fa.order_AB_part_list;product=null,order_part=null;
+    var order_form="#div_order_form_"+ptr.id;
+    for(var k=0;k<part_list.length;k++){
+      if(parseInt(part_list[k].order_id)===parseInt(ptr.id)){
+        order_part=part_list[k];
+        ptr.part_list.push(order_part);/*for calculateOrder*/
+        product=order_part.product;
+        if(product!==null){
+          var product_name=parseProduct(product);
+          $clone_product=$(order_form).find("#div_product").clone();
+          if(order_part.product_count!==null&&order_part.product_count>1)
+            $clone_product.find("#text_product_count").html("X "+order_part.product_count);
+          $clone_product.find("#text_product_name").html(product_name);
+          var product_discount=parseProductDiscount(product,fa.language,'');
+          $clone_product.find("#text_product_discount").html(product_discount);
+          var product_param,p;
+          product_param=parseProductParam(product.param_list);
+          p=product_param.split("\r\n");
+          for(var l=0;l<p.length-1;l++){
+            var $clone=$(order_form).find("#div_param").clone();
+            $clone.find("#text_product_param").html(p[l]);
+            $clone_product.find("#div_param_list").append($clone.html());
+          }
+          $(order_form).find("#div_product_list").append($clone_product.html());
+        }
+      }
+      $(order_form).find("#div_product").hide();
+    }
+  }
+  function afterTransportPicture(ptr){
+    if(ptr){
+      $("#img_transport_picture_"+ptr.id).attr("src","data:image/jpeg;base64,"+ptr.transport.picture);
+    }
+  }
+  function showOrderTransport(order){
+    if(order.transport){
+      var order_form="#div_order_form_"+order.id;
+      var transport=order.transport,attr;
+      $(order_form).find("#text_transport_name").html("&nbsp;"+transport.name);
+      $(order_form).find("#text_transport_license_plate").html(transport.license_plate);
+      attr="font-size:24px;color:";
+      $(order_form).find("#transport_color").attr("style",attr+transport.color);
+      $(order_form).find("#text_transport_type").html(parseTypeList(transport.type_list));
+      fa.getPicture(order.transport,order.transport.id,"transport",null,afterTransportPicture,order);
+    }
+  }
+  function showCurrency(){
+    var j,order_form,product_list;
+    for(j=0;j<order_id_list.length;j++){
+      order_form="#div_order_form_"+order_id_list[j];
+      product_list=$(order_form).find("#div_product_list");
+
+      $(product_list).find("#text_product_name").each(function(){
+        if($(this).html().length>0)
+          $(this).append("&nbsp;"+currency_title);
+      });
+
+      $(product_list).find("#text_product_discount").each(function(){
+        if($(this).html().length>0)
+          $(this).append("&nbsp;"+currency_title);
+      });
+
+      if($(order_form).find("#text_payment_order").html().trim().length>0){
+        $(order_form).find("#text_payment_order").append("&nbsp;"+currency_title);
+      }
+
+      $(order_form).find("#text_product_param").each(function(){
+        $(this).append("&nbsp;"+currency_title);
+      });
+    }
+    $("#div_order_list").find("#text_currency").each(function(){
+      $(this).html(currency_title+" <small>"+currency_about+"</small>");
+    });
+  }
+  /*discount*/
+  function showUserDiscount(ptr,user){
+    $(ptr).empty();
+    if(user.discount){
+      var curr_time=new Date().getTime(),is_actual=true;
+      if(user.discount.start_date.length>0&&user.discount.finish_date.length>0){
+        if(curr_time<parseMySQLDatetime(user.discount.start_date).getTime()||
+           curr_time>parseMySQLDatetime(user.discount.finish_date).getTime())is_actual=false;
+      }
+      if(is_actual)
+        $(ptr).html("<h3>"+getMessage(fa.language,1096)+"</h3><h5>"+
+                                      getDiscountByType(user.discount.type,user.discount.value,fa.language,currency_title)+"</h5>");
+    }
+  }
+  function afterTransport(){
+    if(fa.transport_list.length>0&&order_id_list.length>0){
+      var j,i,transport,color,active,order_id,position;
+      var order_options,driver_id,order_transport,is_shown;
+      for(j=0;j<order_id_list.length;j++){
+        is_shown=false;
+        order_id=order_id_list[j];
+        order_options=$("#div_order_list").find("#div_order_form_"+order_id).find("#div_order_options");
+        driver_id=getOrderDriverId(order_id);
+        order_transport=getOrderTransport(order_id);
+        if(user_type===USER_TYPE_ADMIN||order_transport===null){
+          is_shown=true;
+          for(i=0;i<fa.transport_list.length;i++){
+            transport=fa.transport_list[i];
+            color="<i class='fa fa-circle' style='font-size:12px;color:"+transport.color+"'></i>";
+            active="<img src='"+picture_car_hor+"' style='width:8%;height:8%'>";
+            position="<li><a href='javascript:saveOrderTransport("+order_id+","+transport.id+");'>"+transport.name+"&nbsp;"+color+" <b>"+transport.license_plate+"</b>"+
+                     (transport.sensor_active!==null&&parseInt(transport.sensor_active)===1?"&nbsp;"+active:"")+"<br>"+
+                     (transport.sensor?icon_callname+"<b><i> "+transport.sensor.user.call_name+" </i></b>"+icon_phone+"&nbsp;"+transport.sensor.user.phone:"")+"</a></li>";
+            order_options.find("#ul_transport").append(position);
+          }
+        }
+        if((user_type===USER_TYPE_ADMIN&&order_transport!==null)||(driver_id!==null&&parseInt(driver_id)===parseInt(fa.user_list[0].id))){
+          is_shown=true;
+          position=(user_type===USER_TYPE_ADMIN?"<li class='divider'></li>":"")+
+                   "<li><a href='javascript:removeOrderTransport("+order_id+");'>"+icon_close+"&nbsp;"+getMessage(fa.language,1158)+"</a></li>";
+          order_options.find("#ul_transport").append(position);
+        }
+        if(is_shown)order_options.show();
+      }
+    }
+  }
+  function afterOrderStatus(){
+    if(fa.order_status_list.length>0&&order_id_list.length>0){
+      var j,i,status,status_name,status_id,order_id,position;
+      var order_options,driver_id,is_shown;
+      for(j=0;j<order_id_list.length;j++){
+        is_shown=false;
+        order_id=order_id_list[j];
+        order_options=$("#div_order_list").find("#div_order_form_"+order_id).find("#div_order_options");
+        driver_id=getOrderDriverId(order_id);
+        if(user_type===USER_TYPE_ADMIN||(driver_id!==null&&parseInt(driver_id)===parseInt(fa.user_list[0].id))){
+          is_shown=true;
+          var icon_color;
+          for(i=0;i<fa.order_status_list.length;i++){
+            status=fa.order_status_list[i];
+            status_name=parseAttrList(status.attr_list);
+            status_id=parseInt(status.id);
+            if(status_id>=0&&status_id<2)icon_color=icon_color_darkgrey;
+            else if(status_id>1&&status_id<4)icon_color=icon_color_green;
+            else if(status_id>=4)icon_color=icon_color_blue;
+            else if(status_id<0)icon_color=icon_color_red;
+            position="<li><a href='javascript:saveOrderStatus("+order_id+","+status.id+");'>"+(status_name.length>0?status_name:status.name)+"&nbsp;"+
+                     (icon_color)+"</a></li>";
+            order_options.find("#ul_status").append(position);
+          }
+        }
+        if(user_type===USER_TYPE_ADMIN){/*may be for driver set access to purchase*/
+          position="<li class='divider'></li>"+
+                   "<li><a href='javascript:purchaseByOrder("+order_id+");'>"+icon_check+"&nbsp;"+getMessage(fa.language,1159)+"</a></li>";
+          position+="<li class='divider'></li>"+
+                   "<li><a href='javascript:removeOrder("+order_id+");'>"+icon_close+"&nbsp;"+getMessage(fa.language,1157)+"</a></li>";
+          order_options.find("#ul_status").append(position);
+        }
+        if(is_shown)order_options.show();
+      }
+    }
+  }
+  /*save order param (add,remove circle on jfa_app)*/
+  function saveOrderTransport(order_id,transport_id){
+    var order=new faOrderAB();
+    order.id=order_id;
+    order.transport_id=transport_id;
+    fa.updateOrderABTransport(order_id,transport_id,"#text_error_message",afterOrderTransport,order);
+  }
+  function removeOrderTransport(order_id){
+    fa.updateOrderABTransport(order_id,-1,"#text_error_message",afterUpdate);
+    removeCircleByOrderId(order_id);
+  }
+  function saveOrderStatus(order_id,status_id){
+    fa.updateOrderABStatus(order_id,status_id,"#text_error_message",afterUpdate);
+    if(status_id<0||status_id>=4)removeCircleByOrderId(order_id);
+    else if(status_id>1)addCircleByOrderId(order_id);
+  }
+  /*purchase with a total_price=amount*/
+  function purchaseByOrder(order_id){
+    var purchase=new faPurchase(),order=getOrderById(order_id);
+    var payment_info="cash payment [accepted the driver]";
+    if(order!==null&&order.purchase_list.length===0){
+      purchase.user_id=fa.user_list[0].id;
+      purchase.order_id=order_id;
+      purchase.delivery_id=-1;
+      purchase.total_price=order.total_price;
+      purchase.total_tax="0.00";/*for extra version use tax table*/
+      purchase.order_date=order.create_date;
+      purchase.delivery_type_id=order.delivery_type_id;
+      if(purchase.delivery_type_id===null||purchase.delivery_type_id==='')purchase.delivery_type_id=ORDER_DELIVERY_TYPE_ID;
+      purchase.payment_info=payment_info;
+
+      var payment_amount=prompt(getMessage(fa.language,1159)+" "+order.total_price+currency_title+" "+currency_about,order.total_price);
+      if(payment_amount!==null){
+        purchase.payment_amount=payment_amount;
+        fa.addPurchase(purchase,"#text_error_message",afterUpdate);
+      }
+    }
+  }
+  /*update order status to CANCELLATION*/
+  function cancelOrder(order_id){
+    fa.updateOrderABStatus(order_id,STATUS_ID_CANCELLATION,"#text_error_message",afterUpdate);
+    removeCircleByOrderId(order_id);
+  }
+  function removeOrder(order_id){
+    fa.removeObject(order_id,"order_AB","#text_error_message",afterUpdate);
+    removeCircleByOrderId(order_id);
+  }
+  function afterOrderTransport(ptr){
+    var j,order_form="#div_order_form_"+ptr.id,transport=null,order=null;
+    for(j=0;j<fa.transport_list.length;j++){
+      transport=fa.transport_list[j];
+      if(parseInt(transport.id)===parseInt(ptr.transport_id))break;
+    }
+    if(transport===null)return;/*transport not found*/
+    $(order_form).find("#text_transport_name").html("&nbsp;"+transport.name);
+    $(order_form).find("#text_transport_license_plate").html(transport.license_plate);
+    var attr="font-size:24px;color:";
+    $(order_form).find("#transport_color").attr("style",attr+transport.color);
+    $(order_form).find("#text_transport_type").html(parseTypeList(transport.type_list));
+    /*seek order and reset transport*/
+    for(j=0;j<fa.order_AB_list.length;j++){
+      order=fa.order_AB_list[j];
+      if(parseInt(order.id)===parseInt(ptr.id)){
+        order.transport_id=ptr.transport_id;
+        order.transport=transport;
+        break;
+      }
+    }
+    if(order===null)return;/*order not found*/
+    if(transport.picture!==null){
+      $("#img_transport_picture_"+ptr.id).attr("src","data:image/jpeg;base64,"+transport.picture);
+    }
+    else{
+      $("#img_transport_picture_"+ptr.id).attr("src",picture_do_not_disturb);
+      fa.getPicture(order.transport,order.transport.id,"transport",null,afterTransportPicture,order);
+    }
+    /*no reset status list for driver (getOrder return accepted status orders)
+      if(user_type===USER_TYPE_WORKER)afterOrderStatus();*/
+
+    /*change order status to processed(setup in updateOrderABTransport db_function automatically)*/
+    var color="green";
+    order.order_status_id=STATUS_ID_PROCESSED;
+    order.order_status_name="Processed";
+
+    attr=$(order_form).find("#text_status_color").attr("style");
+    attr=getStrBefore("color:");
+    $(order_form).find("#text_status_color").attr("style",attr+"color:"+color);
+
+    var status=parseAttrPartByObjectId(order_status_attr_part_list,order.order_status_id);
+    $(order_form).find("#text_order_status").html(status.length>0?status:order.order_status_name);
+
+    /*alert("status="+status);*/
+    /*need to remove old markerWindow and add a new with a new transport*/
+    if(map_load!==null&&map_load){
+      var map_marker=null;
+      for(j=0;j<fa.marker_list.length;j++){
+        map_marker=fa.marker_list[j];
+        if(map_marker.order!==null&&parseInt(map_marker.order.id)===parseInt(order.id)){
+          fa.removeMarkerWindow(map_marker.marker);
+          var info=getOrderInfo(fa.language,order);
+          fa.addMarkerWindow(map_marker.marker,info,marker_max_window_width);
+        }
+      }
+    }
+  }
+  function afterUpdate(){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        getData(fa.language);
+      }
+    }
+  }
+
+  /*message*/
+  function afterMessage(){
+    $("#div_message_list").empty();
+    found_rows=fa.getFoundRows();
+    if(fa.message_list.length>0){
+      var j,i,message,type,user;
+      message_id_list.length=0;
+      user_picture_id_list.length=0;
+      for(j=0;j<fa.message_list.length;j++){
+        var $clone,is_user_picture=false;
+        message=fa.message_list[j];
+        message_id_list.push(message.id);
+        type=parseInt(message.type);
+        if(type===MESSAGE_TYPE_INPUT){
+          user=message.userA;
+          $clone=$("#div_recv").clone();
+          $clone.find("#div_recv_message").attr("id","div_message_"+message.id);
+          $clone.find("#img_recv_picture").attr("id","img_picture_"+message.id);
+        }
+        else if(type===MESSAGE_TYPE_OUTPUT){
+          user=message.userB;
+          $clone=$("#div_sent").clone();
+          $clone.find("#div_sent_message").attr("id","div_message_"+message.id);
+          $clone.find("#img_sent_picture").attr("id","img_picture_"+message.id);
+        }
+        $clone.find("#text_message_time").html(getTimesAgoFrom(toMySQLDatetimeMilisec(message.create_date),fa.language));
+        $clone.find("#text_username").html(user instanceof faUser?user.call_name:"");
+        $clone.find("#text_message").html(message.message);
+        $("#div_message_list").append($clone.html());
+
+        if(user instanceof faUser){
+          for(i=0;i<user_picture_id_list.length;i++){
+            if(user_picture_id_list[i]===user.id){is_user_picture=true;break;}
+          }
+          /*get user picture that is not in list*/
+          if(!is_user_picture)fa.getPicture(user,user.id,"user",null,null);
+          user_picture_id_list.push(user.id);
+        }
+      }
+      /*force pictures*/
+      $(document).one("ajaxStop",function(){
+        var picture;
+        for(j=0;j<fa.message_list.length;j++){
+          message=fa.message_list[j];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+          else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+          if(user instanceof faUser){
+            picture=getPictureOfUser(user.id);
+            if(picture!==null)$("#img_picture_"+message.id).attr("src","data:image/jpeg;base64,"+picture);
+          }
+        }
+      });
+    }
+    /*pages*/
+    showPages();
+  }
+  function getPictureOfUser(user_id){
+    var j,message,type,user;
+    for(j=0;j<fa.message_list.length;j++){
+      message=fa.message_list[j];
+      type=parseInt(message.type);
+      if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+      else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+      if(user.id===user_id)return user.picture;
+    }
+    return null;
+  }
+  function afterUserProfilePicture(ptr){
+    if(ptr){
+      $("#img_user_profile_picture").attr("src","data:image/jpeg;base64,"+ptr.picture);
+    }
+  }
+  function afterTransportProfilePicture(ptr){
+    if(ptr){
+      $("#img_transport_profile_picture").attr("src","data:image/jpeg;base64,"+ptr.picture);
+    }
+  }
+  function sendMessage(){
+    var input_to=document.getElementById('input_to');
+    var input_message=document.getElementById('input_message');
+    var message_text=input_message.value.trim();
+    var message_to=input_to.value.trim();
+    if(message_text.length===0){input_message.focus();return false;}
+    if(message_to.length===0){input_to.focus();return false;}
+    /*if(user_type===USER_TYPE_ADMIN||user_type===USER_TYPE_WORKER){  //limit for messaging
+      if(message_to.length===0){input_to.focus();return false;}
+    }
+    else message_to=DEFAULT_ADMIN_CALLNAME;*/
+    fa.addMessage(message_to,message_text,"#text_error_message",afterSendMessage);
+    return false;/*always false*/
+  }
+  function afterSendMessage(){
+    /*need to reload:is_not_reload=false*/
+    tab(2,false);//tab message
+  }
+  /*profile-user*/
+  function updateUserProfile(){
+    var input_callname=document.getElementById('input_call_name');
+    var input_firstname=document.getElementById('input_first_name');
+    var input_lastname=document.getElementById('input_last_name');
+    var input_email=document.getElementById('input_email');
+    var input_phone=document.getElementById('input_phone');
+
+    var phone=input_phone.value.trim();
+    if(phone.length===0||!isPhone(phone)){input_phone.focus();return;}
+    var callname=input_callname.value.trim();
+    if(callname.length===0){input_callname.focus();return;}
+
+    /*create a new User, after success save changes in base User
+    var user=new faUser();
+    user.id=fa.user_list[0].id;
+    user.type=fa.user_list[0].type;*/
+    var user=fa.user_list[0];
+    user.call_name=callname;
+    user.first_name=input_firstname.value.trim();
+    user.last_name=input_lastname.value.trim();
+    user.email=input_email.value.trim();
+    user.phone=phone;
+
+    fa.updateUser(user,"#text_error_message",afterUpdateUser,user);
+
+    updateUserProfilePicture(user);
+  }
+  function afterUpdateUser(ptr){
+    var user=fa.user_list[0];
+    user.call_name=ptr.call_name;
+    user.first_name=ptr.first_name;
+    user.last_name=ptr.last_name;
+    user.email=ptr.email;
+    user.phone=ptr.phone;
+  }
+  function updateUserPassword(){
+    var input_old_password=document.getElementById('input_old_password');
+    var input_new_password=document.getElementById('input_new_password');
+    if(input_old_password.value===fa.password){
+      fa.updateUserPassword(input_new_password.value,"#text_error_message",afterUpdateUserPassword,input_new_password.value);
+    }
+    else input_old_password.focus();
+  }
+  function afterUpdateUserPassword(ptr){
+    fa.password=ptr;
+  }
+  function newUserProfilePicture(){
+    $("#input_user_picture_file").click();
+  }
+  function updateUserProfilePicture(user){
+    var file=$('#input_user_picture_file')[0].files[0];
+    if(file){
+      var reader=new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend=function(){
+        if(reader.result){
+          user.picture=reader.result.split(";base64,")[1];
+          fa.updatePicture(user.id,user.picture,"user","#text_error_message",afterUpdateUserPicture,user);
+        }
+      };
+    }
+  }
+  function afterUpdateUserPicture(ptr){
+    var user=fa.user_list[0];
+    user.picture=ptr.picture;
+  }
+  $("#input_user_picture_file").change(function(){
+    var reader=new FileReader();
+    reader.readAsDataURL($('#input_user_picture_file')[0].files[0]);
+    reader.onloadend=function(){
+      if(reader.result)$("#img_user_profile_picture").attr("src",reader.result);
+    };
+  });
+  /*profile-sensor-transport*/
+  function resetTransportColor(color){
+    curr_transport_color=color;
+    $("#curr_transport_color").attr("style","font-size:24px;color:"+curr_transport_color);
+  }
+  function afterColor(){
+    if(fa.color_list.length>0){
+      var j,color,position;
+      for(j=0;j<fa.color_list.length;j++){
+        color=fa.color_list[j];
+        position="<li><a href='javascript:resetTransportColor(\""+color.name+"\");'>"+
+                 "<i class='fa fa-circle' style='font-size:12px;color:"+color.name+"'></i></a></li>";
+        $("#ul_color").append(position);
+      }
+    }
+  }
+  function afterSensor(){
+    if(fa.sensor_list.length>0){
+      var j,sensor,position;
+      for(j=0;j<fa.sensor_list.length;j++){
+        sensor=fa.sensor_list[j];
+        position="<li><a href='javascript:showSensorTransport("+sensor.id+");'>"+sensor.name+"&nbsp;"+
+                 sensor.device_name+"&nbsp;"+(sensor.phone!=='null'&&sensor.phone!==''?sensor.phone+"&nbsp;":"")+
+                 (parseInt(sensor.active)===1?icon_color_green:"")+"</a></li>";
+        $("#ul_sensor").append(position);
+      }
+    }
+  }
+  function showSensorTransport(sensor_id){
+    /*clear transport info*/
+    $("#input_transport_name").attr("value","");
+    $("#input_license_plate").attr("value","");
+    $("#curr_transport_color").attr("style","");
+    $("#img_transport_profile_picture").attr("src",picture_do_not_disturb);
+    /*find transport*/
+    if(fa.transport_list.length>0){
+      var j,transport;
+      for(j=0;j<fa.transport_list.length;j++){
+        transport=fa.transport_list[j];
+        if(transport.sensor&&parseInt(transport.sensor.id)===sensor_id){
+          $("#input_transport_name").attr("value",transport.name);
+          $("#input_license_plate").attr("value",transport.license_plate);
+          curr_transport_color=transport.color;
+          $("#curr_transport_color").attr("style","font-size:24px;color:"+curr_transport_color);
+          if(transport.picture!==null)afterTransportProfilePicture(transport);
+          else fa.getPicture(transport,transport.id,"transport",null,afterTransportProfilePicture,transport);
+          curr_sensor_id=sensor_id;
+          curr_transport_id=transport.id;
+          break;
+        }
+      }
+    }
+  }
+  function updateTransportProfile(){
+    var input_transport_name=document.getElementById('input_transport_name');
+    var input_license_plate=document.getElementById('input_license_plate');
+    var transport_name=input_transport_name.value.trim();
+    if(transport_name.length===0){input_transport_name.focus();return;}
+    var license_plate=input_license_plate.value.trim();
+    if(license_plate.length===0){input_license_plate.focus();return;}
+    var transport=getTransportById(curr_transport_id);
+    if(transport!==null){
+      transport.name=transport_name;
+      transport.license_plate=license_plate;
+      transport.color=curr_transport_color;
+      fa.updateTransport(transport,"#text_error_message",updateTransportProfilePicture,transport);
+    }
+    else{
+      transport=new faTransport();
+      transport.sensor_id=curr_sensor_id;
+      transport.name=transport_name;
+      transport.license_plate=license_plate;
+      transport.color=curr_transport_color;
+      fa.updateTransport(transport,"#text_error_message",updateTransportProfilePicture,transport);
+      fa.transport_list.push(transport);
+    }
+    /*tab_page_list[0]=null; - updating first tab after restep,map problem*/
+  }
+  function newTransportProfilePicture(){
+    $("#input_transport_picture_file").click();
+  }
+  function updateTransportProfilePicture(transport){
+    var file=$('#input_transport_picture_file')[0].files[0];
+    if(file){
+      var reader=new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend=function(){
+        if(reader.result){
+          transport.picture=reader.result.split(";base64,")[1];
+          fa.updatePicture(transport.id,transport.picture,"transport","#text_error_message",afterUpdateTransportPicture,transport);
+        }
+      };
+    }
+  }
+  function afterUpdateTransportPicture(ptr){
+    /*no action*/
+  }
+  $("#input_transport_picture_file").change(function(){
+    var reader=new FileReader();
+    reader.readAsDataURL($('#input_transport_picture_file')[0].files[0]);
+    reader.onloadend=function(){
+      if(reader.result)$("#img_transport_profile_picture").attr("src",reader.result);
+    };
+  });
+  /*calculate order*/
+  function calculateOrder(order_id){
+    var order=getOrderById(order_id);
+    if(order!==null){
+      fa.order_route_list.length=0;
+      if(order.part_list.length>0){
+        var order_part=order.part_list[0];/*one order product*/
+        var j,list=order_part.product.type_list,type_id;
+        var need_calc=false;
+        for(j=0;j<list.length;j++){
+          type_id=list[j].id;
+          if(isCalculationTypeId(parseInt(type_id))){
+            need_calc=true;break;
+          }
+        }
+        if(!need_calc){afterCalculateOrder(order);return;}
+      }
+      else{afterCalculateOrder(order);return;}
+      var from=(order.order_lat!==null&&order.order_lon!==null?order.order_lat+','+order.order_lon:order.order_address);
+      var to=(order.delivery_lat!==null&&order.delivery_lon!==null?order.delivery_lat+','+order.delivery_lon:order.delivery_address);
+      if(from!==''&&to!==''){
+        if(fa.map_provider===MAP_PROVIDER_GOOGLE){
+          $("#div_loading").show();
+          fa.routeGoogle(from,to,"#text_error_message",afterCalculateOrder,order);
+        }
+        else if(fa.map_provider===MAP_PROVIDER_YANDEX){
+          $("#div_loading").show();
+          fa.routeYandex(from,to,"#text_error_message",afterCalculateOrder,order);
+        }
+        else if(fa.map_provider===MAP_PROVIDER_OSM){
+          alert("OSM directions not found!");
+          afterCalculateOrder(order);
+        }
+      }
+      else afterCalculateOrder(order);
+    }
+  }
+  function afterCalculateOrder(ptr){
+    $("#div_loading").hide();
+    var order_route=fa.order_route_list.length>0?fa.order_route_list[0]:null;
+    var distance=order_route!==null?order_route.distance:0;/*0-for product_type!==1*/
+    var duration=order_route!==null?order_route.duration:0;/*0-for product_type!==1*/
+    if(distance!==null){
+      var product;
+      if(ptr.part_list.length>0){
+        var order_part=ptr.part_list[0];/*one order product*/
+        product=order_part.product;
+      }
+      /*product.type===3 hourly payment-not used*/
+      var price=parseFloat(product?product.price:0);
+      var amount=distance>0?(price*distance)/1000:price;
+      /*product_param price add to amount*/
+      if(product&&product!==null){
+        var j,param;
+        for(j=0;j<product.param_list.length;j++){
+          param=product.param_list[j];
+          amount+=parseInt(param.price);
+        }
+      }
+      /*product_discount*/
+      if(product&&product.discount){
+        var curr_time=new Date().getTime(),is_actual=true;
+        if(product.discount.start_date.length>0&&product.discount.finish_date.length>0){
+          if(curr_time<parseMySQLDatetime(product.discount.start_date).getTime()||
+             curr_time>parseMySQLDatetime(product.discount.finish_date).getTime())is_actual=false;
+        }
+        if(is_actual){
+          amount=fa.getDiscountPrice(product.discount.type,product.discount.value,amount);
+        }
+      }
+      /*order_user_discount*/
+      var user=ptr.user;
+      if(user.discount){
+        var curr_time=new Date().getTime(),is_actual=true;
+        if(user.discount.start_date.length>0&&user.discount.finish_date.length>0){
+          if(curr_time<parseMySQLDatetime(user.discount.start_date).getTime()||
+             curr_time>parseMySQLDatetime(user.discount.finish_date).getTime())is_actual=false;
+        }
+        if(is_actual)amount=fa.getDiscountPrice(user.discount.type,user.discount.value,amount);
+      }
+      amount=amount.toFixed(2);
+
+      var distance_info=getMessage(fa.language,1091)+": "+(distance/1000).toFixed(1)+" "+getMessage(fa.language,111);
+      var amount_info=getMessage(fa.language,1093)+" "+amount+" "+currency_title+" "+currency_about;
+      var order_amount=null;
+      if(user_type===USER_TYPE_ADMIN)order_amount=prompt(distance_info+" "+amount_info,amount);
+      else alert(distance_info+" "+amount_info);
+      if(order_amount!==null&&user_type===USER_TYPE_ADMIN){
+        ptr.route_distance=distance;
+        ptr.route_duration=duration;
+        ptr.total_price=order_amount;
+
+        var order=new faOrderAB();
+        order.id=ptr.id;
+        order.user_id=-1;
+        order.transport_id=ptr.transport_id!==null?ptr.transport_id:-1;/*save transport*/
+        order.order_status_id=ptr.order_status_id;/*always status set*/
+        order.total_price=order_amount;
+        order.route_distance=order_route!==null?order_route.distance:-1;
+        order.route_duration=order_route!==null?order_route.duration:-1;
+        order.route_data=order_route!==null?order_route.data:null;/*route_data*/
+        order.delivery_type_id=-1;
+        order.reserved_hours=-1;
+        fa.updateOrderAB(order,"#text_error_message",afterUpdateOrder,ptr);
+      }
+    }
+  }
+  function afterUpdateOrder(ptr){
+    var distance_info=getMessage(fa.language,1091)+": "+(ptr.route_distance/1000).toFixed(1)+" "+getMessage(fa.language,111);
+    var order_form="#div_order_form_"+ptr.id;
+    $(order_form).find("#text_total_price").html(ptr.total_price);
+    $(order_form).find("#div_route_distance").html(distance_info);
+  }
+  /*pay*/
+  function payOrder(order_id,total_price){
+    paypal.Button.render({
+    env: 'sandbox',
+    style: {label:'pay'},
+    client: {sandbox:'AauLDJB8a2GS169BXb_0ypx45AC75yNdr57x3Gne_NAo-euN6__2tDQYlLI1dDPfuZcoI_07qsYzLQb2'},
+    commit: true,
+    payment: function(actions) {
+      return actions.payment.create({transactions: [{amount: { total: total_price.toString(), currency: active_currency.name }, invoice_number:'', custom: '{user_id:'+current_user.id+',order_id:'+order_id+'}', description: 'payment for order '+order_id.toString() }]});},
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        window.alert(success_payment_message);});
+      }
+    }, '#button_paypal_'+order_id);
+    /*alert("pay="+order_id);*/
+  }
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var tab_order=document.getElementById('tab_order');
+    var tab_report=document.getElementById('tab_report');
+    var tab_message=document.getElementById('tab_message');
+    var tab_profile=document.getElementById('tab_profile');
+
+    var input_datetime=document.getElementById('input_datetime');
+    var input_cancel_order=document.getElementById('input_cancel_order');
+    var input_message=document.getElementById('input_message');
+    var input_to=document.getElementById('input_to');
+    var button_send_message=document.getElementById('button_send_message');
+    var button_transport_dropdown=document.getElementById('button_transport_dropdown');
+    var button_status_dropdown=document.getElementById('button_status_dropdown');
+    var input_map=document.getElementById('input_map');
+
+    var text_sent_order=document.getElementById('text_sent_order');
+    var text_order_time=document.getElementById('text_order_time');
+    var text_order_hourly=document.getElementById('text_order_hourly');
+    var text_order_route=document.getElementById('text_order_route');
+    var text_complete_order=document.getElementById('text_complete_order');
+    var text_select_transport=document.getElementById('text_select_transport');
+    var text_reset_status=document.getElementById('text_reset_status');
+    var text_select_status=document.getElementById('text_select_status');
+
+    var text_report=document.getElementById('text_report');
+    var text_no_report=document.getElementById('text_no_report');
+    var text_messages=document.getElementById('text_messages');
+
+    var text_need_to_register=document.getElementById('text_need_to_register');
+    var text_user_deactivated=document.getElementById('text_user_deactivated');
+
+    var text_profile=document.getElementById('text_profile');
+    var text_color=document.getElementById('text_color');
+    var text_select_color=document.getElementById('text_select_color');
+    var text_sensor=document.getElementById('text_sensor');
+    var text_select_sensor=document.getElementById('text_select_sensor');
+
+    var input_username=document.getElementById('input_username');
+    var input_callname=document.getElementById('input_call_name');
+    var input_firstname=document.getElementById('input_first_name');
+    var input_lastname=document.getElementById('input_last_name');
+    var input_email=document.getElementById('input_email');
+    var input_phone=document.getElementById('input_phone');
+
+    var input_old_password=document.getElementById('input_old_password');
+    var input_new_password=document.getElementById('input_new_password');
+
+    var input_transport_name=document.getElementById('input_transport_name');
+    var input_license_plate=document.getElementById('input_license_plate');
+    var button_color_dropdown=document.getElementById('button_color_dropdown');
+
+    var input_user_picture=document.getElementById('input_user_picture');
+    var input_transport_picture=document.getElementById('input_transport_picture');
+    var input_save_user_profile=document.getElementById('input_save_user_profile');
+    var input_change_password=document.getElementById('input_change_password');
+    var input_save_transport_profile=document.getElementById('input_save_transport_profile');
+
+    /*tab*/
+    tab_order.innerHTML=getMessage(language,1153);
+    tab_report.innerHTML=getMessage(language,1154);
+    tab_message.innerHTML=getMessage(language,1155);
+    tab_profile.innerHTML=getMessage(language,1156);
+
+    /*objects*/
+    input_datetime.placeholder=getMessage(language,1083);
+    input_datetime.title=getMessage(language,1083);
+
+    input_username.placeholder=getMessage(language,1011);
+    input_callname.placeholder=getMessage(language,1147);
+    input_firstname.placeholder=getMessage(language,1013);
+    input_lastname.placeholder=getMessage(language,1014);
+    input_email.placeholder=getMessage(language,1015);
+    input_phone.placeholder=getMessage(language,1016);
+    input_old_password.placeholder=getMessage(language,1145);
+    input_new_password.placeholder=getMessage(language,1146);
+    input_transport_name.placeholder=getMessage(language,1148);
+    input_license_plate.placeholder=getMessage(language,1149);
+
+    input_username.title=getMessage(language,1011);
+    input_callname.title=getMessage(language,1147);
+    input_firstname.title=getMessage(language,1013);
+    input_lastname.title=getMessage(language,1014);
+    input_email.title=getMessage(language,1015);
+    input_phone.title=getMessage(language,1016);
+    input_old_password.title=getMessage(language,1145);
+    input_new_password.title=getMessage(language,1146);
+    input_transport_name.title=getMessage(language,1148);
+    input_license_plate.title=getMessage(language,1149);
+
+    /*captions*/
+    text_sent_order.innerHTML=getMessage(language,1111);
+    text_order_time.innerHTML=getMessage(language,1085);
+    text_order_hourly.innerHTML=getMessage(language,1102);
+    text_order_route.innerHTML=getMessage(language,1094);
+    text_complete_order.innerHTML="&nbsp;"+getMessage(language,1114);
+    text_select_transport.innerHTML=getMessage(language,1115);
+    text_reset_status.innerHTML="&nbsp;"+getMessage(language,1118);
+    text_select_status.innerHTML=getMessage(language,1119);
+    text_report.innerHTML=getMessage(language,1121);
+    text_no_report.innerHTML=getMessage(language,1122);
+    input_cancel_order.value=getMessage(language,1112);
+    input_cancel_order.title=getMessage(language,1113);
+    input_message.placeholder=getMessage(language,1131);
+    input_message.title=getMessage(language,1131);
+    input_to.placeholder=getMessage(language,1133);
+    input_to.title=getMessage(language,1134);
+    input_to.setAttribute("data-content",getMessage(language,1135));
+
+    button_send_message.title=getMessage(language,1132);
+    button_transport_dropdown.title=getMessage(language,1114);
+    button_status_dropdown.title=getMessage(language,1118);
+    button_color_dropdown.title=getMessage(language,1150);
+    input_map.value=getMessage(language,1116);
+    input_map.title=getMessage(language,1117);
+    input_user_picture.value=getMessage(language,1141);
+    input_user_picture.title=getMessage(language,1141);
+    input_transport_picture.value=getMessage(language,1141);
+    input_transport_picture.title=getMessage(language,1141);
+    input_save_user_profile.value=getMessage(language,1142);
+    input_save_user_profile.title=getMessage(language,1142);
+    input_change_password.value=getMessage(language,1143);
+    input_change_password.title=getMessage(language,1143);
+    input_save_transport_profile.value=getMessage(language,1144);
+    input_save_transport_profile.title=getMessage(language,1144);
+
+    text_messages.innerHTML=getMessage(language,1131);
+    text_profile.innerHTML=getMessage(language,1140);
+    text_color.innerHTML="&nbsp;"+getMessage(language,1150);
+    text_select_color.innerHTML=getMessage(language,1151);
+    text_sensor.innerHTML="&nbsp;"+getMessage(language,1171);
+    text_select_sensor.innerHTML=getMessage(language,1172);
+
+    text_need_to_register.innerHTML=getMessage(language,1401);
+    text_user_deactivated.innerHTML=getMessage(language,1402);
+
+    /*re-init tab pages*/
+    /*tab_page_list.length=0;*/
+    getData(language);
+  }
+  updateContentLanguage(fa.language);
+  $(document).ajaxStart(function(){$("#div_loading").show();}).ajaxStop(function(){$("#div_loading").hide();});
+</script>

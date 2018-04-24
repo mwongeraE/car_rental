@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_diners.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_diners.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_error.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_error.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_discover.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_discover.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_mastercard.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_mastercard.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_error_amex.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_error_amex.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_visa.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_visa.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_cvc_amex.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_cvc_amex.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_jcb.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_jcb.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_unknown.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_unknown.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_amex.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_amex.png"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4/ic_cvc.png",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/stripe-android-4.0.1.aar/5359a66583e3bcff9cbc6f33e33ae3e2/res/drawable-ldpi-v4/ic_cvc.png"
+    }
+]

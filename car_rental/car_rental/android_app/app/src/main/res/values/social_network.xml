@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="google_url" translatable="false">
+    https://www.google.com
+  </string>
+  <string name="facebook_url" translatable="false">
+    https://www.facebook.com
+  </string>
+  <string name="twitter_url" translatable="false">
+    https://www.twitter.com
+  </string>
+  <string name="instagram_url" translatable="false">
+    https://www.instagram.com
+  </string>
+</resources>

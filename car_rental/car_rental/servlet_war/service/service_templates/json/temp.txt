@@ -1,0 +1,16 @@
+notes
+-----
+
+
+1. get_transport_product_part is flate structure.
+   check the product string to:
+   CHAR(34),'product',CHAR(34),':[',get_product(product_id,'%param10%param'),'],',
+   check transport.html for new noflate structure of the json response in function afterTransportProductPart
+
+
+Similar:
+%set_param9=@this.getClientSession().getRequest().getRemoteAddr()%set_param
+
+  <->
+
+%set_param9=@getServletParam().getRemoteAddr()%set_param

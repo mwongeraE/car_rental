@@ -1,0 +1,239 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+  <android.support.v7.widget.CardView
+    card_view:cardCornerRadius="2dp"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp">
+
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <ImageView
+        android:id="@+id/image_view_people"
+        android:src="@drawable/people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"/>
+
+      <RelativeLayout
+        android:background="@color/fragment_transparent_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+          android:id="@+id/image_view_phone_picture"
+          android:layout_width="36dp"
+          android:layout_height="36dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/edit_text_email"
+          android:src="@drawable/phone_grey"/>
+
+        <EditText
+          android:id="@+id/edit_text_firstname"
+          android:hint="First name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="textPersonName"
+          android:ems="10"
+          android:layout_alignParentTop="true"
+          android:layout_toRightOf="@+id/image_view_phone_picture"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true"/>
+
+        <EditText
+          android:id="@+id/edit_text_lastname"
+          android:hint="Last name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="textPersonName"
+          android:ems="10"
+          android:layout_below="@+id/edit_text_firstname"
+          android:layout_toRightOf="@+id/image_view_phone_picture"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true"/>
+
+        <EditText
+          android:id="@+id/edit_text_callname"
+          android:hint="Call name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="textPersonName"
+          android:ems="10"
+          android:layout_below="@+id/edit_text_lastname"
+          android:layout_alignLeft="@+id/edit_text_lastname"
+          android:layout_alignStart="@+id/edit_text_lastname"
+          android:layout_alignRight="@+id/edit_text_lastname"
+          android:layout_alignEnd="@+id/edit_text_lastname"/>
+
+        <EditText
+          android:id="@+id/edit_text_email"
+          android:hint="Email"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="textPersonName"
+          android:ems="10"
+          android:layout_below="@+id/edit_text_callname"
+          android:layout_alignLeft="@+id/edit_text_callname"
+          android:layout_alignStart="@+id/edit_text_callname"
+          android:layout_alignRight="@+id/edit_text_callname"
+          android:layout_alignEnd="@+id/edit_text_callname"/>
+
+        <EditText
+          android:id="@+id/edit_text_phone"
+          android:hint="Phone"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="text"
+          android:ems="10"
+          android:layout_below="@+id/edit_text_email"
+          android:layout_toRightOf="@+id/image_view_phone_picture"
+          android:layout_alignRight="@+id/edit_text_email"
+          android:layout_alignEnd="@+id/edit_text_email"/>
+
+        <Button
+          android:id="@+id/button_save_user"
+          style="@style/Widget.Style.SaveButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/edit_text_phone"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="10dp"
+          android:onClick="onClick"
+          android:text="@string/button_save"/>
+
+        <LinearLayout
+          android:id="@+id/linear_layout_car"
+          android:background="@color/WhiteSmoke"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/button_save_user"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="false">
+
+          <ImageView
+            android:id="@+id/image_view_car"
+            android:src="@drawable/car_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_view_phone_picture"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"/>
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/image_view_transport_picture"
+          android:src="@drawable/ic_do_not_disturb_alt_white_48pt_2x"
+          android:onClick="onClick"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:scaleType="centerCrop"
+          android:layout_below="@+id/linear_layout_car"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"/>
+
+        <EditText
+          android:id="@+id/edit_text_transport_name"
+          android:hint="Transport"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:layout_below="@+id/linear_layout_car"
+          android:layout_toRightOf="@+id/image_view_transport_picture"
+          android:layout_toEndOf="@+id/image_view_transport_picture"/>
+
+        <EditText
+          android:id="@+id/edit_text_license_plate"
+          android:hint="AA7777AA"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/edit_text_transport_name"
+          android:layout_toRightOf="@+id/image_view_transport_picture"
+          android:layout_toEndOf="@+id/image_view_transport_picture"/>
+
+        <Spinner
+          android:id="@+id/spinner"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/image_view_transport_picture"
+          />
+
+        <Button
+          android:id="@+id/button_save_transport"
+          style="@style/Widget.Style.SaveButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/edit_text_license_plate"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="10dp"
+          android:onClick="onClick"
+          android:text="@string/button_save"/>
+
+        <ImageView
+          android:id="@+id/image_view_first_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentTop="true"
+          card_view:srcCompat="@drawable/first_name_green"
+          android:layout_above="@+id/edit_text_lastname"
+          android:layout_toLeftOf="@+id/edit_text_firstname"
+          android:layout_toStartOf="@+id/edit_text_firstname"/>
+
+        <ImageView
+          android:id="@+id/image_view_lastname_picture"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/edit_text_firstname"
+          card_view:srcCompat="@drawable/first_name_grey"
+          android:layout_above="@+id/image_view_callname_picture"
+          android:layout_toLeftOf="@+id/edit_text_firstname"
+          android:layout_toStartOf="@+id/edit_text_firstname"/>
+
+        <ImageView
+          android:id="@+id/image_view_callname_picture"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/edit_text_lastname"
+          card_view:srcCompat="@drawable/callname_grey"
+          android:layout_above="@+id/edit_text_email"
+          android:layout_toLeftOf="@+id/edit_text_lastname"
+          android:layout_toStartOf="@+id/edit_text_lastname"/>
+
+        <ImageView
+          android:id="@+id/image_view_email_picture"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/edit_text_callname"
+          card_view:srcCompat="@drawable/mail_grey"
+          android:layout_above="@+id/image_view_phone_picture"
+          android:layout_toLeftOf="@+id/edit_text_callname"
+          android:layout_toStartOf="@+id/edit_text_callname"/>
+
+      </RelativeLayout>
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+</LinearLayout>

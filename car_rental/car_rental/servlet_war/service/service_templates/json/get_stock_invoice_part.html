@@ -1,0 +1,59 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      
+      %if "param6=1" %if
+
+      %set_param9=@this.getExtra("stock_invoice_id")%set_param
+
+      %set_param10=@this.getExtra("product_id")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND sip.product_id=%param10%param")%invoke_method
+      %endif%endif
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'stock_invoice_id',CHAR(34),':',sip.stock_invoice_id,',',
+        CHAR(34),'product_id',CHAR(34),':',sip.product_id,',',
+        CHAR(34),'tax_id',CHAR(34),':',IFNULL(sip.tax_id,'null'),',',
+        CHAR(34),'stock_invoice_count',CHAR(34),':',sip.count,',',
+        CHAR(34),'stock_invoice_price',CHAR(34),':',sip.price,',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),sip.last_update,CHAR(34),'}') AS CHAR)
+        FROM product p,stock_invoice_part sip LEFT JOIN tax t ON t.id=sip.tax_id
+        WHERE sip.stock_invoice_id LIKE '%param9%param'%param10%param
+        AND sip.product_id=p.id
+        ORDER BY sip.stock_invoice_id,p.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

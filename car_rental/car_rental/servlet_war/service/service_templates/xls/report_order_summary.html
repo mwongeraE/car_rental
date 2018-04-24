@@ -1,0 +1,42 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %if "param6=1"|"param6=2" %if
+        %set_param9=@this.getExtra("user_id")%set_param
+        %if "param9" %if
+          %invoke_methodthis.setParam(9,"%param9%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(9,"%")%invoke_method
+        %endif%endif
+      %elseif%elseif
+        %set_param9=SELECT id FROM user WHERE username=?0%set_param
+      %endif%endif
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT CONCAT('[[[{',
+        CHAR(34),'count',CHAR(34),':',CHAR(34),COUNT(id),CHAR(34),'}],[{',
+        CHAR(34),'price',CHAR(34),':',CHAR(34),SUM(total_price),CHAR(34),'}],[{',
+        CHAR(34),'distance',CHAR(34),':',CHAR(34),SUM(route_distance),CHAR(34),'}],[{',
+        CHAR(34),'duration',CHAR(34),':',CHAR(34),SUM(route_duration),CHAR(34),'}],[{',
+        CHAR(34),'purchase',CHAR(34),':',CHAR(34),(SELECT SUM(payment_amount) FROM purchase),CHAR(34),'}]]]')
+        FROM order_AB
+        WHERE user_id LIKE '%param9%param'")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %invoke_methodthis.getServletParam().getExtraList().put((java.lang.Object)"report",(java.lang.Object)getServletParam().getParamList().get(20))%invoke_method
+        %invoke_methodthis.writeToXls("report","xls/report_order_summary.xls","ReportOrderSummary;0;!1")%invoke_method
+        {"results":[{"name":"filepath","value":"service/%servicetrash%servicetrashreport_order_summary_%sessionid%sessionid.xls"}],"session_id":"%sessionid%sessionid","status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":"-10","database_message":"%param21%param"}],"session_id":"%sessionid%sessionid","status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":"-1"}],"session_id":"%sessionid%sessionid","status":"ERROR"}
+%endif%endif

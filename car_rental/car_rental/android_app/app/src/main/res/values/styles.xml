@@ -1,0 +1,294 @@
+<resources>
+  <!--button templates values-->
+  <dimen name="button_corner_raduis">5dp</dimen>
+
+  <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <item name="colorPrimary">@color/app_main</item>
+    <item name="colorPrimaryDark">@color/app_main_dark</item>
+    <item name="colorAccent">@color/app_accent</item>
+    <item name="colorControlNormal">@color/app_control</item>
+    <item name="android:textColorSecondary">@color/label_text_dark</item>
+    <item name="actionBarWidgetTheme">@style/Widget.ActionBar</item>
+  </style>
+  <!--app-->
+  <style name="Theme.AppTheme" parent="AppTheme"></style>
+  <!--actionBar-->
+  <style name="Widget.ActionBar" parent="Widget.AppCompat.ActionBar">
+    <!--item name="displayOptions">showHome|homeAsUp|showTitle</item-->
+    <item name="colorControlNormal">@color/app_control</item>
+  </style>
+  <!--toolBar-->
+  <style name="Theme.ToolBar" parent="ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/app_control</item>
+    <item name="android:textColor">@color/app_accent</item>
+    <item name="android:textColorPrimaryInverse">@color/app_main_dark</item>
+  </style>
+
+  <!--button-->
+  <style name="Widget.TransIndigoButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_indigo_900</item>
+    <item name="android:background">@xml/button_trans_indigo</item>
+  </style>
+  <style name="Widget.TransWhiteButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_trans_white</item>
+  </style>
+  <style name="Widget.TransGreyButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_grey_900</item>
+    <item name="android:background">@xml/button_trans_grey</item>
+  </style>
+  <style name="Widget.TransPinkButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_pink_900</item>
+    <item name="android:background">@xml/button_trans_pink</item>
+  </style>
+  <style name="Widget.TransGreenButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_green_900</item>
+    <item name="android:background">@xml/button_trans_green</item>
+  </style>
+  <style name="Widget.IndigoButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_indigo</item>
+  </style>
+  <style name="Widget.Indigo2Button" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:layout_marginRight">5dp</item>
+    <item name="android:background">@xml/button_indigo2</item>
+  </style>
+  <style name="Widget.GreyButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_grey</item>
+  </style>
+  <style name="Widget.DarkGreyButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_dark_grey</item>
+  </style>
+  <style name="Widget.GreenButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_green</item>
+  </style>
+  <style name="Widget.VioletButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/White</item>
+    <item name="android:background">@xml/button_violet</item>
+  </style>
+  <style name="Widget.TransVioletButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_purple_700</item>
+    <item name="android:background">@xml/button_trans_violet</item>
+  </style>
+  <style name="Widget.CancelButton" parent="android:Widget.Button">
+    <item name="android:textColor">@color/md_pink_700</item>
+    <item name="android:layout_marginRight">5dp</item>
+    <item name="android:background">@xml/button_trans_pink</item>
+  </style>
+
+  <!--style_normal-->
+  <style name="Widget.Style.Button" parent="Widget.TransGreyButton"><!--Widget.TransIndigoButton-->
+  </style>
+  <style name="Widget.Style.SignupButton" parent="Widget.DarkGreyButton">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+  </style>
+  <style name="Widget.Style.DemoButton" parent="Widget.GreenButton">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+  </style>
+  <style name="Widget.Style.SaveButton" parent="Widget.DarkGreyButton">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+  </style>
+  <style name="Widget.Style.PaymentButton" parent="Widget.GreenButton">
+    <item name="android:paddingLeft">50dp</item>
+    <item name="android:paddingRight">50dp</item>
+    <item name="android:textColor">@color/label_background_text_dark</item>
+  </style>
+
+  <style name="Widget.Style.GreenTextView" parent="android:Widget.TextView"><!--GREEN-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">22dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_green</item>
+  </style>
+  <style name="Widget.Style.IndigoTextView" parent="android:Widget.TextView"><!--INDIGO-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">22dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_indigo</item>
+  </style>
+  <style name="Widget.Style.GreyTextView" parent="android:Widget.TextView"><!--GREY-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">22dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_grey</item>
+  </style>
+
+  <style name="Widget.Style.PriceTextView" parent="android:Widget.TextView"><!--PRICE-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">32dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_price</item>
+  </style>
+  <style name="Widget.Style.DiscountTextView" parent="android:Widget.TextView"><!--DISCOUNT-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">22dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_discount</item>
+  </style>
+  <style name="Widget.Style.DiscountSmallTextView" parent="android:Widget.TextView"><!--DISCOUNT (small for product list)-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">12dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_discount</item>
+  </style>
+  <style name="Widget.Style.OrderDistanceTextView" parent="android:Widget.TextView"><!--ORDER DISTANCE-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textSize">16dp</item>
+    <item name="android:paddingLeft">10dp</item>
+    <item name="android:paddingRight">10dp</item>
+    <item name="android:background">@color/label_background_banner_dark</item>
+   </style>
+  <style name="Widget.Style.DatetimeTextView" parent="android:Widget.TextView"><!--DATETIME-->
+    <item name="android:textColor">@color/label_background_text_light</item>
+    <item name="android:textSize">12dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_banner</item>
+  </style>
+  <style name="Widget.Style.CallnameTextView" parent="android:Widget.TextView"><!--CALLNAME-->
+    <item name="android:textColor">@color/label_text_light</item>
+    <item name="android:textSize">12dp</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+    <item name="android:background">@color/label_background_banner_light</item>
+  </style>
+  <style name="Widget.Style.ParamTextView" parent="android:Widget.TextView"><!--PARAM (distance,duration,count)-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+  </style>
+  <style name="Widget.Style.ValueTextView" parent="android:Widget.TextView"><!--VALUE-->
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="Widget.Style.StatGreyLabelTextView" parent="Widget.Style.GreyTextView">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+  </style>
+  <style name="Widget.Style.StatGreenLabelTextView" parent="Widget.Style.GreenTextView">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+  </style>
+  <style name="Widget.Style.StatPointTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_light</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    <item name="android:textStyle">italic</item>
+  </style>
+  <style name="Widget.Style.StatParamTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+  </style>
+  <style name="Widget.Style.StatValueTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_dark</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:paddingLeft">5dp</item>
+  </style>
+  <style name="Widget.Style.StatPriceValueTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_light</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+  </style>
+  <style name="Widget.Style.TipTextView" parent="android:Widget.TextView"><!--TIP MESSAGE-->
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:background">@color/label_background_tip</item>
+  </style>
+  <style name="Widget.Style.InputMessageTextView" parent="android:Widget.TextView"><!--INPUT MESSAGE-->
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:background">@color/label_background_tip</item>
+  </style>
+  <style name="Widget.Style.OutputMessageTextView" parent="android:Widget.TextView"><!--OUTPUT MESSAGE-->
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:background">@color/label_background_banner_light</item>
+  </style>
+  <style name="Widget.Style.ProductNameTextView" parent="android:Widget.TextView"><!--PRODUCT NAME-->
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    <item name="android:paddingLeft">10dp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="Widget.Style.ProductDescriptionTextView" parent="android:Widget.TextView"><!--PRODUCT DESCRIPTION-->
+    <item name="android:textColor">@color/label_text_dark</item>
+    <item name="android:textSize">14dp</item>
+    <item name="android:paddingLeft">10dp</item>
+    <item name="android:paddingTop">2dp</item>
+  </style>
+  <style name="Widget.Style.ProductTypeTextView" parent="android:Widget.TextView"><!--PRODUCT TYPE-->
+    <item name="android:textColor">@color/label_text_light</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:textSize">12dp</item>
+    <item name="android:paddingLeft">10dp</item>
+    <item name="android:paddingBottom">10dp</item>
+    <item name="android:paddingTop">2dp</item>
+  </style>
+  <style name="Widget.Style.EditText" parent="android:Widget.EditText"><!--(order destination address)-->
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:editable">false</item>
+    <item name="android:background">@color/label_background_banner_light</item>
+  </style>
+  <!--style name="Widget.Style.AEditText" parent="android:Widget.EditText">
+    <item name="android:textColor">@color/label_text</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:editable">false</item>
+    <item name="android:background"></item>
+  </style-->
+  <!--style name="Widget.Style.BEditText" parent="android:Widget.EditText">
+    <item name="android:textColor">@color/label_text</item>
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:ellipsize">middle</item>
+    <item name="android:editable">false</item>
+    <item name="android:background"></item>
+  </style-->
+
+  <!--style_easy-->
+  <style name="Widget.EasyStyle.Button" parent="Widget.DarkGreyButton">
+    <item name="android:textColor">@color/label_background_text_dark</item>
+  </style>
+  <style name="Widget.EasyStyle.LargeTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textSize">24dp</item>
+    <!--item name="android:textStyle">bold</item-->
+  </style>
+  <style name="Widget.EasyStyle.MiddleTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textSize">20dp</item>
+    <!--item name="android:textStyle">bold</item-->
+  </style>
+  <style name="Widget.EasyStyle.SmallTextView" parent="android:Widget.TextView">
+    <item name="android:textColor">@color/label_text_large</item>
+    <item name="android:textSize">14dp</item>
+  </style>
+
+  <!--dialog-->
+  <style name="AlertDialogCustom" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="android:textColor">@color/md_white_1000</item>
+    <item name="android:background">@color/label_background_dark_grey</item>
+    <item name="colorControlNormal">@color/md_grey_400</item>
+    <item name="colorControlActivated">@color/md_grey_300</item>
+    <item name="colorAccent">@color/md_grey_400</item>
+  </style>
+</resources>

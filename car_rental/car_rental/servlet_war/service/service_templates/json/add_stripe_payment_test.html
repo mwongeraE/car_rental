@@ -1,0 +1,43 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+  %set_param7=@this.getExtra("token_id")%set_param
+  %set_param8=@this.getExtra("user_id")%set_param
+  %set_param9=@this.getExtra("order_id")%set_param
+  %set_param10=@this.getExtra("amount")%set_param
+  %set_param11=@this.getExtra("currency")%set_param
+
+  %set_param12=@autozvit.com.stripe.Payment.createCharge("sk_test_m3BxgWTbYOQY5WgRpeWAH9Do","%param7%param","%param10%param","%param11%param","%param9%param")%set_param
+  %set_param13=@autozvit.com.stripe.Payment.getStatus("%param12%param")%set_param
+
+  %if "param13='SUCCESS'" %if
+    %set_param20=SELECT add_purchase("paymaster","",?8,null,null,-1,-1,?9,null,'payment by card',null,null,1,null,null,Now(),?12,(?10)/100)%set_param
+    %set_param20=SELECT add_payment("paymaster","",?20,(?10)/100,?11,?12,?13,null,null)%set_param
+    %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+  %elseif%elseif
+    %invoke_methodthis.setParam(21,"2")%invoke_method
+  %endif%endif
+
+  %if "param21>0" %if
+
+    %if "param21=1" %if
+      %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+      {"results":[{"message":"Update data failed","message_code":-11,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+
+    %if "param21=2" %if
+      %set_param21=@autozvit.com.stripe.Payment.getMessage("%param12%param")%set_param
+      {"results":[{"message":"Payment failed","message_code":-12,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+
+  %elseif%elseif
+    %if "param20>-1" %if
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+    %elseif%elseif
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+  %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

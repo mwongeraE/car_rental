@@ -1,0 +1,628 @@
+<!--content-->
+<div id="div_user_deactivated">
+  <center>
+  <img id="img_user_deactivated" src="" class="img-responsive" alt="USER_DEACTIVATED">
+  <h1 id="text_user_deactivated">User deactivated</h1>
+  </center>
+</div>
+<!--ORDER-->
+<div class="templatemo-content-widget templatemo-login-widget light-gray-bg" id="div_order">
+  <header class="text-center">
+    <h1 id="text_name">Order</h1>
+  </header>
+  <form action="" onsubmit="return sendOrder();" class="templatemo-login-form">
+    <!--FROM_TO-->
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i>&nbsp;A</div>
+        <input type="text" id="input_address_A" class="form-control col-sm-6" placeholder="From">
+      </div>
+    </div>
+    <div class="details_address_A"><span data-geo="formatted_address"/>&nbsp;<span data-geo="country_short"/>&nbsp;<span data-geo="lat"/>&nbsp;<span data-geo="lng"/></div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i>&nbsp;B</div>
+        <input type="text" id="input_address_B" class="form-control col-sm-6" placeholder="To">
+      </div>
+    </div>
+    <div class="details_address_B"><span data-geo="formatted_address"/>&nbsp;<span data-geo="country_short"/>&nbsp;<span data-geo="lat"/>&nbsp;<span data-geo="lng"/></div>
+    <br>
+    <!--TIME-->
+    <div class="well well-sm">
+      <label id="text_time">Order on time</label>
+      <div class="row form-group">
+        <div class="form-group">
+          <div class='col-sm-8'>
+            <div class="margin-right-15 templatemo-inline-block">
+              <div class="form-group">
+                <div class="input-group date" id="div_datetimepicker">
+                  <input type="text" id="input_datetime" class="form-control" placeholder="Fast as service can"/>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--PRODUCT-->
+    <div class="well well-sm">
+      <label id="text_product">Product</label>
+      <!--select id="select_manufacture" onchange="showProduct();showProductType();" class="form-control">
+      </select-->
+      <select id="select_product" onchange="showProductType();" class="form-control">
+      </select>
+      <br>
+      <div id="div_product_param">
+        <div class="row form-group">
+          <div class="col-lg-6 form-group">
+            <div class="margin-right-15 templatemo-inline-block">
+              <div id="div_param">
+              <input type="checkbox" id="input_product_param" value="">
+              <label class="font-weight-400"><span></span><b id="text_product_param"></b></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="div_product_param_list"></div>
+      <div id="div_product_type"></div>
+      <div id="div_product_discount"></div>
+      <div id="div_user_discount"></div>
+      <div id="div_call_phone">
+        <!--CALL_PHONE-->
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-phone fa-fw"></i></div>
+              <input type="text" id="input_call_phone" class="form-control col-sm-6" placeholder="Call phone">
+          </div>
+        </div>
+      </div>
+      <div id="div_calculate"></div>
+      <div id="div_message"></div>
+      <div id="div_error_message"><center><h4 id="text_error_message" style="color:red"></h4></center></div>
+      <div id="div_loading"><center><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:buttonface;"></i></center></div>
+    </div>
+    <div class="col-lg-12 form-group">
+      <input type="button" id="input_calculate" onclick="calculate();" class="templatemo-blue-button" value="Calculate">
+      <input type="submit" id="input_send_order" class="templatemo-blue-button" value="Send">
+    </div>
+  </form>
+</div>
+<!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  $("#div_user_deactivated").hide();
+  $("#div_product_param").hide();
+  $("#div_call_phone").hide();
+
+  $("#img_user_deactivated").attr("src",picture_cancel);
+
+  var product_type_list=[],product_param_list=[];
+  var route_amount=null;
+  function productParam(){
+    this.id=null;
+    this.value=null;
+    this.price=null;
+  }
+  function getData(language){
+    $("#text_error_message").empty();
+    /*NOT BLOCKING MORE THEN THREE ORDER BY HOUR FOR USER(in function)*/
+    fa.offset=null;fa.rows=null;
+    var product=new faProduct();
+    product.id="%";/*all products*/
+    fa.product_list.length=0;
+    fa.getProduct(product,language,null,null,"#text_error_message",null);
+    /*fa.getDiscount() NOT USE ADDITIONAL DISCOUNT FOR PRODUCT TYPE IN discount.product_type_id*/
+
+    /*if exist*/
+    if($("#select_manufacture").length){
+      var manufacture=new faManufacture();
+      manufacture.id="%";/*all manufactures*/
+      fa.manufacture_list.length=0;
+      fa.getManufacture(manufacture,language,"#text_error_message",null);
+    }
+
+    $(document).one("ajaxStop",function(){
+      showManufacture();
+      showProduct();
+      showProductType();
+      showUserDiscount();
+      if(current_user!==null&&parseInt(current_user.active)!==1){
+        $("#div_user_deactivated").show();
+        $("#div_order").hide();
+      }
+    });
+  }
+  function showManufacture(){
+    if(fa.manufacture_list.length>0){
+      var j,k,manufacture,attr;
+      $("#select_manufacture").empty();
+
+      for(j=0;j<fa.manufacture_list.length;j++){
+        manufacture=fa.manufacture_list[j];
+
+        var manufacture_id=manufacture.id,title,about;
+        if(manufacture.attr_list.length>0){
+          title="";about="";
+          for(k=0;k<manufacture.attr_list.length;k++){
+            attr=manufacture.attr_list[k];
+            if(attr.name==="title")title=attr.value;
+            else if(attr.name==="about")about=attr.value;
+          }
+        }
+        else{
+          title=manufacture.name;
+          about=manufacture.description;
+        }
+
+        $("#select_manufacture").append("<option value="+manufacture_id+">"+title+(about!==""?" ("+about+") ":about)+"</option>");
+      }
+    }
+  }
+  function showProduct(){
+    var manufacture_id=-1;
+    /*if exist*/
+    if($("#select_manufacture").length){
+      var index=$("#select_manufacture option:selected").index();
+      /*var index=document.getElementById('select_manufacture').selectedIndex;*/
+      if(index>=0)manufacture_id=fa.manufacture_list[index].id;
+    }
+    product_type_list.length=0;
+    product_param_list.length=0;
+    $("#select_product").empty();
+    $("#div_product_type").empty();
+    $("#div_product_discount").empty();
+    $("#div_product_param_list").empty();
+    $("#div_calculate").empty();
+    if(fa.product_list.length>0){
+      var j,k,product,attr,type,param;
+      for(j=0;j<fa.product_list.length;j++){
+        product=fa.product_list[j];
+        if(parseInt(product.stock_count)>0){
+          var product_id=product.id,title,about,price=product.price;
+          if(product.attr_list.length>0){
+            title="";about="";
+            for(k=0;k<product.attr_list.length;k++){
+              attr=product.attr_list[k];
+              if(attr.name==="title")title=attr.value;
+              else if(attr.name==="about")about=attr.value;
+            }
+          }
+          else{
+            title=product.name;
+            about=product.description;
+          }
+
+          /*if manufacture product exist*/
+          if(parseInt(manufacture_id)<0||parseInt(manufacture_id)===parseInt(product.manufacture_id)){
+            $("#select_product").append("<option value="+product_id+">"+title+(about!==""?" ("+about+") ":about)+price+"&nbsp;"+currency_title+"</option>");
+
+            if(product.type_list.length>0){
+              var l,s="";
+              for(k=0;k<product.type_list.length;k++){
+                type=product.type_list[k];
+                if(type.attr_list.length>0){
+                  title="";about="";
+                  for(l=0;l<type.attr_list.length;l++){
+                    attr=type.attr_list[l];
+                    if(attr.name==="title")title=attr.value;
+                    else if(attr.name==="about")about=attr.value;
+                  }
+                  s+=title+(about!==""?" ("+about+") ":about)+price+"&nbsp;";
+                }
+                else{
+                  s+=type.name+(type.description!==""?" ("+type.description+") ":type.description)+price+"&nbsp;";
+                }
+              }
+              product_type_list.push(s);
+            }
+            else{
+              product_type_list.push(null);
+            }
+
+            if(product.param_list.length>0){
+              var l,s="",value,param_list=[],product_param;
+              for(k=0;k<product.param_list.length;k++){
+                param=product.param_list[k];
+                value=(param.value!==""?" ["+param.value+"]":
+                      (param.product_param.value!==""?" ["+param.product_param.value+"]":""));
+                if(param.product_param.attr_list.length>0){
+                  title="";
+                  for(l=0;l<param.product_param.attr_list.length;l++){
+                    attr=param.product_param.attr_list[l];
+                    if(attr.name==="title")title=attr.value;
+                  }
+                  s=title+value+"&nbsp;"+param.price;
+                }
+                else{
+                  s=param.product_param.name+value+"&nbsp;"+param.price;
+                }
+                product_param=new productParam();
+                product_param.id=param.product_param.id;
+                product_param.value=s;
+                product_param.price=param.price;
+                param_list.push(product_param);
+              }
+              product_param_list.push(param_list);
+            }
+            else{
+              product_param_list.push(null);
+            }
+          }
+        }
+      }
+      /*$("#select_product option").each(function(){
+        $(this).append("&nbsp;"+currency_title);
+      });*/
+    }
+  }
+  function showProductType(){
+    $("#div_calculate").empty();
+    $("#div_product_discount").empty();
+    $("#div_product_type").empty();
+    var index=$("#select_product option:selected").index();
+    /*var index=document.getElementById('select_product').selectedIndex;*/
+    var product=null;
+
+    if(index!==-1){
+      /*product type*/
+      if(product_type_list.length>index&&product_type_list[index]!==null){
+        $("#div_product_type").html(product_type_list[index]+"<b> "+currency_title+"</b><i> "+currency_about+"</i>");
+      }
+      showProductParam(index);
+      var product_id=$("#select_product").val();
+      product=getProductById(product_id);
+    }
+
+    if(product!==null){
+      /*product_discount*/
+      if(product.discount){
+        var curr_time=new Date().getTime(),is_actual=true;
+        if(product.discount.start_date.length>0&&product.discount.finish_date.length>0){
+          if(curr_time<parseMySQLDatetime(product.discount.start_date).getTime()||
+             curr_time>parseMySQLDatetime(product.discount.finish_date).getTime())is_actual=false;
+        }
+        if(is_actual){
+          var k,attr,title="",about="";
+          if(product.discount.attr_list.length>0){
+            for(k=0;k<product.discount.attr_list.length;k++){
+              attr=product.discount.attr_list[k];
+              if(attr.name==="title")title=attr.value;
+              else if(attr.name==="about")about=attr.value;
+            }
+          }
+          if(title.length===0)title=product.discount.name;
+          title.length>0?title="<big><u>"+title+"</u></big>"+(about!==""?" ("+about+") ":about):"";
+          $("#div_product_discount").html("<h3>"+getMessage(fa.language,1095)+"</h3>"+title+"<h5>"+
+                                           getDiscountByType(fa.product_list[index].discount.type,fa.product_list[index].discount.value,fa.language,currency_title)+"</h5>");
+        }
+      }
+    }
+  }
+  function showProductParam(index){
+    $("#div_product_param_list").empty();
+    if(product_param_list.length>index){
+      var param_list=product_param_list[index];
+      if(param_list!==null&&param_list.length>0){
+        var $clone=$("#div_product_param").clone();
+        var $clone_param=$clone.find("#div_param").clone();
+        $clone.empty();
+        var j;
+        for(j=0;j<param_list.length;j++){
+          var param=param_list[j];
+          var $clone_param_temp=$clone_param.clone();
+          $clone_param_temp.find("#text_product_param").html(param.value+"&nbsp;"+currency_title);
+          $clone_param_temp.find("#input_product_param").attr("value",param.id);
+          $clone_param_temp.find("#input_product_param").attr("id","input_product_param_"+param.id);
+          $clone_param_temp.find("label").attr("for","input_product_param_"+param.id);
+          $clone.append($clone_param_temp.html());
+        }
+        $("#div_product_param_list").append($clone.html());
+      }
+    }
+  }
+  function showUserDiscount(){
+    $("#div_user_discount").empty();
+    if(fa.user_list.length>0){
+      if(fa.username===DEFAULT_USERNAME)$("#div_call_phone").show();
+      else{
+        var user=fa.user_list[0];
+        if(user.discount){
+          var curr_time=new Date().getTime(),is_actual=true;
+          if(user.discount.start_date.length>0&&user.discount.finish_date.length>0){
+            if(curr_time<parseMySQLDatetime(user.discount.start_date).getTime()||
+               curr_time>parseMySQLDatetime(user.discount.finish_date).getTime())is_actual=false;
+          }
+          if(is_actual)
+            $("#div_user_discount").html("<h3>"+getMessage(fa.language,1096)+"</h3><h5>"+
+                                          getDiscountByType(user.discount.type,user.discount.value,fa.language,currency_title)+"</h5>");
+        }
+      }
+    }
+  }
+  /*calculate*/
+  function calculate(){
+    fa.order_route_list.length=0;
+    var product_id=$("#select_product").val();
+    var product=getProductById(product_id);
+    if(product!==null){
+      var j,list=product.type_list,type_id;
+      var need_calc=false;
+      for(j=0;j<list.length;j++){
+        type_id=list[j].id;
+        if(isCalculationTypeId(parseInt(type_id))){
+          need_calc=true;break;
+        }
+      }
+      if(!need_calc){afterCalculate();return;}
+    }
+    var from=$("#input_address_A").val().trim();
+    var to=$("#input_address_B").val().trim();
+    if(from.length===0){
+      $("#input_address_A").focus();return;
+    }
+    if(to.length===0){
+      $("#input_address_B").focus();return;
+    }
+    $("#text_error_message").empty();
+    $("#div_calculate").empty();
+    $("#div_loading").show();
+    route_amount=0;
+
+    if(fa.map_provider===MAP_PROVIDER_GOOGLE)fa.routeGoogle(from,to,"#text_error_message",afterCalculate);
+    else if(fa.map_provider===MAP_PROVIDER_YANDEX)fa.routeYandex(from,to,"#text_error_message",afterCalculate);
+  }
+  function afterCalculate(){
+    $("#div_loading").hide();
+    var order_route=fa.order_route_list.length>0?fa.order_route_list[0]:null;
+    if(order_route!==null){
+      $("#div_calculate").html("<h3>"+getMessage(fa.language,1094)+"</h3>"+getMessage(fa.language,1091)+": "+order_route.distanceText+"&nbsp;"+getMessage(fa.language,1092)+": "+order_route.durationText);
+    }
+    var distance=order_route!==null?order_route.distance:0;/*0-for product_type!==1*/
+    if(distance!==null){
+      var product_id=$("#select_product").val();
+      var product=getProductById(product_id);
+      if(product===null)return;
+      var price=parseFloat(product.price);
+      var amount=distance>0?(price*distance)/1000:price;
+      var s="";
+      /*product_param price add to amout*/
+      var index=$("#select_product option:selected").index();
+      /*var index=document.getElementById('select_product').selectedIndex;*/
+      if(product_param_list.length>index){
+        param_list=product_param_list[index];
+        if(param_list&&param_list.length>0){
+          var j;
+          for(j=0;j<param_list.length;j++){
+            var param=param_list[j];
+            if($("#div_product_param_list").find("#input_product_param_"+param.id).prop("checked")){/*.is(":checked")*/
+              amount+=parseInt(param.price);
+              s+=param.value+"&nbsp;"+currency_title+"&nbsp;";
+            }
+          }
+        }
+      }
+      /*product_discount*/
+      if(product.discount){
+        var curr_time=new Date().getTime(),is_actual=true;
+        if(product.discount.start_date.length>0&&product.discount.finish_date.length>0){
+          if(curr_time<parseMySQLDatetime(product.discount.start_date).getTime()||
+             curr_time>parseMySQLDatetime(product.discount.finish_date).getTime())is_actual=false;
+        }
+        if(is_actual)amount=fa.getDiscountPrice(product.discount.type,product.discount.value,amount);
+      }
+      /*user_discount*/
+      if(fa.user_list.length>0){
+        var user=fa.user_list[0];
+        if(user.discount){
+          var curr_time=new Date().getTime(),is_actual=true;
+          if(user.discount.start_date.length>0&&user.discount.finish_date.length>0){
+            if(curr_time<parseMySQLDatetime(user.discount.start_date).getTime()||
+               curr_time>parseMySQLDatetime(user.discount.finish_date).getTime())is_actual=false;
+          }
+          if(is_actual)amount=fa.getDiscountPrice(user.discount.type,user.discount.value,amount);
+        }
+      }
+      amount=amount.toFixed(2);
+      /*route_amount*/
+      $("#div_calculate").append("<h3>"+getMessage(fa.language,1093)+"</h3>"+(s.length>0?"<h5>"+s+"</h5>":"")+
+        "<h1><b>"+amount+"</b> "+currency_title+"</h1><i>"+currency_about+"</i>");
+      route_amount=amount;
+    }
+  }
+  /*send order*/
+  function sendOrder(){
+    if(fa.user_list.length>0){
+      var user=fa.user_list[0];
+      if(user.username===DEFAULT_USERNAME){
+        var input_call_phone=document.getElementById('input_call_phone');
+        var call_phone=input_call_phone.value.trim();
+        if(call_phone.length===0||!isPhone(call_phone)){input_call_phone.focus();return false;}
+        var user=new faUser();
+        user.username=call_phone;
+        user.password="";
+        user.phone=call_phone;
+        user.call_name=call_phone;
+        fa.addUser(user,"#text_error_message",afterRegister);
+      }
+      else addOrder(user.id);
+    }
+    return false;/*always false*/
+  }
+  function afterRegister(){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+        fa.username=DEFAULT_USERNAME;fa.password=DEFAULT_PASSWORD;
+      }
+      else if(ret_val.status==="SUCCESS"){
+        $("#div_message").html('UserId='+ret_val.value);
+        /*update new current username*/
+        var input_call_phone=document.getElementById('input_call_phone');
+        var call_phone=input_call_phone.value;
+        var encode_password=encodeData(call_phone,"");
+        setCookie(call_phone,encode_password,365);
+        setCookie(COOKIE_CURRENT_USER,call_phone,365);
+        fa.username=call_phone;fa.password="";
+        updateHeaderLanguage(fa.language);/*getUser*/
+        addOrder(ret_val.value);
+      }
+    }
+  }
+  function addOrder(user_id){
+    var order_route=fa.order_route_list.length>0?fa.order_route_list[0]:null;
+    var order=new faOrderAB();
+    order.user_id=user_id;
+    order.transport_id=-1;
+    order.total_price=route_amount;
+    order.route_distance=order_route!==null?order_route.distance:-1;
+    order.route_duration=order_route!==null?order_route.duration:-1;
+    order.route_data=order_route!==null?order_route.data:null;
+    order.order_lat=order_route!==null?order_route.startLocationLat:null;
+    order.order_lon=order_route!==null?order_route.startLocationLon:null;
+    order.order_address=$("#input_address_A").val().trim();
+    order.delivery_lat=order_route!==null?order_route.finishLocationLat:null;
+    order.delivery_lon=order_route!==null?order_route.finishLocationLon:null;
+    order.delivery_address=$("#input_address_B").val().trim();
+    order.delivery_type_id=1;/*owner service*/
+    var date=$("#input_datetime").val().trim();/*value without sec*/
+    date=date.length>0?toMySQLDatetimeString(date):"";
+    order.reserved_date=date;
+    order.reserved_hours=-1;
+    fa.addOrderAB(order,"#text_error_message",afterOrder);
+  }
+  function afterOrder(){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        $("#div_message").html('OrderId='+ret_val.value);
+        var product_id=$("#select_product").val();
+        var product=getProductById(product_id);
+        if(product!==null){
+          addOrderPart(ret_val.value,product.id,product.price);
+        }
+      }
+    }
+  }
+  function addOrderPart(order_id,product_id,product_price){
+    var order_part=new faOrderABPart();
+    order_part.order_id=order_id;
+    order_part.product_id=product_id;
+    order_part.product_count=1;
+    order_part.total_price=product_price;
+    fa.addOrderABPart(order_part,"#text_error_message",afterOrderPart,order_part);
+  }
+  function afterOrderPart(order_part){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        var index=$("#select_product option:selected").index();
+        /*var index=document.getElementById('select_product').selectedIndex;*/
+        /*order product_param save*/
+        if(product_param_list.length>index){
+          param_list=product_param_list[index];
+          if(param_list&&param_list.length>0){
+            var j;
+            for(j=0;j<param_list.length;j++){
+              var param=param_list[j];
+              if($("#div_product_param_list").find("#input_product_param_"+param.id).prop("checked")){/*.is(":checked")*/
+                var order_product_param_part=new faOrderABProductParamPart();
+                order_product_param_part.order_id=order_part.order_id;
+                order_product_param_part.product_id=order_part.product_id;
+                order_product_param_part.product_param_id=param.id;
+                order_product_param_part.count=1;/*take one*/
+                order_product_param_part.price=param.price;
+                fa.addOrderABProductParamPart(order_product_param_part,"#text_error_message",null);
+              }
+            }
+          }
+        }
+        $(document).one("ajaxStop",function(){
+          var list=fa.ret_val_list;
+          if(list.length>0){
+            var ret_val=list[list.length-1];
+            if(ret_val.status==="ERROR"){
+            }
+            else if(ret_val.status==="SUCCESS"){
+              if(ORDER_CALLBACK)eval(ORDER_CALLBACK);
+              else gotoCabinet();
+            }
+          }
+        });
+      }
+    }
+  }
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var input_address_A=document.getElementById('input_address_A');
+    var input_address_B=document.getElementById('input_address_B');
+    var input_datetime=document.getElementById('input_datetime');
+    var input_call_phone=document.getElementById('input_call_phone');
+
+    var text_name=document.getElementById('text_name');
+    var text_time=document.getElementById('text_time');
+    var text_product=document.getElementById('text_product');
+    var input_calculate=document.getElementById('input_calculate');
+    var input_send_order=document.getElementById('input_send_order');
+
+    var text_user_deactivated=document.getElementById('text_user_deactivated');
+
+    /*objects*/
+    input_address_A.placeholder=getMessage(language,1081);
+    input_address_B.placeholder=getMessage(language,1082);
+    input_datetime.placeholder=getMessage(language,1083);
+    input_call_phone.placeholder=getMessage(language,1097);
+
+    input_address_A.title=getMessage(language,1081);
+    input_address_B.title=getMessage(language,1082);
+    input_datetime.title=getMessage(language,1083);
+
+    /*captions*/
+    text_name.innerHTML="&nbsp;"+getMessage(language,1084);
+    text_time.innerHTML=getMessage(language,1085);
+    text_product.innerHTML=getMessage(language,1086);
+    input_calculate.value=getMessage(language,1087);
+    input_calculate.title=getMessage(language,1088);
+    input_send_order.value=getMessage(language,1089);
+    input_send_order.title=getMessage(language,1090);
+
+    text_user_deactivated.innerHTML=getMessage(language,1402);
+
+    /*super objects*/
+    var $clone=$("#div_datetimepicker").clone();
+    $clone.datetimepicker({language:getLanguageCode(language),format:'DD.MM.YYYY HH:mm'});
+    $("#div_datetimepicker").html($clone);
+
+    getData(language);
+  }
+  updateContentLanguage(fa.language);
+  $(document).ajaxStart(function(){$("#div_loading").show();}).ajaxStop(function(){$("#div_loading").hide();});
+</script>
+<script src="js/jquery.geocomplete.js"></script>
+<script>
+  /*geocomplete places*/
+  if(fa.map_provider===MAP_PROVIDER_GOOGLE&&GOOGLE_API_KEY!=="")
+  $(function(){
+    $("#input_address_A").geocomplete({
+      details: ".details_address_A",
+      detailsAttribute: "data-geo"
+      /*country: 'UK'*/
+    });
+    $("#input_address_B").geocomplete({
+      details: ".details_address_B",
+      detailsAttribute: "data-geo"
+      /*country: 'US'*/
+    });
+  });
+</script>

@@ -1,0 +1,12 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+  %set_param7=@this.getExtra("picture_id")%set_param
+  %set_param8=@this.getExtra("object_name")%set_param
+  <html>
+  <head><title>object_name=%param8%param pictire_id=%param7%param</title></head>
+  <body>
+    <img sql="SELECT CONCAT('%param8%param_%sessionid%sessionid_',id),FROM_BASE64(picture) FROM %param8%param WHERE id=%param7%param">
+    </body>
+  </html>
+%endif%endif

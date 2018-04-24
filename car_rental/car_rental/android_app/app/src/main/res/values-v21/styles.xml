@@ -1,0 +1,16 @@
+<resources>
+
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/app_main</item>
+    <item name="colorPrimaryDark">@color/app_main_dark</item>
+    <item name="colorAccent">@color/app_accent</item>
+    <item name="android:textColorSecondary">@color/label_text_dark</item>
+    <!--for colors nav drawer==status bar-->
+    <!--item name="android:windowDrawsSystemBarBackgrounds">true</item-->
+  </style>
+
+  <style name="Theme.AppTheme" parent="AppTheme">
+    <item name="android:statusBarColor">@android:color/transparent</item>
+  </style>
+
+</resources>

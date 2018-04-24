@@ -1,0 +1,110 @@
+  <header class="main-header">
+    <!--247-->
+    <a href="http://247.autozvit.com" class="logo">
+      <span class="logo-mini">247</span>
+      <span class="logo-lg"><b>247</b></span>
+    </a>
+    <!--HEADER_MENU-->
+    <nav class="navbar navbar-static-top">
+      <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li><a type="button" onclick="javascript:dbMenuLogin();"><i class="fa fa-sign-in"></i></a></li>
+          <li><a type="button" onclick="javascript:dbMenuRegister();"><i class="fa fa-pencil"></i></a></li>
+          <li><a type="button" onclick="javascript:dbMenuMessages();" id="HEADER_MENU_MESSAGE_COUNT"><i class="fa fa-envelope"></i><span class="label label-success">0</span></a></li>
+          <li><a type="button" onclick="javascript:dbMenuAudit();" id="HEADER_MENU_AUDIT_COUNT"><i class="fa fa-bell"></i><span class="label label-info">0</span></a></li>
+          <!--LANGUAGE-->
+          <li class="dropdown tasks-menu">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" id="select_language">English</a>
+            <ul class="dropdown-menu">
+              <li>
+                <ul class="menu">
+                  <li><a href="javascript:updateLanguage('ENGLISH','English');"><h3>English</h3></a></li>
+                  <li><a href="javascript:updateLanguage('RUSSIAN','Русский');"><h3>Русский</h3></a></li>
+                  <li><a href="javascript:updateLanguage('UKRAINIAN','Українська');"><h3>Українська</h3></a></li>
+                  <li><a><h3>Français</h3></a></li>
+                  <li><a><h3>Deutsch</h3></a></li>
+                  <li><a><h3>Italiano</h3></a></li>
+                  <li><a><h3>Português</h3></a></li>
+                  <li><a><h3>Español</h3></a></li>
+                  <li><a><h3>Polski</h3></a></li>
+                  <li><a><h3>Српски</h3></a></li>
+                </ul>
+              </li>
+             </ul>
+          </li>
+          <!--USER-->
+          <li class="dropdown user user-menu">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" id="button_menu_dropdown">247</a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="" class="img-circle" alt="User Image" id="HEADER_MENU_USER_IMAGE">
+                <p id="HEADER_MENU_USERNAME">User</p>
+              </li>
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center"></div>
+                  <div class="col-xs-4 text-center"><a href="javascript:dbMenuBooking();" id="HEADER_MENU_BOOKING_LINK">Booking</a></div>
+                  <div class="col-xs-4 text-center"></div>
+                </div>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left"><a href="javascript:dbMenuProfile();" class="btn btn-default btn-flat" id="HEADER_MENU_PROFILE_BUTTON">Profile</a></div>
+                <div class="pull-right"><a href="javascript:dbMenuSummary();" class="btn btn-default btn-flat" id="HEADER_MENU_SUMMARY_BUTTON">Summary</a></div>
+              </li>
+            </ul>
+          </li>
+         </ul>
+      </div>
+    </nav>
+  </header>
+
+<!--js-->
+<script type="text/javascript">
+  function removeCurrentUser(){
+    setCookie(COOKIE_CURRENT_USER,"",0);
+    setCookie(COOKIE_CURRENT_TOKEN,"",0);
+    faInit();
+    /*gotoStart();*/
+    location.href=window.location.pathname;
+    updateHeaderLanguage(fa.language);
+  }
+  function updateLanguage(language,lang_view){
+    setCookie(COOKIE_LANGUAGE,language,365);
+    fa.language=language;
+    $("#select_language").html(lang_view);
+    dbUpdateContentLanguage(language);
+    if(typeof(updateContentLanguage)!=='undefined')updateContentLanguage(language);
+    updateHeaderLanguage(language);
+    getCurrency(language);
+    getOrderStatusAttrPart(language);
+    /*re-init map provider*/
+    /*$('script').last().remove(); - cannot remove content of script*/
+    /*getMapProvider(language);*/
+  }
+  function updateHeaderLanguage(language){
+    $("#HEADER_MENU_SUMMARY_BUTTON").html(getMessage(language,20601));
+    $("#HEADER_MENU_PROFILE_BUTTON").html(getMessage(language,20602));
+    $("#HEADER_MENU_BOOKING_LINK").html(getMessage(language,20605));
+
+    if(fa.user_list.length>0&&fa.user_list[0])$(HEADER_MENU_USERNAME).html(fa.user_list[0].username);
+  }
+  function showLanguage(language){
+    var lang_view;
+    if(language===LANGUAGE_NAME_ENGLISH)lang_view='English';
+    else if(language===LANGUAGE_NAME_RUSSIAN)lang_view='Русский';
+    else if(language===LANGUAGE_NAME_UKRAINIAN)lang_view='Українська';
+    else if(language===LANGUAGE_NAME_FRENCH)lang_view='Français';
+    else if(language===LANGUAGE_NAME_GERMAN)lang_view='Deutsch';
+    else if(language===LANGUAGE_NAME_ITALIAN)lang_view='Italiano';
+    else if(language===LANGUAGE_NAME_PORTUGAL)lang_view='Português';
+    else if(language===LANGUAGE_NAME_SPANISH)lang_view='Español';
+    else if(language===LANGUAGE_NAME_POLISH)lang_view='Polski';
+    else if(language===LANGUAGE_NAME_SERBIAN)lang_view='Српски';
+    $("#select_language").html(lang_view);
+  }
+  showLanguage(fa.language);
+  updateHeaderLanguage(fa.language);
+</script>

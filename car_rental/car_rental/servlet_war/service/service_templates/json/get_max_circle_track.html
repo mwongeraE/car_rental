@@ -1,0 +1,53 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=SELECT id FROM user WHERE username=?0%set_param
+
+      %set_param8=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT CAST(CONCAT('{',
+        CHAR(34),'track_id',CHAR(34),':',t.id,',',
+        CHAR(34),'user_id',CHAR(34),':',u.id,',',
+        CHAR(34),'sensor_id',CHAR(34),':',t.sensor_id,',',
+        CHAR(34),'sensor',CHAR(34),':[',get_sensor(t.sensor_id,'%param8%param'),'],',
+        CHAR(34),'transport_id',CHAR(34),':',IFNULL(tr.id,'null'),',',
+        CHAR(34),'transport',CHAR(34),':[',IF(tr.id IS NULL,'',get_transport(tr.id,'%param8%param')),'],',
+        CHAR(34),'type_id',CHAR(34),':',tt.id,',',
+        CHAR(34),'type_name',CHAR(34),':',CHAR(34),tt.name,CHAR(34),',',
+        CHAR(34),'type_attr',CHAR(34),':[',get_attr_part(t.track_type_id,'track_type','%param8%param'),'],',
+        CHAR(34),'track_part',CHAR(34),':[',get_track_part(t.id,'%param8%param'),'],',                
+        CHAR(34),'latitude',CHAR(34),':',t.latitude,',',
+        CHAR(34),'longitude',CHAR(34),':',t.longitude,',',
+        CHAR(34),'track_time',CHAR(34),':',IFNULL(t.time,'null'),',',
+        CHAR(34),'altitude',CHAR(34),':',IFNULL(t.altitude,'null'),',',
+        CHAR(34),'accuracy',CHAR(34),':',IFNULL(t.accuracy,'null'),',',
+        CHAR(34),'bearing',CHAR(34),':',IFNULL(t.bearing,'null'),',',
+        CHAR(34),'speed',CHAR(34),':',IFNULL(t.speed,'null'),',',
+        CHAR(34),'satellites',CHAR(34),':',IFNULL(t.satellites,'null'),',',
+        CHAR(34),'battery',CHAR(34),':',IFNULL(t.battery,'null'),',',
+        CHAR(34),'timezone_offset',CHAR(34),':',IFNULL(t.timezone_offset,'null'),',',        
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),t.create_date,CHAR(34),'}') AS CHAR)
+        FROM track t,track_type tt,sensor s LEFT JOIN transport tr ON tr.sensor_id=s.id,user u
+        WHERE t.id IN (SELECT MAX(t.id) from track t,(
+                       SELECT sensorA_id as id FROM sensor_circle WHERE sensorB_id IN (SELECT id FROM sensor WHERE user_id=%param7%param)
+                       UNION SELECT id FROM sensor WHERE user_id=%param7%param
+                      ) s WHERE t.sensor_id=s.id GROUP BY s.id)
+        AND t.track_type_id=tt.id AND t.sensor_id=s.id AND s.user_id=u.id",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        {"results":[%param20%param],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

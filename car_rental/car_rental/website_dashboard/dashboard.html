@@ -1,0 +1,1317 @@
+<!--content-->
+
+  <!--SIDEBAR-->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <br>
+      <!--menu-->
+      <ul class="sidebar-menu">
+
+        <li class="active" id="SIDEBAR_MENU_SUMMARY">
+          <a href="javascript:dbMenuSummary();">
+            <i class="fa fa-bar-chart"></i> <span id="SIDEBAR_MENU_SUMMARY_NAME">Summary</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right" id="SIDEBAR_MENU_SUMMARY_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_PROFILE">
+          <a href="javascript:dbMenuProfile();">
+            <i class="fa fa-user"></i> <span id="SIDEBAR_MENU_PROFILE_NAME">Profile</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_PROFILE_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_AUDIT">
+          <a href="javascript:dbMenuAudit();">
+            <i class="fa fa-bell"></i> <span id="SIDEBAR_MENU_AUDIT_NAME">Audit</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_AUDIT_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_MESSAGES">
+          <a href="javascript:dbMenuMessages();">
+            <i class="fa fa-envelope"></i> <span id="SIDEBAR_MENU_MESSAGES_NAME">Messages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_MESSAGES_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_BOOKING">
+          <a href="javascript:dbMenuBooking();">
+            <i class="fa fa-book"></i> <span id="SIDEBAR_MENU_BOOKING_NAME">Booking</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_BOOKING_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_SALES">
+          <a href="javascript:dbMenuSales();">
+            <i class="fa fa-check"></i> <span id="SIDEBAR_MENU_SALES_NAME">Sales</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_SALES_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_ORDERS">
+          <a href="javascript:dbMenuOrders();">
+            <i class="fa fa-shopping-cart"></i> <span id="SIDEBAR_MENU_ORDERS_NAME">Orders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_ORDERS_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_TRANSPORTS">
+          <a href="javascript:dbMenuTransports();">
+            <i class="fa fa-car"></i> <span id="SIDEBAR_MENU_TRANSPORTS_NAME">Transports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_TRANSPORTS_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+        <li id="SIDEBAR_MENU_MAP">
+          <a href="javascript:dbMenuMap();">
+            <i class="fa fa-map-pin"></i> <span id="SIDEBAR_MENU_MAP_NAME">Map</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" id="SIDEBAR_MENU_MAP_PULL"></i>
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+  </aside>
+
+  <!--CENTER-->
+  <div class="content-wrapper" id="CONTENT_WRAPPER">
+
+    <!--ERROR-->
+    <div id="div_error">
+      <div id="div_need_to_register"><center><img id="img_need_to_register" src="" class="img-responsive" alt="NEED_TO_REGISTER"><h1 id="text_need_to_register">Need to register</h1></center></div>
+      <div id="div_user_deactivated"><center><img id="img_user_deactivated" src="" class="img-responsive" alt="USER_DEACTIVATED"><h1 id="text_user_deactivated">User deactivated</h1></center></div>
+      <div id="div_error_message"><center><img id="img_error" src="" class="img-responsive" alt="ERROR"><h4 id="text_error_message" style="color:red"></h4></center></div>
+      <div id="div_loading"><center><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:buttonface;"></i></center></div>
+    </div>
+
+    <!--Header content-->
+    <section class="content-header" id="CONTENT_HEADER">
+      <h1 id="HEADER_NAME_1">Summary</h1><small id="HEADER_TEXT">summary information</small>
+      <ol class="breadcrumb">
+        <li></li>
+        <li class="active" id="HEADER_NAME_2">Summary</li>
+      </ol>
+    </section>
+
+    <!--Main content-->
+    <section class="content">
+      <div id="REPORTS">
+      <!--REPORT_TYPE_1-->
+      <div id="REPORT_1">
+      <div class="row" id="REPORT_TYPE_1">
+        <div class="col-lg-3 col-xs-6" id="REPORT_TYPE_1_BOX_1">
+          <div class="small-box bg-green" id="REPORT_TYPE_1_COLOR_1">
+            <div class="inner">
+              <h3 id="REPORT_TYPE_1_VALUE_1">100<sup style="font-size: 20px" id="REPORT_TYPE_1_PERCENT_1">%</sup></h3>
+              <p id="REPORT_TYPE_1_NAME_1">NAME1</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user" id="REPORT_TYPE_1_ICON_1"></i>
+            </div>
+            <a href="" class="small-box-footer" id="REPORT_TYPE_1_LINK_1">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6" id="REPORT_TYPE_1_BOX_2">
+          <div class="small-box bg-orange" id="REPORT_TYPE_1_COLOR_2">
+            <div class="inner">
+              <h3 id="REPORT_TYPE_1_VALUE_2">100<sup style="font-size: 20px" id="REPORT_TYPE_1_PERCENT_2">%</sup></h3>
+              <p id="REPORT_TYPE_1_NAME_2">NAME2</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart" id="REPORT_TYPE_1_ICON_2"></i>
+            </div>
+            <a href="" class="small-box-footer" id="REPORT_TYPE_1_LINK_2">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6" id="REPORT_TYPE_1_BOX_3">
+          <div class="small-box bg-green" id="REPORT_TYPE_1_COLOR_3">
+            <div class="inner">
+              <h3 id="REPORT_TYPE_1_VALUE_3">100<sup style="font-size: 20px" id="REPORT_TYPE_1_PERCENT_3">%</sup></h3>
+              <p id="REPORT_TYPE_1_NAME_3">NAME3</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cab" id="REPORT_TYPE_1_ICON_3"></i>
+            </div>
+            <a href="" class="small-box-footer" id="REPORT_TYPE_1_LINK_3">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6" id="REPORT_TYPE_1_BOX_4">
+          <div class="small-box bg-orange" id="REPORT_TYPE_1_COLOR_4">
+            <div class="inner">
+              <h3 id="REPORT_TYPE_1_VALUE_4">100<sup style="font-size: 20px" id="REPORT_TYPE_1_PERCENT_4">%</sup></h3>
+              <p id="REPORT_TYPE_1_NAME_4">NAME4</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-credit-card" id="REPORT_TYPE_1_ICON_4"></i>
+            </div>
+            <a href="" class="small-box-footer" id="REPORT_TYPE_1_LINK_4">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--REPORT_TYPE_2-->
+      <div id="REPORT_2">
+      <div class="row" id="REPORT_TYPE_2">
+        <div class="col-md-12">
+          <div class="col-md-3" id="REPORT_TYPE_2_BOX_1">
+          <div class="info-box bg-green" id="REPORT_TYPE_2_COLOR_1">
+            <span class="info-box-icon"><i class="fa fa-check-square-o" id="REPORT_TYPE_2_ICON_1"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text" id="REPORT_TYPE_2_NAME_1">NAME1</span>
+              <span class="info-box-number" id="REPORT_TYPE_2_VALUE_1">100</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%" id="REPORT_TYPE_2_PERCENT_1"></div>
+              </div>
+              <span class="progress-description" id="REPORT_TYPE_2_DESCR_1">
+                DESCR1
+              </span>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-3" id="REPORT_TYPE_2_BOX_2">
+          <div class="info-box bg-red" id="REPORT_TYPE_2_COLOR_2">
+            <span class="info-box-icon"><i class="fa fa-minus-square-o" id="REPORT_TYPE_2_ICON_2"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text" id="REPORT_TYPE_2_NAME_2">NAME2</span>
+              <span class="info-box-number" id="REPORT_TYPE_2_VALUE_2">100</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%" id="REPORT_TYPE_2_PERCENT_2"></div>
+              </div>
+              <span class="progress-description" id="REPORT_TYPE_2_DESCR_2">
+                DESCR2
+              </span>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-3" id="REPORT_TYPE_2_BOX_3">
+          <div class="info-box bg-blue" id="REPORT_TYPE_2_COLOR_3">
+            <span class="info-box-icon"><i class="fa fa-money" id="REPORT_TYPE_2_ICON_3"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text" id="REPORT_TYPE_2_NAME_3">NAME3</span>
+              <span class="info-box-number" id="REPORT_TYPE_2_VALUE_3">100</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%" id="REPORT_TYPE_2_PERCENT_3"></div>
+              </div>
+              <span class="progress-description" id="REPORT_TYPE_2_DESCR_3">
+                DESCR3
+              </span>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-3" id="REPORT_TYPE_2_BOX_4">
+          <div class="info-box bg-yellow" id="REPORT_TYPE_2_COLOR_4">
+            <span class="info-box-icon"><i class="fa fa-credit-card" id="REPORT_TYPE_2_ICON_4"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text" id="REPORT_TYPE_2_NAME_4">NAME4</span>
+              <span class="info-box-number" id="REPORT_TYPE_2_VALUE_4">100</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%" id="REPORT_TYPE_2_PERCENT_4"></div>
+              </div>
+              <span class="progress-description" id="REPORT_TYPE_2_DESCR_4">
+                DESCR4
+              </span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <!--END_OF_REPORTS-->
+      <div id="REPORT_LIST"></div>
+
+      <!--CHATS-->
+      <div id="CHATS">
+      <div class="col-md-6" id="SMALL_CHAT">
+        <div class="box box-info direct-chat direct-chat-success">
+          <!--CHAT_HEADER-->
+          <div class="box-header with-border" id="SMALL_CHAR_HEADER">
+            <i class="fa fa-envelope"></i>
+            <h3 class="box-title" id="CHAT_NAME">Chat</h3>
+            <div class="box-tools pull-right">
+              <span data-toggle="tooltip" title="" class="badge bg-green" id="CHAT_NEW_MESSAGES">0</span>
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle" id="CHAT_CONTACTS_BUTTON">
+                <i class="fa fa-comments"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <!--CHAT_BODY-->
+          <div class="box-body" id="CHAT_BODY">
+            <div class="direct-chat-messages" id="CHAT_MESSAGES">
+              <div id="CHAT_INPUT"><div id="CHAT_INPUT_MESSAGE" class="direct-chat-msg">
+                <img class="direct-chat-img" src="" alt="Image" id="CHAT_INPUT_MESSAGE_ICON">
+                <div class="direct-chat-text" id="CHAT_INPUT_MESSAGE_TEXT">Input message</div>
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name pull-left" id="CHAT_INPUT_MESSAGE_USERNAME">Username</span>
+                  <span class="direct-chat-timestamp pull-right" id="CHAT_INPUT_MESSAGE_DATETIME">Datetime</span>
+                </div>
+              </div></div>
+              <div id="CHAT_OUTPUT"><div id="CHAT_OUTPUT_MESSAGE" class="direct-chat-msg right">
+                <img class="direct-chat-img" src="" alt="Image" id="CHAT_OUTPUT_MESSAGE_ICON">
+                <div class="direct-chat-text" id="CHAT_OUTPUT_MESSAGE_TEXT">Output message</div>
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name pull-right" id="CHAT_OUTPUT_MESSAGE_USERNAME">Username</span>
+                  <span class="direct-chat-timestamp pull-left" id="CHAT_OUTPUT_MESSAGE_DATETIME">Datetime</span>
+                </div>
+              </div></div>
+              <div id="CHAT_MESSAGE_LIST"></div>
+            </div>
+            <!--CHAT_CONTACTS-->
+            <div class="direct-chat-contacts" id="CHAT_CONTACTS">
+              <ul class="contacts-list" id="CHAT_CONTACT_LIST">
+                <div id="CHAT_CONTACT">
+                <li id="CHAT_CONTACT_MESSAGE">
+                  <img class="contacts-list-img" src="" alt="Image" id="CHAT_CONTACT_ICON">
+                  <div class="contacts-list-info" id="CHAT_CONTACT_INFO">
+                    <span class="contacts-list-name"><a href="" id="CHAT_CONTACT_NAME">Username</a>
+                      <small class="contacts-list-date pull-right" id="CHAT_CONTACT_DATE">Datetime</small>
+                    </span>
+                    <span class="contacts-list-msg" id="CHAT_CONTACT_MESSAGE_TEXT">Message</span>
+                  </div>
+                </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <!--CHAT_SEND-->
+          <div class="box-footer" id="CHAT_SEND">
+            <form action="" onsubmit="dbSendMessage();return false;">
+              <div class="input-group">
+                <input type="text" name="recipient" size="10" placeholder="Recipient" id="CHAT_RECIPIENT">
+                <input type="text" name="message_text" size="30" placeholder="Message text..." id="CHAT_MESSAGE_TEXT"><!--class="form-control"-->
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-success btn-flat" id="CHAT_SEND_MESSAGE">Send</button>
+                </span>
+              </div>
+            </form>
+          </div>
+
+          <div id="CHAT_PAGE_LIST"></div>
+
+        </div>
+      </div>
+      </div>
+      <!--END_OF_MESSAGES-->
+      <div id="CHAT_LIST"></div>
+
+      <!--AUDITS-->
+      <div id="AUDITS">
+      <div class="col-md-6" id="AUDIT"><i id="AUDIT_NAME">Audit</i>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="timeline">
+            <li class="time-label">
+              <span class="bg-green" id="AUDIT_DATETIME">Datetime</span>
+            </li>
+            <!--audit_messages-->
+            <div id="AUDIT_MESSAGES">
+            <li id="AUDIT_MESSAGE">
+              <i class="fa fa-user bg-green" id="AUDIT_MESSAGE_ICON"></i>
+              <!--i class="fa fa-envelope bg-orange"></i-->
+              <!--i class="fa fa-comments bg-green"></i-->
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i><small id="AUDIT_MESSAGE_DATETIME"></small></span>
+                <h3 class="timeline-header" id="AUDIT_MESSAGE_HEADER">Header</h3>
+                <div class="timeline-body" id="AUDIT_MESSAGE_TEXT">Message</div>
+                <div class="timeline-footer" id="AUDIT_MESSAGE_FOOTER">
+                  <!--a class="btn btn-info btn-xs">Read more</a-->
+                </div>
+              </div>
+            </li>
+            </div>
+            <li id="AUDIT_MESSAGE_LIST"></li>
+            <!--end_of_audit-->
+            <li>
+              <i class="fa fa-clock-o bg-gray"></i>
+            </li>
+          </ul>
+          <div id="AUDIT_PAGE_LIST"></div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <!--END_OF_AUDIT-->
+      <div class="row" id="AUDIT_LIST"></div>
+
+      <!--TABLES-->
+      <div id="TABLES">
+      <div class="row" id="TABLE">
+      <div class="col-xs-12">
+        <div class="box">
+          <!--header-->
+          <div class="box-header" id="TABLE_HEADER">
+            <!--header-->
+            <div class="col-xs-2" id="TABLE_HEADER_1">
+            <h3 class="box-title" id="TABLE_HEADER_NAME">Tablename</h3>
+            </div>
+            <!--find-->
+            <div class="col-xs-4" id="TABLE_HEADER_2">
+            <div class="input-group" id="TABLE_HEADER_FIND">
+              <input type="text" name="find" class="form-control" placeholder="Search..." id="TABLE_HEADER_FIND_TEXT">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="TABLE_HEADER_FIND_BUTTON" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+            </div>
+            <!--button-->
+            <div class="col-xs-2" id="TABLE_HEADER_3">
+              <a href="" target="_blank" class="btn btn-default" id="TABLE_HEADER_BUTTON">Button</a>
+            </div>
+            <!--pages-->
+            <div class="col-xs-4" id="TABLE_HEADER_4">
+            <div class="box-tools" id="TABLE_HEADER_PAGES">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a>&laquo;</a></li>
+                <li><a>1</a></li>
+                <li><a>&raquo;</a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+          <!--body-->
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover" id="TABLE_BODY">
+              <tr id="TABLE_BODY_HEADER"></tr>
+              <tr id="TABLE_BODY_DATA">
+                <td id="TABLE_BODY_DATA_IMG"><div class="pull-left"><img src="" class="img-responsive" alt="User Image"></div></td>
+                <td id="TABLE_BODY_DATA_LABEL_SUCCESS"><span class="label label-success"></span></td>
+                <td id="TABLE_BODY_DATA_LABEL_INFO"><span class="label label-info"></span></td>
+                <td id="TABLE_BODY_DATA_LABEL_ERROR"><span class="label label-danger"></span></td>
+                <td id="TABLE_BODY_DATA_LABEL_WARNING"><span class="label label-warning"></span></td>
+                <td id="TABLE_BODY_DATA_CHECKBOX"><label><input type="checkbox" class="minimal" disabled></label></td>
+                <td id="TABLE_BODY_DATA_LINK_REMOVE"><a><i class="fa fa-ban text-red"></i></a></td>
+                <td id="TABLE_BODY_DATA_LINK_UPDATE"><a><i class="fa fa-refresh text-aqua"></i></a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <!--END_OF_TABLE-->
+      <div id="TABLE_LIST"></div>
+
+      <!--BUTTONS-->
+      <div class="row no-print" id="BUTTONS">
+        <div class="col-xs-12">
+          <a class="btn btn-default" id="BUTTON_PRINT"><i class="fa fa-print"></i></a>
+          <button type="button" class="btn btn-primary pull-right" id="BUTTON"></button>
+        </div>
+      </div>
+      <!--END_OF_BUTTONS-->
+      <div id="BUTTON_LIST"></div>
+
+      <!--FORM-->
+      <div id="FORMS">
+      <div class="row" id="FORM">
+        <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title" id="FORM_TITLE">Form</h3>
+            </div>
+            <div class="box-body" id="FORM_BODY">
+                <form class="form-horizontal">
+                  <div class="input-group">
+                    <label for="FORM_BODY_INPUT_NAME">Name</label>
+                    <input type="email" class="form-control" id="FORM_BODY_INPUT_NAME" placeholder="Name">
+                  </div>
+                  <a class="btn btn-default" id="FORM_BODY_BUTTON_SAVE"><i class="fa fa-check"></i> Save</a>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--END_OF_FORM-->
+      <div id="FORM_LIST"></div>
+
+     <!--CABINET-->
+     <div id="CABINET"></div>
+     <!--END_OF_CABINET-->
+
+      <!--PAGES-->
+      <div id="PAGES">
+      <div id="div_pages_body">
+        &nbsp;
+        <ul id="pages_body" class="pagination">
+          <li><a href="javascript:gotoPage(-1,dbGetData);" aria-label="Prev">&lt;</a></li>
+          <li class="active"><a href="javascript:gotoPage(0,dbGetData);">1</a></li>
+          <li><a href="javascript:gotoPage(1,dbGetData);">2</a></li>
+          <li><a href="javascript:gotoPage(2,dbGetData);">3</a></li>
+          <li><a href="javascript:gotoPage(3,dbGetData);">4</a></li>
+          <li><a href="javascript:gotoPage(4,dbGetData);">5</a></li>
+          <li><a href="javascript:gotoPage(-2,dbGetData);" aria-label="Next">&gt;</a></li>
+        </ul>
+      </div>
+      </div>
+
+    </section>
+  </div>
+
+<!--END_OF_INNOCENCE-->
+
+  <!--js-->
+  <script type="text/javascript">
+
+    $("#REPORTS").hide();
+    $("#CHATS").hide();
+    $("#AUDITS").hide();
+    $("#TABLES").hide();
+    $("#BUTTONS").hide();
+    $("#FORMS").hide();
+    $("#PAGES").hide();
+
+    $("#img_need_to_register").attr("src",picture_cancel);
+    $("#img_user_deactivated").attr("src",picture_cancel);
+    $("#div_error_message").attr("src",picture_cancel);
+    $("#div_need_to_register").hide();
+    $("#div_user_deactivated").hide();
+    $("#div_error_message").hide();
+
+    $("#CHAT_INPUT_MESSAGE_ICON").attr("src",picture_do_not_disturb_black);
+    $("#CHAT_OUTPUT_MESSAGE_ICON").attr("src",picture_do_not_disturb_black);
+    $("#CHAT_CONTACT_ICON").attr("src",picture_do_not_disturb);
+    $("#HEADER_MENU_USER_IMAGE").attr("src",picture_do_not_disturb);
+    $("#TABLE_BODY_DATA_IMG").find("img").attr("src",picture_do_not_disturb);
+
+    var rows_count=5,curr_object_name=null,curr_object_list=null;
+
+    /*search string for name field*/
+    var search=null;
+
+    if((user_type===null||user_type<1)){
+      var message_code=parseInt(fa.getResultMessageCode());
+      $("#text_error_message").html(getMessage(fa.language,message_code));
+      $("#div_need_to_register").show();
+    }
+
+    if(current_user!==null&&parseInt(current_user.active)!==1){
+      $("#div_user_deactivated").show();
+    }
+
+    /*main*/
+    function dbGetData(){
+      if(curr_object_name!==null){
+        eval("dbGet"+curr_object_name+"()");
+      }
+    }
+
+    /*stat*/
+    function dbGetStat(){
+      $("#text_error_message").empty();
+
+      curr_object_name='Stat';
+      curr_object_list='fa.stat_list';
+      fa.offset=null;fa.rows=null;
+      fa.stat_list.length=0;
+      fa.getStat("#text_error_message",dbAfterStat);
+    }
+    function dbAfterStat(){
+      if(fa.stat_list.length>0){
+        var stat=fa.stat_list[0];
+        /*reports*/
+        var $clone=$("#REPORT_1").clone();
+        $clone.find("#REPORT_TYPE_1").attr("id","REPORT_TYPE_1_REPORT_1");
+        /*Drivers*/
+        $clone.find("#REPORT_TYPE_1_NAME_1").html(getMessage(fa.language,30002));
+        $clone.find("#REPORT_TYPE_1_VALUE_1").html(stat.driver_count);
+        $clone.find("#REPORT_TYPE_1_COLOR_1").attr("class","small-box bg-green");
+        $clone.find("#REPORT_TYPE_1_ICON_1").attr("class","fa fa-user");
+        $clone.find("#REPORT_TYPE_1_LINK_1").attr("href","javascript:dbMenuSales();");
+        /*Clients*/
+        $clone.find("#REPORT_TYPE_1_NAME_2").html(getMessage(fa.language,30003));
+        $clone.find("#REPORT_TYPE_1_VALUE_2").html(stat.client_count);
+        $clone.find("#REPORT_TYPE_1_COLOR_2").attr("class","small-box bg-blue");
+        $clone.find("#REPORT_TYPE_1_ICON_2").attr("class","fa fa-user-plus");
+        $clone.find("#REPORT_TYPE_1_LINK_2").attr("href","javascript:dbMenuSales();");
+        /*Transports*/
+        $clone.find("#REPORT_TYPE_1_NAME_3").html(getMessage(fa.language,30006));
+        $clone.find("#REPORT_TYPE_1_VALUE_3").html(stat.transport_count);
+        $clone.find("#REPORT_TYPE_1_COLOR_3").attr("class","small-box bg-green");
+        $clone.find("#REPORT_TYPE_1_ICON_3").attr("class","fa fa-cab");
+        $clone.find("#REPORT_TYPE_1_LINK_3").attr("href","javascript:dbMenuTransports();");
+        /*Orders*/
+        $clone.find("#REPORT_TYPE_1_NAME_4").html(getMessage(fa.language,30010));
+        $clone.find("#REPORT_TYPE_1_VALUE_4").html(stat.order_count);
+        $clone.find("#REPORT_TYPE_1_COLOR_4").attr("class","small-box bg-orange");
+        $clone.find("#REPORT_TYPE_1_ICON_4").attr("class","fa fa-shopping-cart");
+        $clone.find("#REPORT_TYPE_1_LINK_4").attr("href","javascript:dbMenuOrders();");
+        /*report_1*/
+        $("#REPORT_LIST").append($clone.html());
+        $("#REPORT_TYPE_1_REPORT_1").find("#REPORT_TYPE_1_PERCENT_1").hide();
+        $("#REPORT_TYPE_1_REPORT_1").find("#REPORT_TYPE_1_PERCENT_2").hide();
+        $("#REPORT_TYPE_1_REPORT_1").find("#REPORT_TYPE_1_PERCENT_3").hide();
+        $("#REPORT_TYPE_1_REPORT_1").find("#REPORT_TYPE_1_PERCENT_4").hide();
+        //links
+
+        $clone=$("#REPORT_1").clone();
+        $clone.find("#REPORT_TYPE_1").attr("id","REPORT_TYPE_1_REPORT_2");
+        /*Order total price*/
+        $clone.find("#REPORT_TYPE_1_NAME_1").html(getMessage(fa.language,30024));
+        $clone.find("#REPORT_TYPE_1_VALUE_1").html(stat.order_total_price+"<h4>"+currency_title+"</h4>");
+        $clone.find("#REPORT_TYPE_1_COLOR_1").attr("class","small-box bg-orange");
+        $clone.find("#REPORT_TYPE_1_ICON_1").attr("class","fa fa-credit-card");
+        $clone.find("#REPORT_TYPE_1_LINK_1").attr("href","javascript:dbMenuOrders();");
+        /*Purchase payment amount*/
+        $clone.find("#REPORT_TYPE_1_NAME_2").html(getMessage(fa.language,30025));
+        $clone.find("#REPORT_TYPE_1_VALUE_2").html(stat.purchase_payment_amount+"<h4>"+currency_title+"</h4>");
+        $clone.find("#REPORT_TYPE_1_COLOR_2").attr("class","small-box bg-blue");
+        $clone.find("#REPORT_TYPE_1_ICON_2").attr("class","fa fa-credit-card");
+        $clone.find("#REPORT_TYPE_1_LINK_2").attr("href","javascript:dbMenuOrders();");
+        /*Payment amount*/
+        $clone.find("#REPORT_TYPE_1_NAME_3").html(getMessage(fa.language,30026));
+        $clone.find("#REPORT_TYPE_1_VALUE_3").html(stat.payment_amount+"<h4>"+currency_title+"</h4>");
+        $clone.find("#REPORT_TYPE_1_COLOR_3").attr("class","small-box bg-green");
+        $clone.find("#REPORT_TYPE_1_ICON_3").attr("class","fa fa-credit-card");
+        $clone.find("#REPORT_TYPE_1_LINK_3").attr("href","javascript:dbMenuOrders();");
+        /*Driver order total price*/
+        $clone.find("#REPORT_TYPE_1_NAME_4").html(getMessage(fa.language,30030));
+        $clone.find("#REPORT_TYPE_1_VALUE_4").html(stat.driver_order_total_price+"<h4>"+currency_title+"</h4>");
+        $clone.find("#REPORT_TYPE_1_COLOR_4").attr("class","small-box bg-orange");
+        $clone.find("#REPORT_TYPE_1_ICON_4").attr("class","fa fa-credit-card");
+        $clone.find("#REPORT_TYPE_1_LINK_4").attr("href","javascript:dbMenuOrders();");
+        /*report_2*/
+        $("#REPORT_LIST").append($clone.html());
+        $("#REPORT_TYPE_1_REPORT_2").find("#REPORT_TYPE_1_PERCENT_1").hide();
+        $("#REPORT_TYPE_1_REPORT_2").find("#REPORT_TYPE_1_PERCENT_2").hide();
+        $("#REPORT_TYPE_1_REPORT_2").find("#REPORT_TYPE_1_PERCENT_3").hide();
+        $("#REPORT_TYPE_1_REPORT_2").find("#REPORT_TYPE_1_PERCENT_4").hide();
+        //links
+
+        var $clone=$("#REPORT_2").clone();
+        $clone.find("#REPORT_TYPE_2").attr("id","REPORT_TYPE_2_REPORT_1");
+        /*Input messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_1").html(getMessage(fa.language,10008));
+        $clone.find("#REPORT_TYPE_2_DESCR_1").html(getMessage(fa.language,30032));
+        $clone.find("#REPORT_TYPE_2_VALUE_1").html(stat.input_messages_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_1").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_1").attr("class","fa fa-envelope-o");
+        /*Output messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_2").html(getMessage(fa.language,10008));
+        $clone.find("#REPORT_TYPE_2_DESCR_2").html(getMessage(fa.language,30033));
+        $clone.find("#REPORT_TYPE_2_VALUE_2").html(stat.output_messages_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_2").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_2").attr("class","fa fa-envelope-o");
+        /*Audit messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_3").html(getMessage(fa.language,10302));
+        $clone.find("#REPORT_TYPE_2_DESCR_3").html(getMessage(fa.language,30034));
+        $clone.find("#REPORT_TYPE_2_VALUE_3").html(stat.audit_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_3").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_3").attr("class","fa fa-check");
+        /*Users*/
+        $clone.find("#REPORT_TYPE_2_NAME_4").html(getMessage(fa.language,10002));
+        $clone.find("#REPORT_TYPE_2_DESCR_4").html(getMessage(fa.language,20049));
+        $clone.find("#REPORT_TYPE_2_VALUE_4").html(stat.driver_count+stat.client_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_4").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_4").attr("class","fa fa-user");
+        /*report_3*/
+        $("#REPORT_LIST").append($clone.html());
+
+        var $clone=$("#REPORT_2").clone();
+        $clone.find("#REPORT_TYPE_2").attr("id","REPORT_TYPE_2_REPORT_2");
+        /*Input messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_1").html(getMessage(fa.language,10207));
+        $clone.find("#REPORT_TYPE_2_DESCR_1").html(getMessage(fa.language,30014));
+        $clone.find("#REPORT_TYPE_2_VALUE_1").html(stat.order_today_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_1").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_1").attr("class","fa fa-shopping-cart");
+        /*Output messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_2").html(getMessage(fa.language,10207));
+        $clone.find("#REPORT_TYPE_2_DESCR_2").html(getMessage(fa.language,30015));
+        $clone.find("#REPORT_TYPE_2_VALUE_2").html(stat.order_yesterday_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_2").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_2").attr("class","fa fa-shopping-cart");
+        /*Audit messages*/
+        $clone.find("#REPORT_TYPE_2_NAME_3").html(getMessage(fa.language,10207));
+        $clone.find("#REPORT_TYPE_2_DESCR_3").html(getMessage(fa.language,30016));
+        $clone.find("#REPORT_TYPE_2_VALUE_3").html(stat.order_week_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_3").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_3").attr("class","fa fa-shopping-cart");
+        /*Users*/
+        $clone.find("#REPORT_TYPE_2_NAME_4").html(getMessage(fa.language,10207));
+        $clone.find("#REPORT_TYPE_2_DESCR_4").html(getMessage(fa.language,30017));
+        $clone.find("#REPORT_TYPE_2_VALUE_4").html(stat.order_month_count);
+        $clone.find("#REPORT_TYPE_2_COLOR_4").attr("class","info-box bg-grey");
+        $clone.find("#REPORT_TYPE_2_ICON_4").attr("class","fa fa-shopping-cart");
+        /*report_4*/
+        $("#REPORT_LIST").append($clone.html());
+      }
+    }
+
+    /*message*/
+    function dbGetMessage(){
+      $("#text_error_message").empty();
+
+      if(curr_object_name!=='Message'){
+        PAGE_SET=0;PAGE_CURR=0;PAGE_COUNT=5;/*five pages in*/
+      }
+      curr_object_name='Message';
+      curr_object_list='fa.message_list';
+      PAGE_ROWS=rows_count;
+      fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+      //$("#search").attr("placeholder",getMessage(fa.language,20036));
+      var message=new faMessage();
+      message.id="%";
+      //message.user_id="%";/*all sender and receiver seek*/
+      fa.message_list.length=0;
+      fa.getMessage(message,fa.language,"#text_error_message",dbAfterMessage);
+    }
+    function dbAfterMessage(){
+      found_rows=fa.getFoundRows();
+
+      /*chat messages*/
+      var user_picture_id_list=[],last_message_list=[];
+      var message_count=getCookie("MESSAGE_COUNT");
+      var new_messages=found_rows-(message_count!==""?message_count:0);
+      setCookie("MESSAGE_COUNT",found_rows,null);
+      new_messages=new_messages>0?new_messages:"0";
+
+      /*header_menu*/
+      $("#HEADER_MENU_MESSAGE_COUNT").find("span").html(new_messages);
+
+      var $clone=$("#CHATS").clone();
+      $clone.find("#SMALL_CHAT").attr("id","CHAT_1");
+      $clone.find("#CHAT_NAME").html(getMessage(fa.language,1155));
+      $clone.find("#CHAT_NEW_MESSAGES").html(new_messages);
+      $clone.find("#CHAT_NEW_MESSAGES").attr("title",getMessage(fa.language,20502));
+      $clone.find("#CHAT_CONTACTS_BUTTON").attr("title",getMessage(fa.language,20503));
+      $clone.find("#CHAT_RECIPIENT").attr("placeholder",getMessage(fa.language,1134));
+      $clone.find("#CHAT_MESSAGE_TEXT").attr("placeholder",getMessage(fa.language,1131));
+      $clone.find("#CHAT_SEND_MESSAGE").html(getMessage(fa.language,1132));
+      $clone.find("#CHAT_INPUT").hide();
+      $clone.find("#CHAT_OUTPUT").hide();
+      $clone.find("#CHAT_CONTACT").hide();
+
+      if(fa.message_list.length>0){
+        var i,$clone_message,is_user_picture;
+        var message,user,type;
+        for(i=0;i<fa.message_list.length;i++){
+          is_user_picture=false;
+          message=fa.message_list[i];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT){
+            user=message.userA;
+            $clone_message=$clone.find("#CHAT_INPUT").clone();
+            $clone_message.find("#CHAT_INPUT_MESSAGE").attr("id","CHAT_INPUT_MESSAGE_"+message.id);
+            $clone_message.find("#CHAT_INPUT_MESSAGE_ICON").attr("id","CHAT_INPUT_MESSAGE_ICON_"+message.id);
+            $clone_message.find("#CHAT_INPUT_MESSAGE_DATETIME").html(getTimesAgoFrom(toMySQLDatetimeMilisec(message.create_date),fa.language));
+            $clone_message.find("#CHAT_INPUT_MESSAGE_USERNAME").html(user instanceof faUser?user.call_name:"");
+            $clone_message.find("#CHAT_INPUT_MESSAGE_TEXT").html(message.message);
+          }
+          else if(type===MESSAGE_TYPE_OUTPUT){
+            user=message.userB;
+            $clone_message=$clone.find("#CHAT_OUTPUT").clone();
+            $clone_message.find("#CHAT_OUTPUT_MESSAGE").attr("id","CHAT_OUTPUT_MESSAGE_"+message.id);
+            $clone_message.find("#CHAT_OUTPUT_MESSAGE_ICON").attr("id","CHAT_OUTPUT_MESSAGE_ICON_"+message.id);
+            $clone_message.find("#CHAT_OUTPUT_MESSAGE_DATETIME").html(getTimesAgoFrom(toMySQLDatetimeMilisec(message.create_date),fa.language));
+            $clone_message.find("#CHAT_OUTPUT_MESSAGE_USERNAME").html(user instanceof faUser?user.call_name:"");
+            $clone_message.find("#CHAT_OUTPUT_MESSAGE_TEXT").html(message.message);
+          }
+          $clone.find("#CHAT_MESSAGE_LIST").append($clone_message.html());
+
+          if(user instanceof faUser){
+            /*pictures action*/
+            for(var j=0;j<user_picture_id_list.length;j++){
+              if(user_picture_id_list[j]===user.id){is_user_picture=true;break;}
+            }
+            /*get user picture that is not in list*/
+            if(!is_user_picture)fa.getPicture(user,user.id,"user",null,null);
+            user_picture_id_list.push(user.id);
+            /*last message*/
+            var last_message=findUserMessage(user.id,last_message_list);
+            if(last_message===null)last_message_list.push(message);
+          }
+        }
+
+        for(i=0;i<last_message_list.length;i++){
+          message=last_message_list[i];
+          $clone_message=$clone.find("#CHAT_CONTACT").clone();
+          $clone_message.find("#CHAT_CONTACT_MESSAGE").attr("id","CHAT_CONTACT_MESSAGE_"+message.id);
+          $clone_message.find("#CHAT_CONTACT_ICON").attr("id","CHAT_CONTACT_ICON_"+message.id);
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT){
+            user=message.userA;
+          }
+          else if(type===MESSAGE_TYPE_OUTPUT){
+            user=message.userB;
+          }
+          if(user instanceof faUser){
+            $clone_message.find("#CHAT_CONTACT_NAME").html(user.call_name);
+            $clone_message.find("#CHAT_CONTACT_NAME").attr("href","javascript:dbUpdateRecipient('"+user.call_name+"')");
+            $clone_message.find("#CHAT_CONTACT_DATE").html(getTimesAgoFrom(toMySQLDatetimeMilisec(message.create_date),fa.language));
+            $clone_message.find("#CHAT_CONTACT_MESSAGE_TEXT").html(message.message);
+          }
+          $clone.find("#CHAT_CONTACT_LIST").append($clone_message.html());
+        }
+
+      }
+      /*if($("#CHAT_LIST").find("#CHAT_1").html()===undefined)$("#CHAT_LIST").append($clone.html());
+      else $("#CHAT_LIST").find("#CHAT_1").replaceWith($clone.html());*/
+      $("#CHAT_LIST").empty();
+      $("#CHAT_LIST").append($clone.html());
+
+      dbShowChatPages();
+
+      /*force pictures*/
+      $(document).one("ajaxStop",function(){
+        for(i=0;i<fa.message_list.length;i++){
+          message=fa.message_list[i];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+          else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+          if(user instanceof faUser)updateUserPictureOfMessage(user.id,message.id);
+        }
+
+        for(i=0;i<last_message_list.length;i++){
+          message=last_message_list[i];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+          else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+          if(user instanceof faUser)updateUserPictureOfContactMessage(user.id,message.id);
+        }
+      });
+
+      /*tools*/
+      function updateUserPictureOfMessage(user_id,message_id){
+        var picture=findUserPictureOfMessage(user_id);
+        if(picture!==null){
+          if(type===MESSAGE_TYPE_INPUT)$("#CHAT_LIST").find("#CHAT_INPUT_MESSAGE_ICON_"+message_id).attr("src","data:image/jpeg;base64,"+picture);
+          else if(type===MESSAGE_TYPE_OUTPUT)$("#CHAT_LIST").find("#CHAT_OUTPUT_MESSAGE_ICON_"+message_id).attr("src","data:image/jpeg;base64,"+picture);
+        }
+      }
+      function updateUserPictureOfContactMessage(user_id,message_id){
+        var picture=findUserPictureOfMessage(user_id);
+        if(picture!==null){
+          $("#CHAT_LIST").find("#CHAT_CONTACT_ICON_"+message_id).attr("src","data:image/jpeg;base64,"+picture);
+        }
+      }
+      function findUserPictureOfMessage(user_id){
+        var j,message,type,user;
+        for(j=0;j<fa.message_list.length;j++){
+          message=fa.message_list[j];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+          else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+          if(user.id===user_id)return user.picture;
+        }
+        return null;
+      }
+      function findUserMessage(user_id,list){
+        var j,message,type,user;
+        for(j=0;j<list.length;j++){
+          message=list[j];
+          type=parseInt(message.type);
+          if(type===MESSAGE_TYPE_INPUT)user=message.userA;
+          else if(type===MESSAGE_TYPE_OUTPUT)user=message.userB;
+          if(user.id===user_id)return message;
+        }
+        return null;
+      }
+    }
+    /*works with chat 1*/
+    function dbSendMessage(){
+      var recipient=$("#CHAT_1").find("#CHAT_RECIPIENT").val();
+      var message_text=$("#CHAT_1").find("#CHAT_MESSAGE_TEXT").val();
+      if(recipient!==undefined&&trimAll(recipient)!==""&&message_text!==undefined&&trimAll(message_text)!==""){
+        fa.addMessage(recipient,message_text,"#text_error_message",gotoPage,0);
+      }
+      return false;
+    }
+    function dbUpdateRecipient(value){
+      $("#CHAT_1").find("#CHAT_RECIPIENT").val(value);
+    }
+
+    /*audit*/
+    function dbGetAudit(){
+      $("#text_error_message").empty();
+
+      if(curr_object_name!=='Audit'){
+        PAGE_SET=0;PAGE_CURR=0;PAGE_COUNT=5;/*five pages in*/
+      }
+      curr_object_name='Audit';
+      curr_object_list='fa.audit_list';
+      PAGE_ROWS=rows_count;
+      fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+      //$("#search").attr("placeholder",getMessage(fa.language,20017));
+      fa.audit_list.length=0;
+      fa.getAudit(search,"#text_error_message",dbAfterAudit);
+    }
+    function dbAfterAudit(){
+      found_rows=fa.getFoundRows();
+
+      /*audit messages*/
+      var audit_count=getCookie("AUDIT_COUNT");
+      var new_audites=found_rows-(audit_count!==""?audit_count:0);
+      setCookie("AUDIT_COUNT",found_rows,null);
+      new_audites=new_audites>0?new_audites:"0";
+
+      /*header_menu*/
+      $("#HEADER_MENU_AUDIT_COUNT").find("span").html(new_audites);
+
+      var $clone=$("#AUDITS").clone();
+      $clone.find("#AUDIT").attr("id","AUDIT_1");
+      //$clone.find("#AUDIT_1").attr("class","row");
+      $clone.find("#AUDIT_NAME").html(getMessage(fa.language,20501));
+      $clone.find("#AUDIT_MESSAGES").hide();
+
+      if(fa.audit_list.length>0){
+        var i,$clone_message;
+        var audit;
+        $clone.find("#AUDIT_DATETIME").html(getTimesAgoFrom(toMySQLDatetimeMilisec(fa.audit_list[0].create_date),fa.language));
+        for(i=0;i<fa.audit_list.length;i++){
+          audit=fa.audit_list[i];
+          $clone_message=$clone.find("#AUDIT_MESSAGES").clone();
+          $clone_message.find("#AUDIT_MESSAGE").attr("id","AUDIT_MESSAGE_"+audit.id);
+/*
+              fa fa-user bg-green
+              fa fa-envelope bg-orange
+              fa fa-comments bg-green
+
+          $clone_message.find("#AUDIT_MESSAGE_ICON").attr("class","");
+*/
+
+          $clone_message.find("#AUDIT_MESSAGE_DATETIME").html(" "+getTimesAgoFrom(toMySQLDatetimeMilisec(audit.create_date),fa.language));
+          $clone_message.find("#AUDIT_MESSAGE_HEADER").html(audit.username+"&nbsp;<i>"+audit.name+"</i>");
+          $clone_message.find("#AUDIT_MESSAGE_TEXT").html(audit.description);
+          $clone.find("#AUDIT_MESSAGE_LIST").append($clone_message.html());
+        }
+      }
+      $("#AUDIT_LIST").empty();
+      $("#AUDIT_LIST").append($clone.html());
+
+      if(last_active_sidebar_menu!=='#SIDEBAR_MENU_SUMMARY')dbShowAuditPages();
+    }
+
+    /*user*/
+    function dbShowUserProfile(){
+      if(fa.user_list.length>0){
+
+        var user=fa.user_list[0];
+
+        var $clone=$("#TABLES").clone();
+        $clone.find("#TABLE_HEADER_NAME").html(getMessage(fa.language,20504));
+        $clone.find("#TABLE_HEADER_2").hide();
+        $clone.find("#TABLE_HEADER_BUTTON").html(getMessage(fa.language,20505));
+        $clone.find("#TABLE_HEADER_BUTTON").attr("href","javascript:dbMenuProfile();");
+        $clone.find("#TABLE_HEADER_4").hide();
+
+        var $clone_img=$clone.find("#TABLE_BODY_DATA_IMG").clone();
+        var $clone_label_success=$clone.find("#TABLE_BODY_DATA_LABEL_SUCCESS").clone();
+        var $clone_label_info=$clone.find("#TABLE_BODY_DATA_LABEL_INFO").clone();
+        var $clone_label_warning=$clone.find("#TABLE_BODY_DATA_LABEL_WARNING").clone();
+        var $clone_checkbox=$clone.find("#TABLE_BODY_DATA_CHECKBOX").clone();
+        //var $clone_remove=$clone.find("#TABLE_BODY_DATA_LINK_REMOVE").clone();
+        //var $clone_update=$clone.find("#TABLE_BODY_DATA_LINK_UPDATE").clone();
+
+        $clone_label_info.find("span").html(getMessage(fa.language,user.type));
+        var user_type=$clone_label_info.html();
+
+        var user_discount=null;
+        if(/*typeof(user.discount)!=='undefined'&&user.discount!==null*/user.discount){
+          $clone_label_success.find("span").html(getDiscountByType(user.discount.type,user.discount.value,fa.language,currency_title));
+          user_discount=$clone_label_success.html();
+        }
+
+        var user_prepaid_amount=null;
+        if(user.prepaid_amount!==null){
+          $clone_label_info.find("span").html(user.prepaid_amount+" "+currency_title);
+          user_prepaid_amount=$clone_label_info.html();
+        }
+
+        var user_rate=null;
+        if(user.rate!==null){
+          $clone_label_warning.find("span").html(user.rate);
+          user_rate=$clone_label_warning.html();
+        }
+
+        $clone_checkbox.find("input").attr("checked",parseInt(user.active)===1?true:false);
+        var user_active=$clone_checkbox.html();
+
+        $clone.find("#TABLE_BODY_HEADER").empty();
+        $clone.find("#TABLE_BODY_HEADER").html("<th>Id</th><th>Picture</th><th>Username</th><th>Type</th><th>Discount</th><th>Firstname</th><th>Lastname</th><th>Callname</th><th>Email</th><th>Phone</th><th>Prepaid amount</th><th>Rate</th><th>Activity</th><th>Create date</th><th>Last update</th>");
+        $clone.find("#TABLE_BODY_DATA").empty();
+        $clone.find("#TABLE_BODY_DATA").html("<td>"+user.id+"</td><td id='TABLE_BODY_PICTURE_"+user.id+"'>"+$clone_img.html()+"</td><td>"+user.username+"</td><td>"+user_type+"</td><td>"+(user_discount!==null?user_discount:"")+"</td><td>"+user.first_name+"</td><td>"+user.last_name+"</td><td>"+user.call_name+"</td><td>"+user.email+"</td><td>"+user.phone+"</td><td>"+user_prepaid_amount+"</td><td>"+user_rate+"</td><td>"+user_active+"</td><td>"+fromMySQLDatetimeString(user.create_date)+"</td><td>"+getTimesAgoFrom(toMySQLDatetimeMilisec(user.last_update),fa.language)+"</td>");
+
+        $("#TABLE_LIST").empty();
+        $("#TABLE_LIST").append($clone.html());
+        dbUpdateTableHeader(fa.language);
+
+        fa.getPicture(user,user.id,"user",null,afterUserPicture,user);
+        function afterUserPicture(ptr){
+          $("#TABLE_BODY_PICTURE_"+ptr.id).find("img").attr("src","data:image/jpeg;base64,"+ptr.picture);
+          $("#HEADER_MENU_USER_IMAGE").attr("src","data:image/jpeg;base64,"+ptr.picture);
+        }
+      }
+    }
+
+    /*order*/
+    function dbGetOrderAB(){
+      $("#text_error_message").empty();
+
+      if(curr_object_name!=='OrderAB'){
+        PAGE_SET=0;PAGE_CURR=0;PAGE_COUNT=5;/*five pages in*/
+      }
+      curr_object_name='OrderAB';
+      curr_object_list='fa.order_AB_list';
+      PAGE_ROWS=rows_count;
+      fa.offset=PAGE_SET*PAGE_COUNT*PAGE_ROWS+PAGE_CURR*PAGE_ROWS;fa.rows=PAGE_ROWS;
+      var order=new faOrderAB();
+      order.id="%";
+      //order.order_status_id=5;
+      fa.order_AB_list.length=0;
+      fa.getOrderAB(order,fa.language,"#text_error_message",dbAfterOrderAB);
+    }
+    function dbAfterOrderAB(){
+      found_rows=fa.getFoundRows();
+
+      if(fa.order_AB_list.length>0){
+        var order,i,order_data,$clone=$("#TABLES").clone();
+        $clone.find("#TABLE_HEADER_NAME").html(getMessage(fa.language,20607));
+        $clone.find("#TABLE_HEADER_2").hide();
+        $clone.find("#TABLE_HEADER_BUTTON").hide();
+        $clone.find("#TABLE_HEADER_4").hide();
+
+        var $clone_label_success=$clone.find("#TABLE_BODY_DATA_LABEL_SUCCESS").clone();
+        var $clone_label_info=$clone.find("#TABLE_BODY_DATA_LABEL_INFO").clone();
+        var $clone_label_error=$clone.find("#TABLE_BODY_DATA_LABEL_ERROR").clone();
+        var $clone_checkbox=$clone.find("#TABLE_BODY_DATA_CHECKBOX").clone();
+
+        $("#TABLE_LIST").empty();
+        $clone.find("#TABLE_BODY_HEADER").empty();
+        $clone.find("#TABLE_BODY_HEADER").html("<th>Id</th><th>Status</th><th>Total price</th><th>Distance</th><th>Duration</th><th>A.Latitude</th><th>A.Longitude</th><th>A.Address</th><th>B.Latitude</th><th>B.Longitude</th><th>B.Address</th><th>Reserved date</th><th>Reserved hours</th><th>Purchase</th><th>Create date</th><th>Last update</th></tr>");
+        $clone.find("#TABLE_BODY_DATA").empty();
+        for(i=0;i<fa.order_AB_list.length;i++){
+
+          order=fa.order_AB_list[i];
+
+          var $clone_status,status;
+          if(order.order_status_id<0)$clone_status=$clone_label_error;
+          else if(order.order_status_id>0&&order.order_status_id<4)$clone_status=$clone_label_success;
+          else $clone_status=$clone_label_info;
+
+          status=parseAttrList(order.status_attr_list);
+          $clone_status.find("span").html(status.length>0?status:order.order_status_name);
+
+          status=$clone_status.html();
+
+          $clone_checkbox.find("input").attr("checked",order.purchase_list.length>0?true:false);
+          var purchase=$clone_checkbox.html();
+
+          order_data="<tr id="+order.id+" onclick='javascript:dbFindOrderById("+order.id+");'><td>"+order.id+"</td><td>"+status+"</td><td>"+order.total_price+" "+currency_title+"</td><td>"+(order.route_distance?order.route_distance:"")+"</td><td>"+(order.route_duration?order.route_duration:"")+"</td><td>"+(order.order_lat?order.order_lat:"")+"</td><td>"+(order.order_lon?order.order_lon:"")+"</td><td>"+(order.order_address?order.order_address:"")+"</td><td>"+(order.delivery_lat?order.delivery_lat:"")+"</td><td>"+(order.delivery_lon?order.delivery_lon:"")+"</td><td>"+(order.delivery_address?order.delivery_address:"")+"</td><td>"+(order.reserved_date?fromMySQLDatetimeString(order.reserved_date):"")+"</td><td>"+(order.reserved_hours?order.reserved_hours:"")+"</td><td>"+purchase+"</td><td>"+fromMySQLDatetimeString(order.create_date)+"</td><td>"+getTimesAgoFrom(toMySQLDatetimeMilisec(order.last_update),fa.language)+"</td></tr>";
+          $clone.find("#TABLE_BODY_DATA").append(order_data);
+        }
+
+        $("#TABLE_LIST").append($clone.html());
+        dbUpdateTableHeader(fa.language);
+
+        dbShowTablePages();
+      }
+    }
+
+    /*SIDEBAR MENU*/
+    var last_active_sidebar_menu='#SIDEBAR_MENU_SUMMARY';
+    function dbActivateSidebarMenu(name){
+      $(name).attr('class','active');
+      $(name+"_PULL").attr('class','fa fa-angle-right pull-right');
+    }
+    function dbDeactivateSidebarMenu(name){
+      $(name).attr('class','');
+      $(name+"_PULL").attr('class','fa fa-angle-left pull-right');
+    }
+    function dbShowAuditPages(){
+      if($("#AUDIT_1").not("#AUDIT_PAGE_LIST")){
+        var $clone=$("#PAGES").clone();
+        $clone.find("#div_pages_body").attr("id","div_pages");
+        $clone.find("#pages_body").attr("id","pages");
+        $("#AUDIT_1").find("#AUDIT_PAGE_LIST").append($clone.html());
+      }
+      showPages();
+    }
+    function dbShowChatPages(){
+      if($("#CHAT_1").not("#CHAT_PAGE_LIST")){
+        var $clone=$("#PAGES").clone();
+        $clone.find("#div_pages_body").attr("id","div_pages");
+        $clone.find("#pages_body").attr("id","pages");
+        $("#CHAT_1").find("#CHAT_PAGE_LIST").append($clone.html());
+      }
+      showPages();
+    }
+    function dbShowTablePages(){
+      if($("#TABLE_LIST").not("#div_pages")){
+        var $clone=$("#PAGES").clone();
+        $clone.find("#div_pages_body").attr("id","div_pages");
+        $clone.find("#pages_body").attr("id","pages");
+        $("#TABLE_LIST").append($clone.html());
+      }
+      showPages();
+    }
+    function dbUpdateTableHeader(language){
+      $("#TABLE_LIST").find("th").each(function(){
+        var name=getTranslateName(language,$(this).html());
+        $(this).html(name);
+      });
+    }
+    function dbClearAllList(){
+      $('#REPORT_LIST').empty();
+      $('#CHAT_LIST').empty();
+      $('#AUDIT_LIST').empty();
+      $('#TABLE_LIST').empty();
+      $('#BUTTON_LIST').empty();
+      $('#FORM_LIST').empty();
+      $('#CABINET').empty();
+      $('#templatemo_style').remove();
+    }
+    function dbDownloadOrderAB(order_id){
+      var rep_val=new repVal();
+      rep_val.id=order_id;
+      fa.getReport('report_order',rep_val,fa.language,"#text_error_message",showReportFilepath,null);
+    }
+    /*menu*/
+    function dbMenuSummary(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20601));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20601));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20701));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_SUMMARY';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+      dbGetStat();
+      dbGetAudit();
+      dbGetMessage();
+      dbShowUserProfile();
+    }
+    function dbMenuProfile(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20602));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20602));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20702));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_PROFILE';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      dbShowUserProfile();
+      dbUpdateTableHeader(fa.language);
+
+      /*load cabinet*/
+      TAB_CURR=3;
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"cabinet.html","#CABINET",dbAfterMenuProfile);
+    }
+    function dbAfterMenuProfile(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#div_pages").hide();
+      $("#CABINET").find("#div_tabs").hide();
+      $("#CABINET").find("#div_tab_order").attr('class','tab-pane fade');
+      $("#CABINET").find("#div_tab_profile").attr('class','tab-pane fade in active');
+    }
+    function dbMenuAudit(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20603));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20603));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20703));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_AUDIT';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      dbGetAudit();
+    }
+    function dbMenuMessages(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20604));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20604));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20704));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_MESSAGES';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      //dbGetMessage();
+
+      /*load cabinet*/
+      TAB_CURR=2;
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"cabinet.html","#CABINET",dbAfterMenuMessages);
+    }
+    function dbAfterMenuMessages(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#div_pages").hide();
+      $("#CABINET").find("#div_tabs").hide();
+      $("#CABINET").find("#div_tab_order").attr('class','tab-pane fade');
+      $("#CABINET").find("#div_tab_message").attr('class','tab-pane fade in active');
+    }
+    function dbMenuBooking(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20605));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20605));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20705));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_BOOKING';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      /*load order*/
+      ORDER_CALLBACK="dbMenuSales();";
+      /*$('<link/>',{rel: 'stylesheet',type: 'text/css', href: 'dist/css/templatemo-style.css', id: 'templatemo_style'}).appendTo('head');*/
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"order.html","#CABINET",dbAfterMenuBooking);
+    }
+    function dbAfterMenuBooking(){
+      $("#CABINET").find("#div_user_deactivated").remove();/*.hide();*/
+      $("#CABINET").find("#div_error_message").remove();/*.hide();*/
+      $("#CABINET").find("#div_loading").remove();/*.hide();*/
+    }
+    function dbMenuSales(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20606));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20606));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20706));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_SALES';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      dbGetOrderAB(true);
+    }
+    function dbMenuOrders(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20607));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20607));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20707));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_ORDERS';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      /*load cabinet*/
+      ORDER_ID=null;
+      TAB_CURR=0;
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"cabinet.html","#CABINET",dbAfterMenuOrders);
+    }
+    function dbAfterMenuOrders(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#div_pages").hide();
+      $("#CABINET").find("#div_tabs").hide();
+    }
+    function dbFindOrderById(order_id){
+      dbClearAllList();
+
+      /*button_list*/
+      var $clone_button=$("#BUTTONS").clone();
+      $clone_button.find("#BUTTON").hide();
+      $clone_button.find("#BUTTON_PRINT").attr('href','javascript:dbDownloadOrderAB('+order_id+');');
+      $("#BUTTON_LIST").empty();
+      $("#BUTTON_LIST").append($clone_button.html());
+
+      /*load cabinet*/
+      ORDER_ID=order_id;
+      TAB_CURR=0;
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"cabinet.html","#CABINET",dbAfterMenuOrders);
+    }
+    function dbMenuTransports(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20608));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20608));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20708));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_TRANSPORTS';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      /*load transport*/
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"transport.html","#CABINET",dbAfterMenuTransports);
+    }
+    function dbAfterMenuTransports(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+    }
+    function dbMenuMap(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20609));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20609));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20709));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu='#SIDEBAR_MENU_MAP';
+      dbActivateSidebarMenu(last_active_sidebar_menu);
+
+      /*load map*/
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"map.html","#CABINET",dbAfterMenuMap);
+    }
+    function dbAfterMenuMap(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#button_cabinet").hide();
+    }
+    function dbMenuLogin(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20610));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20610));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20710));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu=null;
+
+      /*load login*/
+      $('<link/>',{rel: 'stylesheet',type: 'text/css', href: 'dist/css/templatemo-style.css', id: 'templatemo_style'}).appendTo('head');
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"login.html","#CABINET",dbAfterMenuLogin);
+    }
+    function dbAfterMenuLogin(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#a_register").attr("href","javascript:dbMenuRegister();");
+    }
+    function dbMenuRegister(){
+      $("#HEADER_NAME_1").html(getMessage(fa.language,20611));
+      $("#HEADER_NAME_2").html(getMessage(fa.language,20611));
+      $("#HEADER_TEXT").html(getMessage(fa.language,20711));
+      dbClearAllList();
+      dbDeactivateSidebarMenu(last_active_sidebar_menu);
+      last_active_sidebar_menu=null;
+
+      /*load register*/
+      $('<link/>',{rel: 'stylesheet',type: 'text/css', href: 'dist/css/templatemo-style.css', id: 'templatemo_style'}).appendTo('head');
+      getHtml(window.location.protocol+"//"+window.location.host+window.location.pathname.replace("/dashboard/","/admin/")+"register.html","#CABINET",dbAfterMenuRegister);
+    }
+    function dbAfterMenuRegister(){
+      $("#CABINET").find("#div_error").remove();/*.hide();*/
+      $("#CABINET").find("#a_login").attr("href","javascript:dbMenuLogin();");
+    }
+
+    /*MULTI LANGUAGE*/
+    function dbUpdateContentLanguage(language){
+      //sidebar menu
+      $("#SIDEBAR_MENU_SUMMARY_NAME").html(getMessage(language,20601));
+      $("#SIDEBAR_MENU_PROFILE_NAME").html(getMessage(language,20602));
+      $("#SIDEBAR_MENU_AUDIT_NAME").html(getMessage(language,20603));
+      $("#SIDEBAR_MENU_MESSAGES_NAME").html(getMessage(language,20604));
+      $("#SIDEBAR_MENU_BOOKING_NAME").html(getMessage(language,20605));
+      $("#SIDEBAR_MENU_SALES_NAME").html(getMessage(language,20606));
+      $("#SIDEBAR_MENU_ORDERS_NAME").html(getMessage(language,20607));
+      $("#SIDEBAR_MENU_TRANSPORTS_NAME").html(getMessage(language,20608));
+      $("#SIDEBAR_MENU_MAP_NAME").html(getMessage(language,20609));
+
+      if(last_active_sidebar_menu!==null)dbMenu(last_active_sidebar_menu);
+    }
+    function dbMenu(active){
+      if(active==="#SIDEBAR_MENU_SUMMARY")dbMenuSummary();
+      else if(active==="#SIDEBAR_MENU_PROFILE")dbMenuProfile();
+      else if(active==="#SIDEBAR_MENU_AUDIT")dbMenuAudit();
+      else if(active==="#SIDEBAR_MENU_MESSAGES")dbMenuMessages();
+      else if(active==="#SIDEBAR_MENU_BOOKING")dbMenuBooking();
+      else if(active==="#SIDEBAR_MENU_SALES")dbMenuSales();
+      else if(active==="#SIDEBAR_MENU_ORDERS")dbMenuOrders();
+      else if(active==="#SIDEBAR_MENU_TRANSPORTS")dbMenuTransports();
+      else if(active==="#SIDEBAR_MENU_MAP")dbMenuMap();
+    }
+    dbUpdateContentLanguage(fa.language);
+
+    $(document).ajaxStart(function(){$("#div_loading").show();}).ajaxStop(function(){$("#div_loading").hide();});
+  </script>

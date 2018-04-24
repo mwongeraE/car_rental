@@ -1,0 +1,8 @@
+<resources>
+  <string name="paypal_test_key" translatable="false">
+    put_key_here
+  </string>
+  <string name="paypal_key" translatable="false">
+    put_key_here
+  </string>
+</resources>

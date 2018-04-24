@@ -1,0 +1,527 @@
+<!--content-->
+<!--ERROR-->
+<div id="div_error">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div id="div_need_to_register">
+      <center>
+      <img id="img_need_to_register" src="" class="img-responsive" alt="NEED_TO_REGISTER">
+      <h1 id="text_need_to_register">Need to register</h1>
+      </center>
+    </div>
+    <div id="div_user_deactivated">
+      <center>
+      <img id="img_user_deactivated" src="" class="img-responsive" alt="USER_DEACTIVATED">
+      <h1 id="text_user_deactivated">User deactivated</h1>
+      </center>
+    </div>
+    <div id="div_message"></div>
+    <div id="div_error_message"><center><h4 id="text_error_message" style="color:red"></h4></center></div>
+    <div id="div_loading"><center><i class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color:buttonface;"></i></center></div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+<!--MAP-->
+<div class="row">
+  <div class="menu-top">
+  <button type="button" class="btn btn-default btn-sm" onclick="gotoCabinet();" id="button_cabinet"><span class="fa fa-arrow-left"></span></button>
+  <h2 id="text_map_activity" contenteditable="true">Map</h2>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
+      <div id="div_no_activity">
+        <center>
+        <img id="img_no_activity" src="" class="img-responsive" alt="NO_ACTIVITY">
+        <h1 id="text_no_activity">No activity</h1>
+        </center>
+      </div>
+      <div id="div_map_activity"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <br>
+    <input type="button" id="input_all_transport" onclick="showAllMapTransport();" class="templatemo-blue-button" value="Show Transport">
+    <div class="form-group">
+      <div class="checkbox">
+        <input type="checkbox" onchange="watching(this);" id="input_watching">
+        <label id="label_watching" for="input_watching"><span></span><big id="text_watching">Watching</big></label>
+      </div>
+    </div>
+    <div id="div_transport_rows">
+    <div class="row" id="div_transport_row">
+      <div id="div_transport">
+        <div class="templatemo-content-widget white-bg col-2">
+          <div class="media margin-bottom-10">
+            <div class="media-body">
+              <h4 class="media-heading text-uppercase blue-text"><big id="text_transport_name"></big></h4>
+              <big id="text_transport_license_plate"></big>
+              <i class="fa fa-circle" style="font-size:16px;" id="transport_color"></i>
+              <br>
+              <img class="img-responsive" src='images/service/car_hor.png' style='width:10%;height:auto;' id="img_transport_active">
+              <small id="text_transport_type"></small>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <button type="button" id="button_map_transport" class="btn btn-default btn-sm" onclick="showMapTransport();"><span class="glyphicon glyphicon-map-marker"></span></button>
+                    <button type="button" id="button_add_sensor_circle" class="btn btn-default btn-sm" onclick="addSensorCircle();"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button type="button" id="button_remove_sensor_circle" class="btn btn-default btn-sm" onclick="removeSensorCircle();"><span class="glyphicon glyphicon-eye-close"></span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6" id="div_transport_col_1"></div>
+    <div class="col-sm-6" id="div_transport_col_2"></div>
+    </div>
+    <div id="div_transport_list"></div>
+  </div>
+
+ </div>
+ <!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  $("#div_need_to_register").hide();
+  $("#div_user_deactivated").hide();
+  $("#div_transport_row").hide();
+
+  $("#img_need_to_register").attr("src",picture_cancel);
+  $("#img_user_deactivated").attr("src",picture_cancel);
+  $("#img_no_activity").attr("src",picture_cancel);
+
+  /*recycler function for locations update*/
+  var active_map;
+  var watch_timeout=30000;/*30sec*/
+  var moving_timeout=1000;/*1sec*/
+  var moving_lat=0.0001,moving_lng=0.0001;
+  var moving_marker_index=0;
+  var shake_out_timeout=10;/*0.01sec*/
+
+  var track_max_lat,track_max_lng,track_min_lat,track_min_lng;
+  var max_lat,max_lng,min_lat,min_lng;
+
+  function getData(language){
+    $("#text_error_message").empty();
+    if(fa.username===DEFAULT_USERNAME){$("#div_need_to_register").show();return;}
+    fa.offset=null;fa.rows=null;
+    fa.map_list.length=0;
+    fa.marker_list.length=0;
+    fa.polyline_list.length=0;
+    fa.track_list.length=0;
+    fa.getMaxCircleTrack(language,"#text_error_message",null);
+    var order=new faOrderAB();
+    order.id="%";
+    order.order_status_id=1;
+    fa.order_AB_list.length=0;
+    fa.getOrderAB(order,language,"#text_error_message",null);
+    var transport=new faTransport();
+    transport.id="%";
+    if(user_type===USER_TYPE_WORKER)transport.user_id=fa.user_list[0].id;
+    else if(user_type===USER_TYPE_CUSTOMER)transport.sensor_active=1;
+    fa.transport_list.length=0;
+    fa.getTransport(transport,language,null,afterTransport);
+    $(document).one("ajaxStop",function(){
+      afterCircleTrack();
+    });
+  }
+  function afterCircleTrack(){
+    if(fa.track_list.length>0){
+      $("#div_no_activity").hide();
+      $("#div_map_activity").attr("style","width:100%;height:80em;");
+      if(map_load!==null&&map_load){
+        showMap("div_map_activity",0,0,map_zoom,showCircleTrack,fa.track_list);
+      }
+    }
+  }
+  /*map*/
+  function showCircleTrack(map,track_list){
+    active_map=map;
+    if(track_list.length>0){
+      max_lat=parseFloat(track_list[0].latitude);
+      max_lng=parseFloat(track_list[0].longitude);
+      min_lat=parseFloat(track_list[0].latitude);
+      min_lng=parseFloat(track_list[0].longitude);
+    }
+    /*force markers,polylines*/
+    showTrackList(track_list,null);
+    /*force polylines*/
+    showOrderList(fa.order_AB_list,null);
+    fa.fitLocation(map,max_lat,max_lng,min_lat,min_lng);
+  }
+  function afterTransport(){
+    $("#div_transport_list").empty();
+    if(fa.transport_list.length>0){
+      var j,transport,attr;
+      for(j=0;j<fa.transport_list.length;j=j+2){
+        transport=fa.transport_list[j];
+        var $clone=$("#div_transport_rows").clone();
+        var $clone_transport=$("#div_transport_row").clone();
+        $clone_transport.find("#div_transport").attr("id","div_transport_"+transport.id);
+        $clone_transport.find("#button_map_transport").attr("onclick","showMapTransport("+transport.id+");");
+        $clone_transport.find("#button_add_sensor_circle").attr("onclick","addSensorCircle("+transport.id+");");
+        $clone_transport.find("#button_remove_sensor_circle").attr("onclick","removeSensorCircle("+transport.id+");");
+        $clone_transport.find("#text_transport_name").html(transport.name);
+        $clone_transport.find("#text_transport_license_plate").html(transport.license_plate);
+        attr=$clone_transport.find("#transport_color").attr("style");
+        $clone_transport.find("#transport_color").attr("style",attr+"color:"+transport.color);
+        $clone_transport.find("#text_transport_type").html(parseTypeList(transport.type_list));
+        if(transport.sensor_active.length===0||parseInt(transport.sensor_active)===0)$clone_transport.find("#img_transport_active").hide();
+        $clone.find("#div_transport_col_1").html($clone_transport.html());
+        /*fa.getPicture(transport,transport.id,"transport",null,afterTransportPicture,transport);*/
+        transport=fa.transport_list[j+1];
+        if(transport){
+          $clone_transport=$("#div_transport_row").clone();
+          $clone_transport.find("#div_transport").attr("id","div_transport_"+transport.id);
+          $clone_transport.find("#button_map_transport").attr("onclick","showMapTransport("+transport.id+");");
+          $clone_transport.find("#button_add_sensor_circle").attr("onclick","addSensorCircle("+transport.id+");");
+          $clone_transport.find("#button_remove_sensor_circle").attr("onclick","removeSensorCircle("+transport.id+");");
+          $clone_transport.find("#text_transport_name").html(transport.name);
+          $clone_transport.find("#text_transport_license_plate").html(transport.license_plate);
+          attr=$clone_transport.find("#transport_color").attr("style");
+          $clone_transport.find("#transport_color").attr("style",attr+"color:"+transport.color);
+          $clone_transport.find("#text_transport_type").html(parseTypeList(transport.type_list));
+          $clone.find("#div_transport_col_2").append($clone_transport.html());
+          /*fa.getPicture(transport,transport.id,"transport",null,afterTransportPicture,transport);*/
+        }
+        $clone.find("#div_transport").empty();
+        $("#div_transport_list").append($clone.html());
+      }
+    }
+  }
+  /*function afterTransportPicture(ptr){
+    if(ptr){
+      $("#div_transport_"+ptr.id).find("#img_transport_picture").attr("src","data:image/jpeg;base64,"+ptr.picture);
+    }
+  }*/
+  function showMapTransport(transport_id){
+    var j,map_marker;
+    for(j=0;j<fa.marker_list.length;j++){
+      map_marker=fa.marker_list[j];
+      if(map_marker.track.transport!==null&&parseInt(map_marker.track.transport.id)===parseInt(transport_id)){
+        fa.fitLocation(active_map,map_marker.track.latitude,map_marker.track.longitude);
+        break;
+      }
+    }
+  }
+  function showAllMapTransport(){
+    fa.fitLocation(active_map,track_max_lat,track_max_lng,track_min_lat,track_min_lng);
+  }
+  function showAllMapObject(){
+    fa.fitLocation(active_map,max_lat,max_lng,min_lat,min_lng);
+  }
+  /*function removeMarkerWindow(){
+    var j,map_marker;
+    for(j=0;j<fa.marker_list.length;j++){
+      map_marker=fa.marker_list[j];
+      if(map_marker){
+        fa.removeMarkerWindow(map_marker.marker);
+      }
+    }
+  }*/
+  function watching(obj){
+    if(obj.checked){
+      /*get data after timeout*/
+      interval_1_id=setInterval(function(){regetData(fa.language);},watch_timeout);
+      /*marker moving and shake out*/
+      interval_2_id=setInterval(function(){
+        var map_marker,length=fa.marker_list.length;
+        if(moving_marker_index>=length)moving_marker_index=0;
+
+        do{/*seek track marker*/
+          map_marker=fa.marker_list[moving_marker_index];
+          moving_marker_index++;
+          if(map_marker&&map_marker.track!==null)break;
+          else if(moving_marker_index>=length)break;
+        }while(true);
+
+        if(map_marker&&map_marker.track!==null)moveMarker(map_marker,moving_lat,moving_lng);
+        if(moving_marker_index===length)shakeOut();
+      },moving_timeout);
+    }
+    else{
+      clearInterval(interval_id);
+    }
+  }
+  function regetData(language){
+    fa.track_list.length=0;
+    fa.getMaxCircleTrack(language,"#text_error_message",null);
+    var order=new faOrderAB();
+    order.id="%";
+    order.order_status_id=1;
+    fa.order_AB_list.length=0;
+    fa.getOrderAB(order,language,"#text_error_message",null);
+    $(document).one("ajaxStop",function(){
+      afterRegetData();
+    });
+  }
+  function afterRegetData(){
+    /*move transports,peoples*/
+    removeLeftMarker(fa.track_list,fa.marker_list);
+    removeLeftPolyline(fa.order_AB_list,fa.marker_list,fa.polyline_list);
+    /*adddon new*/
+    showTrackList(fa.track_list,fa.marker_list);
+    showOrderList(fa.order_AB_list,fa.polyline_list);
+  }
+  /*marker*/
+  function removeLeftMarker(track_list,marker_list){
+    var j,map_marker;
+    for(j=0;j<marker_list.length;j++){
+      map_marker=marker_list[j];
+      if(map_marker&&map_marker.track!==null&&!isMarkerInTrack(track_list,map_marker)){
+        fa.removeMarker(active_map,map_marker);
+        j--;
+      }
+    }
+  }
+  function isMarkerInTrack(track_list,map_marker){
+    var ret_val=false;
+    var j,track;
+    for(j=0;j<track_list.length;j++){
+      track=track_list[j];
+      if(track&&parseInt(map_marker.track.sensor_id)===parseInt(track.sensor_id)){
+        ret_val=true;break;
+      }
+    }
+    return ret_val;
+  }
+  /*polyline*/
+  function removeLeftPolyline(order_list,marker_list,polyline_list){
+    var j,map_polyline;
+    for(j=0;j<polyline_list.length;j++){
+      map_polyline=polyline_list[j];
+      if(map_polyline&&map_polyline.order!==null&&!isPolylineInOrder(order_list,map_polyline)){
+        removeMarkerByOrder(marker_list,map_polyline.order);
+        fa.removePolyline(active_map,map_polyline);
+        j--;
+      }
+    }
+  }
+  function isPolylineInOrder(order_list,map_polyline){
+    var ret_val=false;
+    var j,order;
+    for(j=0;j<order_list.length;j++){
+      order=order_list[j];
+      if(order&&parseInt(map_polyline.order.id)===parseInt(order.id)){
+        ret_val=true;break;
+      }
+    }
+    return ret_val;
+  }
+  function removeMarkerByOrder(marker_list,order){
+    var j,map_marker;
+    for(j=0;j<marker_list.length;j++){
+      map_marker=marker_list[j];
+      if(map_marker&&map_marker.order!==null&&parseInt(map_marker.order.id)===parseInt(order.id)){
+        fa.removeMarker(active_map,map_marker);
+        j--;
+      }
+    }
+  }
+  /*showTrackList*/
+  function showTrackList(track_list,marker_list){
+    var j,k,track,marker,map_marker,marker_url,info;
+    var new_track_list=[];
+    for(j=0;j<track_list.length;j++){
+      track=track_list[j];
+      if(track&&track.transport!==null){
+        var bear=parseInt(track.bearing);
+        if(bear>340)marker_url=picture_marker_car_360;
+        else if(bear>295)marker_url=picture_marker_car_315;
+        else if(bear>250)marker_url=picture_marker_car_270;
+        else if(bear>205)marker_url=picture_marker_car_225;
+        else if(bear>160)marker_url=picture_marker_car_180;
+        else if(bear>115)marker_url=picture_marker_car_135;
+        else if(bear>70)marker_url=picture_marker_car_90;
+        else if(bear>25)marker_url=picture_marker_car_45;
+        else marker_url=picture_marker_car_360;
+      }
+      else marker_url=picture_marker_people;
+      /*marker*/
+      if(marker_list===null)marker=fa.createMarker(active_map,track.latitude,track.longitude,marker_url,marker_width,marker_height,track.user_id.toString(),++map_marker_index,track,null);
+      else{
+        /*seek marker*/
+        marker=null;
+        for(k=0;k<marker_list.length;k++){
+          map_marker=marker_list[k];
+          if(map_marker&&map_marker.track!==null&&parseInt(map_marker.track.sensor_id)===parseInt(track.sensor_id)){/*track marker*/
+            marker=map_marker.marker;
+            break;
+          }
+        }
+        if(marker===null)new_track_list.push(track);
+        else if(parseInt(map_marker.track.id)!==parseInt(track.id)){
+          fa.removeMarkerWindow(marker);
+          fa.setMarkerLocation(map_marker,track.latitude,track.longitude,true);
+          map_marker.track=track;
+          if(map_marker.track.transport!==null)fa.setMarkerImage(map_marker,marker_url);
+        }
+      }
+      /*addon info*/
+      if(marker!==null){
+        info=getMarkerInfo(fa.language,track);
+        if(user_type===USER_TYPE_ADMIN){/*admin want to rest*/}
+        else if(user_type===USER_TYPE_WORKER){/*driver want the order*/}
+        else if(user_type===USER_TYPE_CUSTOMER&&track.transport){/*customer want the cab*/
+          info+='<br><input type="button" id="input_send_order" onclick="sendOrder('+track.transport_id+');" class="templatemo-blue-button" value="'+getMessage(fa.language,1062)+'" title="'+getMessage(fa.language,1063)+'">';
+        }
+        fa.addMarkerWindow(marker,info,marker_max_window_width);
+      }
+      if(track.latitude!==null&&track.longitude!==null)checkMaxMinLocation(parseFloat(track.latitude),parseFloat(track.longitude));
+    }
+    for(j=0;j<new_track_list.length;j++){/*add new track to map*/
+      track=new_track_list[j];
+      marker=fa.createMarker(active_map,track.latitude,track.longitude,marker_url,marker_width,marker_height,track.user_id.toString(),++map_marker_index,track,null);
+      /*addon info*/
+      info=getMarkerInfo(fa.language,track);
+      if(user_type===USER_TYPE_ADMIN){/*admin want to rest*/}
+      else if(user_type===USER_TYPE_WORKER){/*driver want the order*/}
+      else if(user_type===USER_TYPE_CUSTOMER&&track.transport){/*customer want the cab*/
+        info+='<br><input type="button" id="input_send_order" onclick="sendOrder('+track.transport_id+');" class="templatemo-blue-button" value="'+getMessage(fa.language,1062)+'" title="'+getMessage(fa.language,1063)+'">';
+      }
+      fa.addMarkerWindow(marker,info,marker_max_window_width);
+    }
+    /*track bounds*/
+    track_max_lat=max_lat;track_max_lng=max_lng;track_min_lat=min_lat;track_min_lng=min_lng;
+  }
+  function showOrderList(order_list,polyline_list){
+    var j,k,order,map_polyline;
+    var new_order_list=[];
+    var is_show_order;
+    for(j=0;j<order_list.length;j++){
+      order=order_list[j];
+      /*polyline*/
+      if(polyline_list===null){
+        if(order.order_lat!==null&&order.order_lon!==null&&order.delivery_lat!==null&&order.delivery_lon!==null&&
+           order.route_data!=='')showOrderRoute(active_map,order,true);
+      }
+      else{
+        /*seek polyline*/
+        is_show_order=false;
+        for(k=0;k<polyline_list.length;k++){
+          map_polyline=polyline_list[k];
+          if(map_polyline&&map_polyline.order!==null&&parseInt(map_polyline.order.id)===parseInt(order.id)){
+            is_show_order=true;
+            break;
+          }
+        }
+        if(!is_show_order&&
+           order.order_lat!==null&&order.order_lon!==null&&order.delivery_lat!==null&&order.delivery_lon!==null&&
+           order.route_data!=='')new_order_list.push(order);
+      }
+      if(order.order_lat!==null&&order.order_lon!==null)checkMaxMinLocation(parseFloat(order.order_lat),parseFloat(order.order_lon));
+      if(order.delivery_lat!==null&&order.delivery_lon!==null)checkMaxMinLocation(parseFloat(order.delivery_lat),parseFloat(order.delivery_lon));
+    }
+    for(j=0;j<new_order_list.length;j++){/*add new order to map*/
+      order=new_order_list[j];
+      showOrderRoute(active_map,order,true);
+    }
+  }
+  function showLocation(marker_list){
+    var j,map_marker;
+    for(j=0;j<marker_list.length;j++){
+      map_marker=marker_list[j];
+      if(map_marker){
+        fa.setMarkerLocation(map_marker,map_marker.latitude,map_marker.longitude,false);
+      }
+    }
+  }
+  /*show moving marker ...*/
+  function moveMarker(map_marker,move_lat,move_lng){
+    var mili=new Date().getMilliseconds()%2;
+    var sec=new Date().getSeconds()%2;
+    /*var id=map_marker.id%2;*/
+    var ma_lat=move_lat;
+    var ma_lng=move_lng;
+    if(mili===1&&sec===1){
+      ma_lat=ma_lat*(-1);ma_lng=ma_lng*(-1);
+    }else if(mili===0&&sec===1){
+      ma_lng=ma_lng*(-1);
+    }else if(mili===1&&sec===0){
+      ma_lat=ma_lat*(-1);
+    }
+    fa.setMarkerLocation(map_marker,parseFloat(map_marker.latitude)+ma_lat,parseFloat(map_marker.longitude)+ma_lng,false);
+  }
+  function showMoving(marker_list){
+    var j,map_marker;
+    for(j=0;j<marker_list.length;j++){
+      map_marker=marker_list[j];
+      if(map_marker&&map_marker.track!==null)moveMarker(map_marker,moving_lat,moving_lng);
+    }
+  }
+  function shakeOut(){
+    /*moving All*/
+    setTimeout(function(){showMoving(fa.marker_list);},shake_out_timeout);
+    /*after timeout move again*/
+    setTimeout(function(){showLocation(fa.marker_list);},shake_out_timeout*5);
+  }
+
+  /*location bounds*/
+  function checkMaxMinLocation(lat,lng){
+    if(lat>max_lat)max_lat=lat;
+    else if(lat<min_lat)min_lat=lat;
+    if(lng>max_lng)max_lng=lng;
+    else if(lng<min_lng)min_lng=lng;
+  }
+  /*send order*/
+  function sendOrder(transport_id){
+    if(fa.user_list.length>0){
+      var user=fa.user_list[0];
+      var order=new faOrderAB();
+      order.user_id=user.id;
+      order.transport_id=transport_id;
+      order.delivery_type_id=1;/*owner service*/
+      order.route_distance=-1;
+      order.route_duration=-1;
+      order.reserved_hours=-1;
+      fa.addOrderAB(order,"#text_error_message",afterOrder);
+    }
+  }
+  function afterOrder(){
+    var list=fa.ret_val_list;
+    if(list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+      }
+      else if(ret_val.status==="SUCCESS"){
+        $("#div_message").html('OrderId='+ret_val.value);
+        gotoCabinet();
+      }
+    }
+  }
+
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var text_map_activity=document.getElementById('text_map_activity');
+    var text_no_activity=document.getElementById('text_no_activity');
+
+    var text_need_to_register=document.getElementById('text_need_to_register');
+    var text_user_deactivated=document.getElementById('text_user_deactivated');
+
+    var input_all_transport=document.getElementById('input_all_transport');
+    var text_watching=document.getElementById('text_watching');
+
+    /*captions*/
+    text_map_activity.innerHTML=getMessage(language,1201);
+    text_no_activity.innerHTML=getMessage(language,1202);
+
+    text_need_to_register.innerHTML=getMessage(language,1401);
+    text_user_deactivated.innerHTML=getMessage(language,1402);
+
+    input_all_transport.value=getMessage(language,1203);
+    input_all_transport.title=getMessage(language,1204);
+    text_watching.innerHTML=getMessage(language,1205);
+
+    getData(language);
+  }
+  updateContentLanguage(fa.language);
+  $(document).ajaxStart(function(){$("#div_loading").show();}).ajaxStop(function(){$("#div_loading").hide();});
+</script>

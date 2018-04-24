@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="autozvit.com.fireart"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:versionCode="28"
+          android:versionName="28"
+          xmlns:tools="http://schemas.android.com/tools">
+  <uses-sdk android:minSdkVersion="9" tools:overrideLibrary="com.paypal.android.sdk.payments,io.card.payment,com.stripe.android"/>
+  <!--NOT NEED for google MAP API V2 : permission.MAPS_RECEIVE, permission.READ_GSERVICES-->
+  <!--uses-permission
+    android:name="autozvit.com.fireart.permission.MAPS_RECEIVE"
+    android:protectionLevel="signature"/-->
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <!--uses-permission android:name="android.permission.CAMERA"/-->
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  <!--uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/-->
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+  <uses-permission android:name="android.permission.ACTION_LOCATION_SOURCE_SETTINGS"/>
+  <!--uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/-->
+  <!--uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/-->
+  <!--uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/-->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <!--uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/-->
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <!--uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/-->
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+  <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+  <!--uses-permission android:name="android.permission.READ_CONTACTS"/-->
+  <uses-permission android:name="android.permission.READ_SMS"/>
+  <!--uses-permission android:name="android.permission.SEND_SMS"/-->
+  <!--uses-permission android:name="android.permission.WAKE_LOCK"/-->
+  <!--uses-permission android:name="android.permission.DISABLE_KEYGUARD"/-->
+  <uses-permission android:name="com.android.vending.BILLING"/>
+  <!--uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/-->
+  <uses-permission android:name="android.permission.CALL_PHONE"/>
+  <!--uses-permission android:name="android.permission.BATTERY_STATS"/-->
+
+  <uses-feature
+    android:name="android.hardware.camera"
+    android:required="false"/>
+  <uses-feature
+    android:name="android.hardware.camera.front"
+    android:required="false"/>
+  <uses-feature
+    android:name="android.hardware.camera.back"
+    android:required="false"/>
+  <uses-feature
+    android:name="android.hardware.location"
+    android:required="true"/>
+  <uses-feature
+    android:name="android.hardware.location.gps"
+    android:required="false"/>
+
+  <supports-screens
+    android:anyDensity="true"
+    android:largeScreens="true"
+    android:normalScreens="true"
+    android:resizeable="true"
+    android:smallScreens="true"
+    android:xlargeScreens="true"/>
+
+  <!--android:name="name_of_owner_class"-->
+  <!--android:icon="@drawaapp_logond_2"-->
+  <!--Application-->
+  <application
+    android:allowBackup="true"
+    android:icon="@drawable/app_logo"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme">
+    <!--Activity-->
+    <activity
+      android:name=".forms.StartActivity"
+      android:label="@string/app_name"
+      android:launchMode="singleTop">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity
+      android:name=".forms.SplashActivity"
+      android:label="@string/splash"
+      android:launchMode="singleTop">
+    </activity>
+    <activity
+      android:name=".forms.DriverActivity"
+      android:label="@string/profile"
+      android:launchMode="singleTop">
+    </activity>
+    <activity
+      android:name=".forms.SettingsActivity"
+      android:label="@string/settings"
+      android:launchMode="singleTop">
+    </activity>
+    <!--Cognalys phone verify provider-->
+    <activity
+      android:name="com.matesnetwork.Cognalys.VerifyMobile"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+    </activity>
+
+    <!--GoogleCloudMessages-->
+    <!--meta-data
+      android:name="com.google.android.gms.version"
+      android:value="@integer/google_play_services_version"/-->
+    <!--GoogleMap-->
+    <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="@string/google_maps_key"/>
+    <uses-library android:name="com.google.android.maps"/>
+    <!--Need for google map v.2 (app not used)-->
+    <!--version 2 of the Google Maps Android API requires OpenGL ES version 2-->
+    <!--uses-feature android:glEsVersion="0x00020000" android:required="true"/-->
+
+    <!--Stripe payment provider-->
+    <!--meta-data
+      android:name="stripe_test_key"
+      android:value="pk_test_6pRNASCoBOKtIshFeQd4XMUh"/>
+    <meta-data
+      android:name="stripe_key"
+      android:value="put_key_here"/-->
+
+    <!--Service-->
+    <service
+      android:name=".service.DispatcherService"
+      android:enabled="true"
+      android:label="@string/dispatcher_service"
+      android:process=":dispatcher_service">
+      <intent-filter>
+        <action android:name=".service.DispatcherService"/>
+      </intent-filter>
+    </service>
+
+    <!--Broadcast-->
+    <receiver android:name=".tools.CognalysVerification"/>
+    <intent-filter>
+      <action android:name="com.matesnetwork.cognalys"/>
+    </intent-filter>
+
+  </application>
+</manifest>

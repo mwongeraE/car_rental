@@ -1,0 +1,55 @@
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 tools:context="autozvit.com.fireart.forms.ErrorFragment"
+                 android:background="@color/md_grey_100"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/text_view_large"
+    android:text="ERROR LARGE TEXT"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"/>
+
+  <ScrollView
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical"
+    android:layout_below="@+id/text_view_large">
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <TextView
+      android:id="@+id/text_view_small"
+      android:text="error medium text"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"/>
+    <Button
+      android:id="@+id/button_tool_window_cancel"
+      android:text="@string/button_cancel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_below="@+id/text_view_small"
+      android:onClick="onClick"/>
+    </RelativeLayout>
+  </ScrollView>
+
+  <ImageView
+    android:id="@+id/image_view_picture"
+    android:src="@drawable/ic_error_outline_red_48pt_3x"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center_horizontal"
+    android:layout_above="@+id/text_view_large"
+    android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
+

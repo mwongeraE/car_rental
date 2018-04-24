@@ -1,0 +1,13 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+  %set_param7=@this.getExtra("picture_id")%set_param
+  %set_param8=@this.getExtra("object_name")%set_param
+  <html>
+  <head><title>object_name=%param8%param picture_id=%param7%param</title></head>
+  <body>
+    %set_param20=@this.getStringValue("SELECT picture FROM %param8%param WHERE id=%param7%param")%set_param
+    <img src="data:image;base64,%param20%param">
+  </body>
+  </html>
+%endif%endif

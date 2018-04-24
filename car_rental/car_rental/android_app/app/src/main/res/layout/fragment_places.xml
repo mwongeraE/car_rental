@@ -1,0 +1,153 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/button_book_now"
+      style="@style/Widget.EasyStyle.Button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:onClick="onClick"
+      android:text="@string/button_book_now"/>
+  </LinearLayout>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center_horizontal"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/easy_style_fragment_background"
+      android:padding="2dp">
+
+      <RelativeLayout
+        android:id="@+id/layout_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+          android:id="@+id/image_view_pickup_picture"
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          app:srcCompat="@drawable/pickup"/>
+
+        <fragment
+          android:id="@+id/place_autocomplete_fragment_pickup"
+          android:name="com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"/>
+
+        <TextView
+          android:id="@+id/text_view_pickup_address"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/place_autocomplete_fragment_pickup"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="@string/pickup_address"/>
+
+        <View
+          android:id="@+id/view_picture_divider"
+          android:layout_width="1dp"
+          android:layout_height="20dp"
+          android:layout_above="@+id/image_view_dropoff_picture"
+          android:layout_below="@+id/image_view_pickup_picture"
+          android:layout_marginLeft="12dp"
+          android:layout_marginTop="0dp"
+          android:background="@color/easy_style_light_divider_background"/>
+
+        <ImageView
+          android:id="@+id/image_view_dropoff_picture"
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          android:layout_alignBottom="@+id/place_autocomplete_fragment_dropoff"
+          app:srcCompat="@drawable/dropoff"/>
+
+        <View
+          android:id="@+id/view_pickup_dropoff_divider"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_below="@+id/text_view_pickup_address"
+          android:layout_margin="5dp"
+          android:layout_toEndOf="@+id/image_view_dropoff_picture"
+          android:layout_toRightOf="@+id/image_view_dropoff_picture"
+          android:background="@color/easy_style_divider_background"/>
+
+        <fragment
+          android:id="@+id/place_autocomplete_fragment_dropoff"
+          android:name="com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/view_pickup_dropoff_divider"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"/>
+
+        <TextView
+          android:id="@+id/text_view_dropoff_address"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/place_autocomplete_fragment_dropoff"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="@string/dropoff_address"/>
+      </RelativeLayout>
+    </RelativeLayout>
+  </ScrollView>
+
+  <RelativeLayout
+    android:id="@+id/relative_layout_addon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_marginBottom="140dp"
+    android:background="@color/fragment_background"
+    android:visibility="gone">
+
+    <TextView
+      android:id="@+id/text_view_price"
+      style="@style/Widget.Style.PriceTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:alpha="0.8"
+      android:text="0.00"
+      android:textSize="28dp"/>
+
+    <TextView
+      android:id="@+id/text_view_currency"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/text_view_price"
+      android:text="USD"
+      android:textSize="18dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+      android:id="@+id/floating_action_button_product"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="2dp"
+      android:layout_toRightOf="@+id/text_view_price"
+      android:clickable="true"
+      android:onClick="onClick"
+      android:src="@drawable/ic_add_white_24dp"
+      app:rippleColor="@color/label_text_dark"/>
+  </RelativeLayout>
+</FrameLayout>

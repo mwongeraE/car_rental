@@ -1,0 +1,57 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="autozvit.com.fireart.forms.OrderStatusFragment">
+
+  <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:background="@xml/button_dark_grey_enabled">
+
+    <ProgressBar
+      android:id="@+id/progress_bar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="false"
+      android:layout_centerVertical="true"
+      android:layout_gravity="left"
+      android:indeterminateDrawable="@xml/spinner"
+      android:indeterminateOnly="true"/>
+
+    <TextView
+      android:id="@+id/text_view_order_status"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:layout_gravity="center"
+      android:layout_toRightOf="@+id/progress_bar"
+      android:text="ORDER STATUS"
+      android:textColor="@color/WhiteSmoke"/>
+
+    <ImageButton
+      android:id="@+id/image_button_order"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:layout_marginLeft="5dp"
+      android:layout_toRightOf="@+id/text_view_order_status"
+      android:background="@xml/button_dark_grey"
+      android:onClick="onClick"
+      android:src="@mipmap/ic_arrow_forward_white_48dp"/>
+
+    <ImageView
+      android:id="@+id/image_view_picture"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="false"
+      android:layout_centerVertical="true"
+      android:layout_marginLeft="0dp"
+      android:src="@drawable/app_logo"
+      android:visibility="invisible"/>
+
+  </RelativeLayout>
+</FrameLayout>

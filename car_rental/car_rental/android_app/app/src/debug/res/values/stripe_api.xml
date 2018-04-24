@@ -1,0 +1,8 @@
+<resources>
+  <string name="stripe_test_key" translatable="false">
+    put_key_here
+  </string>
+  <string name="stripe_key" translatable="false">
+    put_key_here
+  </string>
+</resources>

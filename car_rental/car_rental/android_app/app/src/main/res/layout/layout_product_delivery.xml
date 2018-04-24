@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+  <android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    card_view:cardElevation="0dp"
+    card_view:cardCornerRadius="0dp">
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="false"
+      android:layout_centerHorizontal="true"
+      android:background="@color/fragment_transparent_background">
+
+      <TextView
+        style="@style/Widget.Style.PriceTextView"
+        android:id="@+id/text_view_price"
+        android:alpha="0.8"
+        android:textSize="28dp"
+        android:text="0.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+      <TextView
+        android:id="@+id/text_view_currency"
+        android:textSize="18dp"
+        android:text="USD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_price"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+      <ImageView
+        android:id="@+id/image_view_product_picture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_do_not_disturb_alt_white_48pt_3x"/>
+
+      <TextView
+        android:id="@+id/text_view_discount"
+        style="@style/Widget.Style.DiscountSmallTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_view_currency"
+        android:alpha="0.8"
+        android:text="0.00"/>
+
+      <TextView
+        android:id="@+id/text_view_description"
+        style="@style/Widget.Style.ProductDescriptionTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_name"
+        android:layout_alignStart="@+id/text_view_name"
+        android:layout_below="@+id/text_view_discount"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="product_description"
+        android:textAlignment="gravity"/>
+
+      <TextView
+        android:id="@+id/text_view_name"
+        style="@style/Widget.Style.ProductNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/image_button_plus"
+        android:layout_alignRight="@+id/image_button_plus"
+        android:layout_below="@+id/text_view_description"
+        android:layout_toEndOf="@+id/image_view_product_picture"
+        android:layout_toRightOf="@+id/image_view_product_picture"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Name"
+        android:textAlignment="gravity"/>
+
+      <Button
+        android:id="@+id/button_options"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/image_button_plus"
+        android:layout_alignStart="@+id/image_button_minus"
+        android:layout_below="@+id/edit_text_count"
+        android:text="@string/button_options"/>
+
+      <Button
+        android:id="@+id/button_add_to_cart"
+        style="@style/Widget.GreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button_options"
+        android:layout_alignStart="@+id/button_options"
+        android:layout_below="@+id/button_options"
+        android:text="@string/button_add_to_cart"/>
+
+      <ImageButton
+        android:id="@+id/image_button_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_view_name"
+        app:srcCompat="@drawable/ic_add_black_24dp"/>
+
+      <ImageButton
+        android:id="@+id/image_button_minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_name"
+        android:layout_toEndOf="@+id/image_view_product_picture"
+        android:layout_toRightOf="@+id/image_view_product_picture"
+        app:srcCompat="@drawable/ic_remove_black_24dp"/>
+
+      <EditText
+        android:id="@+id/edit_text_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_button_minus"
+        android:layout_toEndOf="@+id/image_button_minus"
+        android:layout_toLeftOf="@+id/image_button_plus"
+        android:layout_toRightOf="@+id/image_button_minus"
+        android:layout_toStartOf="@+id/image_button_plus"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:numeric="decimal"
+        android:text="1"
+        android:textAlignment="gravity"
+        android:textSize="24sp"/>
+
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
+</RelativeLayout>

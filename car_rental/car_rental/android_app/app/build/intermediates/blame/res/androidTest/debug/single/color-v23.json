@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_default.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/6ffe0b281d10e002a5c341dde4d73c44/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    }
+]

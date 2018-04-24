@@ -1,0 +1,57 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("store_id")%set_param
+      %set_param10=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'part_id',CHAR(34),':',id,',',
+        CHAR(34),'store_id',CHAR(34),':',store_id,',',
+        CHAR(34),'part_name',CHAR(34),':',CHAR(34),replace_text(name),CHAR(34),',',
+        CHAR(34),'name_attr',CHAR(34),':',CHAR(34),replace_text(get_attr_part_value(store_id,'store_part','name','%param10%param')),CHAR(34),',',
+        CHAR(34),'description',CHAR(34),':',CHAR(34),replace_text(description),CHAR(34),',',
+        CHAR(34),'description_attr',CHAR(34),':',CHAR(34),replace_text(get_attr_part_value(store_id,'store_part','description','%param10%param')),CHAR(34),',',
+        CHAR(34),'latitude',CHAR(34),':',IFNULL(latitude,'null'),',',
+        CHAR(34),'longitude',CHAR(34),':',IFNULL(longitude,'null'),',',
+        CHAR(34),'email',CHAR(34),':',CHAR(34),IFNULL(email,''),CHAR(34),',',
+        CHAR(34),'phone1',CHAR(34),':',CHAR(34),IFNULL(phone1,''),CHAR(34),',',
+        CHAR(34),'phone2',CHAR(34),':',CHAR(34),IFNULL(phone2,''),CHAR(34),',',
+        CHAR(34),'address',CHAR(34),':',CHAR(34),IF(address IS NULL,'',replace_text(address)),CHAR(34),',',
+        CHAR(34),'address_attr',CHAR(34),':',CHAR(34),replace_text(get_attr_part_value(store_id,'store_part','address','%param10%param')),CHAR(34),',',
+        CHAR(34),'city',CHAR(34),':',CHAR(34),IF(city IS NULL,'',replace_text(city)),CHAR(34),',',
+        CHAR(34),'city_attr',CHAR(34),':',CHAR(34),replace_text(get_attr_part_value(store_id,'store_part','city','%param10%param')),CHAR(34),',',
+        CHAR(34),'postcode',CHAR(34),':',CHAR(34),IFNULL(postcode,''),CHAR(34),',',
+        CHAR(34),'language',CHAR(34),':',CHAR(34),IFNULL(language,''),CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),last_update,CHAR(34),'}') AS CHAR)
+        FROM store_part
+        WHERE store_id LIKE '%param9%param'
+	      ORDER BY store_id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

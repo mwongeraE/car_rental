@@ -1,0 +1,19 @@
+%invoke_methodthis.getClientSession().getResponse().setContentType("image/jpeg")%invoke_method
+%set_param0=@this.getExtra("api_key")%set_param
+%if "param0" %if
+  %set_param0=SELECT get_schema_name(?0)%set_param
+  %if "param0" %if
+    <sql="USE %param0%param">
+    %invoke_methodthis.setParam(0,"1")%invoke_method
+  %elseif%elseif
+    %invoke_methodthis.setParam(0,"-1")%invoke_method
+  %endif%endif
+%elseif%elseif
+  %invoke_methodthis.setParam(0,"1")%invoke_method
+%endif%endif
+%if "param0>0" %if
+  %set_param3=@this.getStringValue("SELECT picture FROM %param1%param WHERE id=%param2%param")%set_param
+  %if "param3" %if
+    %invoke_methodthis.writeBase64ParamAsBytesWithContentLength(3)%invoke_method
+  %endif%endif
+%endif%endif

@@ -1,0 +1,7 @@
+%invoke_methodthis.getClientSession().getResponse().setHeader("Access-Control-Allow-Origin","*")%invoke_method
+%invoke_methodthis.getClientSession().getResponse().setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")%invoke_method
+%set_param0=@this.getExtra("user")%set_param
+%set_param1=@this.getExtra("pass")%set_param
+%set_param2=@this.getCookie("LANGUAGE")%set_param
+%set_param3=@this.getCookie("MAP_PROVIDER")%set_param
+%set_param4=@this.getCookie("TIMEZONE_OFFSET")%set_param

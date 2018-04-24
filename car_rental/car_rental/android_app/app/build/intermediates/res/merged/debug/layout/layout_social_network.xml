@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@color/app_control"
+                android:padding="20dp">
+
+  <TextView
+    android:id="@+id/text_view_social_network"
+    style="@style/Widget.Style.TipTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:accessibilityTraversalBefore="@+id/button_instagram"
+    android:text="@string/social_network"/>
+
+  <Button
+    android:id="@+id/button_google"
+    style="@style/Widget.TransWhiteButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text_view_social_network"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="40dp"
+    android:onClick="onClick"
+    android:text="@string/button_google"/>
+
+  <Button
+    android:id="@+id/button_facebook"
+    style="@style/Widget.TransWhiteButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/button_google"
+    android:layout_alignStart="@+id/button_google"
+    android:layout_below="@+id/button_google"
+    android:layout_marginTop="10dp"
+    android:onClick="onClick"
+    android:text="@string/button_facebook"/>
+
+  <Button
+    android:id="@+id/button_twitter"
+    style="@style/Widget.TransWhiteButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/button_facebook"
+    android:layout_alignStart="@+id/button_facebook"
+    android:layout_below="@+id/button_facebook"
+    android:layout_marginTop="10dp"
+    android:onClick="onClick"
+    android:text="@string/button_twitter"/>
+
+  <Button
+    android:id="@+id/button_instagram"
+    style="@style/Widget.TransWhiteButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/button_twitter"
+    android:layout_alignStart="@+id/button_twitter"
+    android:layout_below="@+id/button_twitter"
+    android:layout_marginTop="10dp"
+    android:onClick="onClick"
+    android:text="@string/button_instagram"/>
+</RelativeLayout>

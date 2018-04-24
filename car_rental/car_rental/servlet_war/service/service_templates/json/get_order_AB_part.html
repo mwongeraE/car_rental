@@ -1,0 +1,74 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("order_id")%set_param
+
+      %if "param6!=1&param6!=2" %if
+        %set_param10=SELECT is_my_order(?0,?9)%set_param 
+      %elseif%elseif
+        %invoke_methodthis.setParam(10,"1")%invoke_method
+      %endif%endif
+
+      %if "param10=1" %if
+
+      %set_param11=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'order_id',CHAR(34),':',op.order_id,',',
+        CHAR(34),'product_id',CHAR(34),':',op.product_id,',',
+        CHAR(34),'product',CHAR(34),':[{',
+        CHAR(34),'product_id',CHAR(34),':',p.id,',',
+        CHAR(34),'manufacture_id',CHAR(34),':',p.manufacture_id,',',
+        CHAR(34),'discount_code',CHAR(34),':',CHAR(34),IFNULL(p.discount_code,''),CHAR(34),',',
+        CHAR(34),'discount',CHAR(34),':[',IF(p.discount_code IS NULL,'',get_discount(p.discount_code,'%param11%param')),'],',
+        CHAR(34),'product_attr',CHAR(34),':[',get_attr_part(p.id,'product','%param11%param'),'],',
+        CHAR(34),'type_part',CHAR(34),':[',get_product_type_part(p.id,'%param11%param'),'],',
+        CHAR(34),'param_part',CHAR(34),':[',get_order_AB_product_param_part(op.order_id,op.product_id,'%param11%param'),'],',
+        CHAR(34),'product_name',CHAR(34),':',CHAR(34),replace_text(p.name),CHAR(34),',',
+        CHAR(34),'description',CHAR(34),':',CHAR(34),replace_text(p.description),CHAR(34),',',
+        CHAR(34),'product_code',CHAR(34),':',CHAR(34),p.code,CHAR(34),',',
+        CHAR(34),'product_price',CHAR(34),':',p.price,',',
+        CHAR(34),'product_rate',CHAR(34),':',IF(p.review_count=0,0,p.review_value/p.review_count),',',
+        CHAR(34),'stock_count',CHAR(34),':',get_stock_count(p.id),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),p.last_update,CHAR(34),'}],',
+        CHAR(34),'product_count',CHAR(34),':',op.count,',',
+        CHAR(34),'total_price',CHAR(34),':',CHAR(34),op.price,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),op.last_update,CHAR(34),'}') AS CHAR)
+        FROM order_AB_product_part op,product p LEFT JOIN discount d ON d.code=p.discount_code
+        WHERE op.order_id LIKE '%param9%param' AND op.product_id=p.id
+        ORDER BY op.order_id DESC,p.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+     
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

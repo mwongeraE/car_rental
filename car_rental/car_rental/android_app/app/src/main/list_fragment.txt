@@ -1,0 +1,14 @@
+example files for list:
+-----------------------
+
+ItemListFragment.java (List) -> inflate fragment-list.xml [RecyclerView]
+
+          ^
+          |
+
+ListRecyclerViewAdapter (Adapter) -> inflate layout_list_item.xml [id,content]
+
+                           ^
+                           |
+
+                  List<DummyItem> [id,content]

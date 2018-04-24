@@ -1,0 +1,39 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+  %set_param7=@getServletParam().getContent()%set_param
+  %set_param8=@autozvit.com.paypal.Payment.getUserId("%param7%param")%set_param
+  %set_param9=@autozvit.com.paypal.Payment.getOrderId("%param7%param")%set_param
+  %set_param10=@autozvit.com.paypal.Payment.getTotal("%param7%param")%set_param
+  %set_param11=@autozvit.com.paypal.Payment.getCurrency("%param7%param")%set_param
+
+  %set_param14=SELECT value FROM settings WHERE code='paypal_client_id'%set_param
+  %set_param15=SELECT value FROM settings WHERE code='paypal_secret'%set_param
+  %set_param16=SELECT value FROM settings WHERE code='paypal_webhook_id'%set_param
+  %set_param17=SELECT value FROM settings WHERE code='paypal_type_of_payment'%set_param
+
+  %set_param12=@getServletParam().getHeaderList("")%set_param
+  %set_param13=@autozvit.com.paypal.Payment.verifySignature(?14,?15,?16,?17,"%param7%param")%set_param
+  
+  %set_param20=SELECT add_purchase("paymaster","",?8,null,null,-1,-1,?9,null,'payment by card',null,null,1,null,null,Now(),'PayPal Payment',(?10)/100)%set_param
+  %set_param20=SELECT add_payment("paymaster","",?20,(?10)/100,?11,'PayPal Payment','SUCCESS',null,null)%set_param
+  %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+
+  %if "param21>0" %if
+
+    %if "param21=1" %if
+      %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+      {"results":[{"message":"Update data failed","message_code":-11,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+
+  %elseif%elseif
+    %if "param20>-1" %if
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+    %elseif%elseif
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+  %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

@@ -1,0 +1,109 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                                        android:id="@+id/drawer_layout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+  <android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <RelativeLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        <ProgressBar
+          android:id="@+id/progress_bar"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_centerVertical="true"
+          android:indeterminateDrawable="@xml/spinner"
+          android:max="100"
+          android:progress="0"/>
+      </RelativeLayout>
+      <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ProgressBar
+          android:id="@+id/progress_bar_large"
+          android:layout_width="200dp"
+          android:layout_height="200dp"
+          android:layout_gravity="center"
+          android:indeterminateDrawable="@xml/spinner_large"
+          android:max="100"
+          android:progress="0"/>
+
+        <android.support.design.widget.FloatingActionButton
+          android:id="@+id/floating_action_button_booking"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom|end"
+          android:layout_margin="16dp"
+          android:src="@drawable/ic_add_white_24dp"
+          app:rippleColor="@color/label_text_dark"/>
+        <android.support.design.widget.FloatingActionButton
+          android:id="@+id/floating_action_button_driver"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom|end"
+          android:layout_marginRight="16dp"
+          android:layout_marginBottom="80dp"
+          android:src="@drawable/ic_local_taxi_white_24dp"
+          app:backgroundTint="@color/label_text_light"
+          app:rippleColor="@color/label_text_dark" android:layout_marginEnd="16dp"/>
+        <android.support.design.widget.FloatingActionButton
+          android:id="@+id/floating_action_button_cart"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="top|end"
+          android:layout_marginTop="16dp"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/shopping_bag"
+          app:backgroundTint="@color/label_text_light"
+          app:rippleColor="@color/label_text_dark" android:layout_marginEnd="16dp"/>
+        <Button
+          android:id="@+id/button_product"
+          style="@style/Widget.Style.Button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center|center"
+          android:visibility="gone"
+          android:onClick="onClick"
+          android:text="@string/button_select_for_booking"/>
+
+        <android.support.design.widget.FloatingActionButton
+          android:id="@+id/floating_action_button_menu"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="120dp"
+          android:clickable="true"
+          app:srcCompat="@drawable/ic_reorder_grey_36dp" android:layout_marginStart="10dp" android:focusable="true"/>
+      </FrameLayout>
+    </LinearLayout>
+  </android.support.design.widget.CoordinatorLayout>
+
+  <android.support.design.widget.NavigationView
+    android:id="@+id/navigation_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:layout_marginEnd="-65dp"
+    android:layout_marginRight="-65dp"
+    android:fitsSystemWindows="true"
+    app:headerLayout="@layout/layout_navigation_header"
+    app:menu="@menu/menu_nav"/>
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,73 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("transport_id")%set_param
+
+      %set_param10=@this.getExtra("transport_name")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND t.name LIKE '%param10%param'")%invoke_method
+      %endif%endif
+      %set_param11=@this.getExtra("license_plate")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND t.license_plate LIKE '%param11%param'")%invoke_method
+      %endif%endif
+      %set_param12=@this.getExtra("sensor_id")%set_param
+      %if "param12" %if
+        %invoke_methodthis.setParam(12," AND s.id=%param12%param")%invoke_method
+      %endif%endif
+      %set_param13=@this.getExtra("sensor_active")%set_param
+      %if "param13" %if
+        %invoke_methodthis.setParam(13," AND (s.active IS NOT NULL AND s.active=%param13%param)")%invoke_method
+      %endif%endif
+      %set_param14=@this.getExtra("user_id")%set_param
+      %if "param14" %if
+        %invoke_methodthis.setParam(14," AND u.id=%param14%param")%invoke_method
+      %endif%endif
+
+      %set_param15=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'transport_id',CHAR(34),':',t.id,',',
+        CHAR(34),'user_id',CHAR(34),':',IFNULL(u.id,'null'),',',
+        CHAR(34),'sensor_id',CHAR(34),':',IFNULL(t.sensor_id,'null'),',',
+        CHAR(34),'sensor_active',CHAR(34),':',IF(s.active=1,'true','false'),',',
+        CHAR(34),'sensor',CHAR(34),':[',IF(t.sensor_id IS NULL,'',get_sensor(t.sensor_id,'%param15%param')),'],',
+        CHAR(34),'type_part',CHAR(34),':[',get_transport_type_part(t.id,'%param15%param'),'],',
+        CHAR(34),'transport_name',CHAR(34),':',CHAR(34),replace_text(t.name),CHAR(34),',',
+        CHAR(34),'transport_color',CHAR(34),':',CHAR(34),IF(t.color IS NULL,'',replace_text(t.color)),CHAR(34),',',
+        CHAR(34),'license_plate',CHAR(34),':',CHAR(34),IF(t.license_plate IS NULL,'',replace_text(t.license_plate)),CHAR(34),',',
+        CHAR(34),'transport_rate',CHAR(34),':',IF(t.review_count=0,0,ROUND(t.review_value/t.review_count,2)),',',
+        CHAR(34),'transport_reserved',CHAR(34),':',is_transport_reserved(t.id),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),t.last_update,CHAR(34),'}') AS CHAR)
+        FROM transport t LEFT JOIN sensor s ON s.id=t.sensor_id LEFT JOIN user u ON u.id=s.user_id
+        WHERE t.id LIKE '%param9%param'%param10%param%param11%param%param12%param%param13%param%param14%param
+        ORDER BY t.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

@@ -1,0 +1,37 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("track_part_id")%set_param
+
+      %if "param6!=1" %if
+        %set_param10=SELECT t.sensor_id FROM track t,track_part tp WHERE tp.id=?7 AND t.id=tp.track_id%set_param
+        %set_param10=SELECT is_my_sensor_or_circle(?0,?10)%set_param
+      %elseif%elseif
+        %invoke_methodthis.setParam(10,"1")%invoke_method
+      %endif%endif
+
+      %if "param10=1" %if
+
+      %set_param20=@this.getStringValue("SELECT picture FROM track_part WHERE id=%param7%param")%set_param
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+
+      %if "param20!=''" %if
+        {"results":[{"picture":"%param20%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

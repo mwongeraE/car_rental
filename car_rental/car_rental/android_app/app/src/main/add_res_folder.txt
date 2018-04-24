@@ -1,0 +1,9 @@
+build.gradle
+------------
+sourceSets{
+    main{
+        res{
+            srcDir 'src/main/new_res_folder'
+        }
+    }
+}

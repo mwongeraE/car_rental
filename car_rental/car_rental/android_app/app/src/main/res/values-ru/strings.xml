@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Car Rental Dubai</string>
+  <string name="app_title_trip">ПОЕЗДКА</string>
+  <string name="app_title_delivery">ДОСТАВКА</string>
+  <string name="app_title_pickup">ПОСАДКА</string>
+  <string name="app_title_dropoff">ВЫСАДКА</string>
+  <string name="app_title_ride">ПОЕЗДКА</string>
+  <string name="app_title_invoice">ОТЧЕТ</string>
+  <string name="app_title_inquiry">ЗАЯВКА</string>
+
+  <string name="app_info">Good Ideas for Bussiness!</string>
+  <string name="app_place"></string>
+  <string name="app_phone">+97144327836</string>
+  <string name="app_policy">Регистрируясь в приложении\nВы соглашаетесь со всеми правилами и условиями</string>
+  <string name="app_policy_url">http://taxi.autozvit.com/policy.txt</string>
+
+  <string name="service_activated">Служба запущена</string>
+  <string name="service_goto_activity">Перейти к приложению службы</string>
+  <string name="service_notify">Уведомление службы</string>
+  <string name="service_deactivated">Служба остановлена</string>
+  <string name="order_status_waiting">ОЖИДАНИЕ СОСТОЯНИЯ...</string>
+  <string name="order_number">Номер заказа: %d</string>
+  <string name="order_distance">%.1f км</string>
+  <string name="order_duration">%1$d ч %2$d мин</string>
+
+  <string name="dispatcher_service">Диспетчер службы</string>
+
+  <!--cognalys-->
+  <string name="action_settings">Установки</string>
+  <string name="GPSAlertDialogMessage">Please ensure location</string>
+  <string name="cancel">cancel</string>
+
+  <string name="splash">Заставка</string>
+  <string name="preferences">Настроить работу</string>
+  <string name="profile">Профиль</string>
+  <string name="profile_subtitle">Установка данных пользователя</string>
+  <string name="signup">Быстрая регистрация</string>
+  <string name="messages">Сообщения</string>
+  <string name="settings">Установки</string>
+  <string name="settings_subtitle">Установка параметров службы</string>
+  <string name="prepaid">Пополнить счет</string>
+  <string name="social">В социальных сетях</string>
+  <string name="driver_candidate">Водитель кандидат</string>
+  <string name="call">Позвонить в службу</string>
+  <string name="history">История заказов</string>
+  <string name="exit">Выход</string>
+  <string name="stat">Статистика</string>
+
+  <string name="phone">Мобильный телефон</string>
+  <string name="password">Пароль</string>
+  <string name="callname">Никнейм (телефон)</string>
+  <string name="firstname">Имя</string>
+  <string name="lastname">Фамилия</string>
+  <string name="email">Электронная почта</string>
+  <string name="transport_name">Марка и модель автомобиля</string>
+  <string name="license_plate">Номерной знак</string>
+  <string name="new_message">Сообщение</string>
+  <string name="recipient">Получатель</string>
+
+  <string name="orders">Мои заказы</string>
+  <string name="order">Мой заказ</string>
+  <string name="services">Услуги</string>
+  <string name="service">Услуга</string>
+  <string name="products_and_services">Товары и услуги</string>
+
+  <string name="cart_count">В КОРЗИНЕ:</string>
+  <string name="route_length">ДЛИНА МАРШРУТА:</string>
+  <string name="route_time">ВРЕМЯ В ПУТИ:</string>
+  <string name="route_tip">ДЛЯ ВИБОРА МАРШРУТА\nНЕОБХОДИМО НАЖАТЬ\nНА КАРТУ ДВА РАЗА</string>
+  <string name="delivery_tip">ДЛЯ НОВОГО МЕСТА ДОСТАВКИ\nНЕОБХОДИМО НАЖАТЬ\nНА КАРТУ ОДИН РАЗ</string>
+  <string name="driver_tip">ДЛЯ ВЫБОРА КЛИЕНТА\nНЕОБХОДИМО НАЖАТЬ\nФИГУРУ НА КАРТЕ</string>
+  <string name="riding_tip">ЗАБЕРИТЕ ПАССАЖИРА\nСЧАСТЛИВОЙ ПОЕЗДКИ!</string>
+  <string name="delivering_tip">ЗАБЕРИТЕ ДОСТАВКУ\nМЕСТО ОБОЗНАЧЕНО НА КАРТЕ</string>
+
+  <string name="order_trip_accepted_tip">ЗАКАЗ ТАКСИ ОТПРАВЛЕН!\nИДЕТ ПОИСК АВТОМОБИЛЯ...</string>
+  <string name="order_trip_reminder_tip">ОТПРАВЛЕН ЗАКАЗ ТАКСИ!\nОЖИДАЙТЕ СОСТОЯНИЕ...</string>
+  <string name="order_trip_processed_tip">ВАШ АВТОМОБИЛЬ ТАКСИ\nОЖИДАЙТЕ ПОДАЧИ...</string>
+  <string name="order_trip_transport_tip">ВАШ АВТОМОБИЛЬ ТАКСИ\n%s\nОЖИДАЙТЕ ПОДАЧИ...</string>
+  <string name="order_trip_landing_tip">АВТОМОБИЛЬ ПОДАН!\nПЕРЕЙДИТЕ НА ПОСАДКУ!</string>
+  <string name="order_trip_delivering_tip">ПОЕЗДКА НАЧАЛАСЬ!</string>
+  <string name="order_trip_completed_tip">ВАШ ЗАКАЗ ВЫПОЛНЕН!\nПЕРЕЗАГРУЗИТЕ ДЛЯ ЗАКАЗА...</string>
+  <string name="order_trip_cancellation_tip">ОТМЕНА ПОЕЗДКИ...</string>
+  <string name="order_trip_canceled_tip">ПОЕЗДКА ОТМЕНЕНА!\nПЕРЕЗАГРУЗИТЕ ДЛЯ ЗАКАЗА...</string>
+
+  <string name="order_delivery_accepted_tip">ЗАКАЗ ПРИНЯТ!\nИДЕТ ОБРАБОТКА ЗАКАЗА...</string>
+  <string name="order_delivery_reminder_tip">ОТПРАВЛЕН ЗАКАЗ!\nОЖИДАЙТЕ ПРИНЯТИЯ...</string>
+  <string name="order_delivery_processed_tip">ВАШ ЗАКАЗ ОБРАБОТАН\nОЖИДАЙТЕ ДОСТАВКИ...</string>
+  <string name="order_delivery_transport_tip">ВАШ ТРАНСПОРТ ДЛЯ ДОСТАВКИ\n%s</string>
+  <string name="order_delivery_landing_tip">ЗАГРУЗКА ТРАНСПОРТА...</string>
+  <string name="order_delivery_delivering_tip">ДОСТАВКА ЗАКАЗА!</string>
+  <string name="order_delivery_completed_tip">ВАШ ЗАКАЗ ВЫПОЛНЕН!\nПЕРЕЗАГРУЗИТЕ ДЛЯ ЗАКАЗА...</string>
+  <string name="order_delivery_cancellation_tip">ОТМЕНА ДОСТАВКИ...</string>
+  <string name="order_delivery_canceled_tip">ДОСТАВКА ОТМЕНЕНА!\nПЕРЕЗАГРУЗИТЕ ДЛЯ ЗАКАЗА...</string>
+
+  <string name="driver_trip_order_accepted_tip">У ВАС ЕСТЬ ПОЕЗДКА\nОТПРАВЛЯЙТЕСЬ К КЛИЕНТУ...</string>
+  <string name="driver_trip_order_processed_tip">ВОДИТЕЛЬ, ВЫ ВЗЯЛИ ЗАКАЗ\nОТПРАВЛЯЙТЕСЬ К КЛИЕНТУ...</string>
+  <string name="driver_trip_order_landing_tip">ОЖИДАЙТЕ КЛИЕНТА\nИЛИ ПОЗВОНИТЕ ЕМУ</string>
+  <string name="driver_trip_order_delivering_tip">ПОЕЗДКА НАЧАЛАСЬ!\nОТПРАВЛЯЙТЕСЬ ПО НАЗНАЧЕНИЮ</string>
+  <string name="driver_trip_order_completed_tip">ВЫ ВЫПОЛНИЛИ ЗАКАЗ!</string>
+  <string name="driver_trip_order_cancellation_tip">ОТМЕНА ПОЕЗДКИ...</string>
+  <string name="driver_trip_order_canceled_tip">ПОЕЗДКА ОТМЕНЕНА!</string>
+
+  <string name="driver_delivery_order_accepted_tip">У ВАС ЕСТЬ ДОСТАВКА\nОТПРАВЛЯЙТЕСЬ ЗА ЗАКАЗОМ...</string>
+  <string name="driver_delivery_order_processed_tip">ВОДИТЕЛЬ, ДОСТАВКА ЗАКАЗА\nОТПРАВЛЯЙТЕСЬ ЗА ЗАКАЗОМ...</string>
+  <string name="driver_delivery_order_landing_tip">ОЖИДАНИЕ ПОГРУЗКИ ЗАКАЗА</string>
+  <string name="driver_delivery_order_delivering_tip">ДОСТАВКА НАЧАЛАСЬ!\nОТПРАВЛЯЙТЕСЬ К КЛИЕНТУ</string>
+  <string name="driver_delivery_order_completed_tip">ВЫ ВЫПОЛНИЛИ ЗАКАЗ!</string>
+  <string name="driver_delivery_order_cancellation_tip">ОТМЕНА ДОСТАВКИ...</string>
+  <string name="driver_delivery_order_canceled_tip">ДОСТАВКА ОТМЕНЕНА!</string>
+
+  <string name="order_find_address">НАЙТИ АДРЕС\nДЛЯ МОЕЙ ПОЕЗДКИ</string>
+  <string name="order_delivery_address">АДРЕС ДОСТАВКИ\nЗАКАЗА</string>
+  <string name="order_pickup_address">Откуда забрать</string>
+  <string name="order_destination_address">Куда привезти</string>
+  <string name="order_status_changed">Изменился статус заказа поездки!</string>
+  <string name="product_selected">ХОЧУ ЗАКАЗАТЬ!</string>
+  <string name="take_order">Вы хотите доставить клиента?</string>
+  <string name="make_order">Вы хотите выполнить заказ?</string>
+  <string name="send_order">Вы хотите выполнить доставку заказа по адресу?</string>
+  <string name="delivery_place">Место доставки выбрано на карте</string>
+  <string name="cancel_order">Вы хотите отменить заказ?</string>
+  <string name="clear_cart">Вы хотите очистить корзину?</string>
+  <string name="do_not_show">Не показывать советы?</string>
+  <string name="start_driver">Вы хотите начать работу водителя?</string>
+  <string name="stop_driver">Вы хотите окончить работу водителя?</string>
+  <string name="select_options">Дополнительные услуги в заказе</string>
+  <string name="update_order_status">Вы хотите установить новый статус заказа?</string>
+  <string name="payment_for_trip">Оплата поездки</string>
+  <string name="estimate_trip">Оцените поездку на транспорте\n%s</string>
+  <string name="transport_reviewed">Поездка на транспорте оценена\n%s</string>
+  <string name="account_blocked">Ваша учетная запись заблокирована!</string>
+  <string name="back_to_prev">Вернуться к закрытой</string>
+  <string name="reload_app">Вы хотите перезагрузить приложение?</string>
+  <string name="pay_order">Вы хотите оплатить заказ картой?</string>
+  <string name="payment_info">Введите данные платежной карты\nДанные платежной карты не сохраняются</string>
+  <string name="payment_amount">Оплата\n</string>
+  <string name="select_google_play_payment">Что Вы хотите оплатить?</string>
+  <string name="on_time">На время</string>
+  <string name="gps_location">Вкл. GPS для местоположения</string>
+  <string name="destination">Покажите куда на карте</string>
+  <string name="destination_not_selected">Не выбран пункт поездки</string>
+  <string name="prepaid_amount">Всего предоплачено</string>
+  <string name="prepaid_card">Введите код предоплаты с Вашей карты</string>
+  <string name="prepaid_code">Код предоплаты</string>
+  <string name="password_recovery">Ваш пароль был отправлен на электронную почту</string>
+  <string name="phone_number">Необходимо ввести номер телефона</string>
+  <string name="social_network">Мы в Социальных Сетях</string>
+  <string name="prepaid_account">Пополнить Свой счет</string>
+  <string name="increase_prepaid_account">Ваш счет пополнен успешно</string>
+  <string name="call_to_service">Позвонить в службу?</string>
+  <string name="driver_candidate_info">Водитель кандидат должен отправить:\n - Водительское удостоверение документ\n - Водительскую страховку\nИзображение в высоком разрешении на электронную почту info@calderme.com и ожидать от Нас ответ\nВ случае успеха Вы получите уведомление</string>
+  <string name="pickup_address">откуда забрать</string>
+  <string name="dropoff_address">куда возвратить</string>
+
+  <string name="stat_order">Заказ</string>
+  <string name="stat_order_today">Сегодня</string>
+  <string name="stat_order_yesterday">Вчера</string>
+  <string name="stat_order_alltime">За все время</string>
+  <string name="stat_order_week">За неделю</string>
+  <string name="stat_order_month">За месяц</string>
+  <string name="stat_order_count">Всего</string>
+  <string name="stat_order_completed">Выполнено</string>
+  <string name="stat_order_cancelled">Отменено</string>
+  <string name="stat_order_pending">Выполняется</string>
+  <string name="stat_order_payment">Оплата</string>
+  <string name="stat_order_total_price">Общая цена</string>
+  <string name="stat_order_purchase_amount">Всего оплачено</string>
+  <string name="stat_order_payment_amount">Оплачено картой</string>
+  <string name="stat_driver">Водитель</string>
+  <string name="stat_service">Служба</string>
+  <string name="stat_service_messages">Сообщения</string>
+  <string name="stat_service_input">Входящие</string>
+  <string name="stat_service_output">Исходящие</string>
+  <string name="stat_service_audit">Аудит</string>
+  <string name="stat_service_count">Всего</string>
+  <string name="stat_service_client">Клиент</string>
+  <string name="stat_service_driver">Водитель</string>
+  <string name="stat_service_transport">Транспорт</string>
+  <string name="stat_service_active_client">Активный клиент</string>
+  <string name="stat_service_active_driver">Активный водитель</string>
+
+  <string name="message_info_title">Информация</string>
+  <string name="message_warning_title">Предупреждение</string>
+  <string name="message_error_title">Ошибка</string>
+  <string name="message_success_title">Успешно</string>
+  <string name="message_fatal_error_title">Серьезная ошибка</string>
+
+  <string name="message_user_profile_created">Профиль пользователя создан успешно</string>
+  <string name="message_user_profile_error">Ошибка создания профиля пользователя</string>
+  <string name="message_user_profile_updated">Профиль пользователя обновлен успешно</string>
+  <string name="message_transport_profile_created">Профиль транспорта создан успешно</string>
+  <string name="message_transport_profile_updated">Профиль транспорта обновлен успешно</string>
+  <string name="message_review_created">Ваш отзыв успешно добавлен</string>
+  <string name="message_success_payment">Ваш платеж успешно выполнен</string>
+  <string name="message_driver_account">У Вас профиль водителя!</string>
+  <string name="transport_error">У Вас нет профиля водителя!</string>
+  <string name="internet_error">Ошибка сети Интернет! Необходимо проверить подключение</string>
+  <string name="map_error">Ошибка загрузки карты! Необходимо проверить профиль провайдера</string>
+  <string name="user_error">Ошибка пользователя!</string>
+
+  <string name="network_error">Ошибка сети</string>
+  <string name="server_error">Ошибка сервера</string>
+  <string name="auth_failure_error">Ошибка аутентификации</string>
+  <string name="parse_error">Ошибка разбора данных</string>
+  <string name="no_connection_error">Ошибка подключения</string>
+  <string name="timeout_error">Ошибка ожидания данных</string>
+
+  <string name="no_address">Адрес не выбран</string>
+  <string name="no_add_fees">Нет доп.платежей</string>
+  <string name="no_distance">Расстояние неопределено</string>
+  <string name="no_duration">Время неопределено</string>
+  <string name="no_transport">Транспорт не закреплен</string>
+  <string name="no_license_plate">Нет номера транспорта</string>
+
+  <string name="button_yes">ДА</string>
+  <string name="button_no">НЕТ</string>
+  <string name="button_save">СОХРАНИТЬ</string>
+  <string name="button_register">РЕГИСТРАЦИЯ</string>
+  <string name="button_signin">ВОЙТИ</string>
+  <string name="button_signup">РЕГИСТРАЦИЯ</string>
+  <string name="button_demo">ПОПРОБОВАТЬ ДЕМО</string>
+  <string name="button_forgot_password">Забыл пароль?</string>
+  <string name="button_book_trip">ЗАКАЗАТЬ ПОЕЗДКУ</string>
+  <string name="button_book_delivery">ЗАКАЗАТЬ ДОСТАВКУ</string>
+  <string name="button_service">УСЛУГА</string>
+  <string name="button_select_for_booking">ВЫБРАТЬ ДЛЯ ДОСТАВКИ</string>
+  <string name="button_incart">В КОРЗИНЕ</string>
+  <string name="button_options">ДОПОЛНИТЕЛЬНО</string>
+  <string name="button_agree">СОГЛАСЕН</string>
+  <string name="button_do_not_show">НЕ ПОКАЗЫВАТЬ</string>
+  <string name="button_history">ИСТОРИЯ</string>
+  <string name="button_cancel">ОТМЕНИТЬ</string>
+  <string name="button_find">НАЙТИ</string>
+  <string name="button_next">СЛЕДУЮЩИЕ</string>
+  <string name="button_back">НАЗАД</string>
+  <string name="button_landing">ПОСАДКА</string>
+  <string name="button_delivering">ПОЕХАЛИ</string>
+  <string name="button_completed">ВЫПОЛНЕНО</string>
+  <string name="button_trip_invoice">ОТЧЕТ ПО ПОЕЗДКЕ</string>
+  <string name="button_cash_payment">ОПЛАТА НАЛИЧНЫМИ</string>
+  <string name="button_payment">ОПЛАТА</string>
+  <string name="button_purchase">КУПИТЬ</string>
+  <string name="button_ride_now">АРЕНДА СЕЙЧАС</string>
+  <string name="button_ride_later">АРЕНДА ПОЗЖЕ</string>
+  <string name="button_book_now">ЗАКАЗАТЬ МАШИНУ</string>
+  <string name="button_add_to_cart">В КОРЗИНУ</string>
+  <string name="button_call">ПОЗВОНИТЬ</string>
+  <string name="button_social_network">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</string>
+  <string name="button_prepaid_code">ОПЛАТИТЬ С КОДОМ ПРЕДОПЛАТЫ</string>
+  <string name="button_prepaid_payment">ОПЛАТИТЬ С ПЛАТЕЖНОЙ КАРТОЙ</string>
+  <string name="button_user_review">ОЦЕНИТЬ ПОЛЬЗОВАТЕЛЯ</string>
+  <string name="button_transport_review">ОЦЕНИТЬ ПОЕЗДКУ НА ТРАНСПОРТЕ</string>
+  <string name="button_demo_version">Я ХОЧУ ПОПРОБОВАТЬ ДЕМО ВЕРСИЮ!</string>
+  <string name="button_take_order">ПОЛУЧИТЬ ЗАКАЗ</string>
+  <string name="button_easy_register">ПРОСТАЯ РЕГИСТРАЦИЯ</string>
+
+  <!--datetime message-->
+  <string name="short_minute">  %dм.</string>
+  <string name="datetime_0_minute_ago">только что</string>
+  <string name="datetime_1_minute_ago">1 минута назад</string>
+  <string name="datetime_x_1_minutes_ago">%s минута назад</string>
+  <string name="datetime_2_4_minutes_ago">%s минуты назад</string>
+  <string name="datetime_minutes_ago">%s минут назад</string>
+  <string name="datetime_month_1">января</string>
+  <string name="datetime_month_2">февраля</string>
+  <string name="datetime_month_3">марта</string>
+  <string name="datetime_month_4">апреля</string>
+  <string name="datetime_month_5">мая</string>
+  <string name="datetime_month_6">июня</string>
+  <string name="datetime_month_7">июля</string>
+  <string name="datetime_month_8">августа</string>
+  <string name="datetime_month_9">сентября</string>
+  <string name="datetime_month_10">октября</string>
+  <string name="datetime_month_11">ноября</string>
+  <string name="datetime_month_12">декабря</string>
+
+  <!--General-->
+  <string name="pref_header_general">Главное</string>
+  <string name="pref_title_hostname">Сервер</string>
+  <string name="pref_default_hostname">http://247.autozvit.com</string>
+  <string name="pref_title_apikey">API ключ</string>
+  <string name="pref_title_map_provider">Провайдер карты</string>
+  <string name="pref_title_payment_provider">Платежная система</string>
+  <string name="pref_title_booking_style">Режим заказов</string>
+  <string-array name="pref_list_titles_map_provider">
+    <item>Google</item>
+    <!--item>Yandex</item-->
+    <item>OpenStreetMap</item>
+    <!--item>Mapbox</item-->
+  </string-array>
+  <string-array name="pref_list_values_map_provider">
+    <item>1</item>
+    <!--item>2</item-->
+    <item>3</item>
+    <!--item>4</item-->
+  </string-array>
+  <string-array name="pref_list_titles_payment_provider">
+    <!--item>GooglePlay</item-->
+    <item>PayPal</item>
+    <item>Stripe</item>
+  </string-array>
+  <string-array name="pref_list_values_payment_provider">
+    <!--item>0</item-->
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string-array name="pref_list_titles_booking_style">
+    <item>Поездка</item>
+    <item>Доставка</item>
+    <item>Легко</item>
+    <item>Легко от А до Б</item>
+  </string-array>
+  <string-array name="pref_list_values_booking_style">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+  </string-array>
+  <!--Notifications-->
+  <string name="pref_header_notifications">Уведомления</string>
+  <string name="pref_title_new_message_notifications">Новое сообщение</string>
+  <string name="pref_title_ringtone">Рингтон</string>
+  <string name="pref_ringtone_silent">Тишина</string>
+  <string name="pref_title_vibrate">Вибрация</string>
+  <string name="pref_title_show_tips">Показывать советы</string>
+  <!--Data & Sync-->
+  <string name="pref_header_data_sync">Данные &amp; синх</string>
+  <string name="pref_title_distance">Дистанция</string>
+  <string-array name="pref_list_titles_distance">
+    <item>Нет дистанции</item>
+    <item>20 км</item>
+    <item>10 км</item>
+    <item>5 км</item>
+    <item>2 км</item>
+    <item>1 км</item>
+  </string-array>
+  <string-array name="pref_list_values_distance">
+    <item>-1</item>
+    <item>20</item>
+    <item>10</item>
+    <item>5</item>
+    <item>2</item>
+    <item>1</item>
+  </string-array>
+  <string name="pref_title_toolbar">Панель меню</string>
+</resources>

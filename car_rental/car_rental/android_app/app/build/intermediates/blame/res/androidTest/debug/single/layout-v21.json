@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_action.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/layout-v21/place_autocomplete_fragment.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/play-services-places-9.8.0.aar/3b61900e9a7e5157c32cf0dded79c00e/res/layout-v21/place_autocomplete_fragment.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/evans/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/dc585714564083cad91d2d74323c0a77/res/layout-v21/notification_template_custom_big.xml"
+    }
+]

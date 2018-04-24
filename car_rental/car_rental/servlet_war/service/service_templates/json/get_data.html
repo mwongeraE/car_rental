@@ -1,0 +1,62 @@
+%writedata/json/param0%writedata
+%writedata/json/auth_no_active_verify%writedata
+%if "param6>0" %if
+
+      %set_param10=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT CAST(CONCAT('{',
+        CHAR(34),'user_id',CHAR(34),':',u.id,',',
+        CHAR(34),'discount_code',CHAR(34),':',CHAR(34),IFNULL(u.discount_code,''),CHAR(34),',',
+        CHAR(34),'discount',CHAR(34),':[',IF(u.discount_code IS NULL,'',get_discount(u.discount_code,'%param10%param')),'],',
+        CHAR(34),'user_type',CHAR(34),':',u.type,',',
+        CHAR(34),'first_name',CHAR(34),':',CHAR(34),replace_text(u.first_name),CHAR(34),',',
+        CHAR(34),'last_name',CHAR(34),':',CHAR(34),replace_text(u.last_name),CHAR(34),',',
+        CHAR(34),'call_name',CHAR(34),':',CHAR(34),IF(u.call_name IS NULL,'',replace_text(u.call_name)),CHAR(34),',',
+        CHAR(34),'email',CHAR(34),':',CHAR(34),IFNULL(u.email,''),CHAR(34),',',
+        CHAR(34),'phone',CHAR(34),':',CHAR(34),IFNULL(u.phone,''),CHAR(34),',',
+        CHAR(34),'prepaid_amount',CHAR(34),':',IFNULL(u.prepaid_amount,0),',',
+        CHAR(34),'username',CHAR(34),':',CHAR(34),u.username,CHAR(34),',',
+        CHAR(34),'user_rate',CHAR(34),':',IF(u.review_count=0,0,ROUND(u.review_value/u.review_count,2)),',',
+        CHAR(34),'active',CHAR(34),':',IF(u.active=1,'true','false'),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),u.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),u.last_update,CHAR(34),'}') AS CHAR)
+        FROM user u LEFT JOIN discount d ON d.code=u.discount_code
+        WHERE u.username='%param0%param'")%set_param
+      %end_html%end_html
+
+      %begin_html%begin_html
+      %set_param21=@this.getStringList("SELECT CAST(CONCAT('{',
+        CHAR(34),'currency_id',CHAR(34),':',id,',',
+        CHAR(34),'currency_attr',CHAR(34),':[',get_attr_part(id,'currency','%param10%param'),'],',
+        CHAR(34),'currency_name',CHAR(34),':',CHAR(34),replace_text(name),CHAR(34),',',
+        CHAR(34),'description',CHAR(34),':',CHAR(34),replace_text(description),CHAR(34),',',
+        CHAR(34),'currency_value',CHAR(34),':',value,',',
+        CHAR(34),'active',CHAR(34),':',IF(active=1,'true','false'),',',
+        CHAR(34),'language',CHAR(34),':',CHAR(34),IFNULL(language,''),CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),last_update,CHAR(34),'}') AS CHAR)
+        FROM currency
+        ORDER BY id",",")%set_param
+      %end_html%end_html
+
+      %set_param22=SELECT get_token(?0,?1)%set_param
+
+      %set_param23=SELECT value FROM settings WHERE code='cognalys_app_id'%set_param
+      %set_param24=SELECT value FROM settings WHERE code='cognalys_access_token '%set_param
+      %set_param25=SELECT value FROM settings WHERE code='google_maps_key'%set_param
+      %set_param26=SELECT value FROM settings WHERE code='paypal_key'%set_param
+
+      %if "param20!=''" %if
+        {"results":[{"user":[%param20%param]},{"currency":[%param21%param]},{"token":"%param22%param"},{"cognalys_app_id":"%param23%param","cognalys_access_token":"%param24%param","google_maps_key":"%param25%param","paypal_key":"%param26%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

@@ -1,0 +1,96 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %if "param6=1" %if
+        %set_param9=@this.getExtra("user_name")%set_param        
+      %elseif%elseif
+        %invoke_methodthis.setParam(9,"%param0%param")%invoke_method
+      %endif%endif
+
+      %set_param10=@this.getExtra("user_id")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND u.id LIKE '%param10%param'")%invoke_method
+      %endif%endif
+      %set_param11=@this.getExtra("find_name")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND MATCH(u.first_name,u.last_name) AGAINST ('%param11%param')")%invoke_method
+      %endif%endif
+      %set_param12=@this.getExtra("email")%set_param
+      %if "param12" %if
+        %invoke_methodthis.setParam(12," AND u.email LIKE '%param12%param'")%invoke_method
+      %endif%endif
+      %set_param13=@this.getExtra("phone")%set_param
+      %if "param13" %if
+        %invoke_methodthis.setParam(13," AND u.phone LIKE '%param13%param'")%invoke_method
+      %endif%endif
+      %set_param14=@this.getExtra("active")%set_param
+      %if "param14" %if
+        %invoke_methodthis.setParam(14," AND u.active=%param14%param")%invoke_method
+      %endif%endif
+      %set_param15=@this.getExtra("create_date")%set_param    
+      %if "param15" %if
+        %invoke_methodthis.setParam(15," AND u.create_date LIKE '%param15%param'")%invoke_method
+      %endif%endif
+      %set_param16=@this.getExtra("discount_code")%set_param    
+      %if "param16" %if
+        %invoke_methodthis.setParam(16," AND u.discount_code LIKE '%param16%param'")%invoke_method
+      %endif%endif
+      %set_param17=@this.getExtra("call_name")%set_param
+      %if "param17" %if
+        %invoke_methodthis.setParam(17," AND u.call_name LIKE '%param17%param'")%invoke_method
+      %endif%endif
+      %set_param18=@this.getExtra("user_type")%set_param
+      %if "param18" %if
+        %invoke_methodthis.setParam(18," AND u.type=%param18%param")%invoke_method
+      %endif%endif
+
+      %set_param19=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'user_id',CHAR(34),':',u.id,',',
+        CHAR(34),'discount_code',CHAR(34),':',CHAR(34),IFNULL(u.discount_code,''),CHAR(34),',',
+        CHAR(34),'discount',CHAR(34),':[',IF(u.discount_code IS NULL,'',get_discount(u.discount_code,'%param19%param')),'],',
+        CHAR(34),'user_type',CHAR(34),':',u.type,',',
+        CHAR(34),'first_name',CHAR(34),':',CHAR(34),replace_text(u.first_name),CHAR(34),',',
+        CHAR(34),'last_name',CHAR(34),':',CHAR(34),replace_text(u.last_name),CHAR(34),',',
+        CHAR(34),'call_name',CHAR(34),':',CHAR(34),IF(u.call_name IS NULL,'',replace_text(u.call_name)),CHAR(34),',',
+        CHAR(34),'email',CHAR(34),':',CHAR(34),IFNULL(u.email,''),CHAR(34),',',
+        CHAR(34),'phone',CHAR(34),':',CHAR(34),IFNULL(u.phone,''),CHAR(34),',',
+        CHAR(34),'prepaid_amount',CHAR(34),':',IFNULL(u.prepaid_amount,0),',',
+        CHAR(34),'username',CHAR(34),':',CHAR(34),u.username,CHAR(34),',',
+        CHAR(34),'user_rate',CHAR(34),':',IF(u.review_count=0,0,ROUND(u.review_value/u.review_count,2)),',',
+        CHAR(34),'active',CHAR(34),':',IF(u.active=1,'true','false'),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),u.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),u.last_update,CHAR(34),'}') AS CHAR)
+        FROM user u LEFT JOIN discount d ON d.code=u.discount_code
+        WHERE u.username LIKE '%param9%param'%param10%param%param11%param%param12%param%param13%param%param14%param%param15%param%param16%param%param17%param%param18%param
+        ORDER BY u.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

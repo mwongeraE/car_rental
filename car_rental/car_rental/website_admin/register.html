@@ -1,0 +1,241 @@
+<!--content-->
+<!--REGISTER-->
+<div class="templatemo-content-widget templatemo-login-widget light-gray-bg">
+  <header class="text-center">
+    <h1 id="text_register"> Register </h1>
+  </header>
+  <form action="" onsubmit="return addUser();" class="templatemo-login-form">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-user"></i>&nbsp;A</div>
+        <input type="text" id="input_first_name" class="form-control col-sm-6" placeholder="" data-toggle="tooltip" title="First name">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-user"></i>&nbsp;B</div>
+        <input type="text" id="input_last_name" class="form-control col-sm-6" placeholder="" title="Last name">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+        <input type="text" id="input_username" class="form-control col-sm-6" placeholder="" title="Login name">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+        <input type="text" id="input_email" class="form-control col-sm-6" placeholder="" title="Email address">
+        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+        <input type="text" id="input_phone" class="form-control" placeholder="" title="Phone number">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+        <input type="password" id="input_password" class="form-control" placeholder="" title="Password">
+      </div>
+    </div>
+    <div class="form-group" id="div_apikey">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+        <input type="text" id="input_apikey" class="form-control" placeholder="API key">
+      </div>
+    </div>
+    <div class="form-group">
+      <select id="select_usertype" class="form-control"></select>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon" id="div_special_code">4202</div>
+        <input type="text" id="input_special_code" maxlength="4" class="form-control col-sm-6" placeholder="Special code" data-toggle="tooltip" title="Special code">
+      </div>
+    </div>
+    <div id="div_message"></div>
+    <div class="form-group">
+      <div class="checkbox squaredTwo">
+        <input type="checkbox" id="input_save_me" onclick="saveMe();"/>
+        <label id="label_save_me" for="input_save_me"><span></span>Save me for next visit</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <button id="button_submit" type="submit" class="templatemo-blue-button width-100" title="Perform registration">Perform</button>
+    </div>
+  </form><br>
+  <div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12 text-right">
+    <p id="text_registered">Already registered?</p>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12 text-left">
+    <a href="javascript:gotoLogin();" id="a_login" class="blue-text"><i class="fa fa-sign-in"></i><strong id="text_login">&nbsp;Login</strong></a>
+  </div>
+</div>
+<!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  if(API_KEY===null||API_KEY==="api_key")$("#div_apikey").hide();
+  $("#select_usertype").hide();
+  var temp_username=fa.username,temp_password=fa.password;
+  function addUser(){
+    var input_username=document.getElementById('input_username');
+    var input_password=document.getElementById('input_password');
+    var apikey_object=document.getElementById("input_apikey");
+    var input_firstname=document.getElementById('input_first_name');
+    var input_lastname=document.getElementById('input_last_name');
+    var input_email=document.getElementById('input_email');
+    var input_phone=document.getElementById('input_phone');
+    var input_special_code=document.getElementById('input_special_code');
+
+    var username=input_username.value.trim();
+    var password=input_password.value.trim();
+    var first_name=input_firstname.value.trim();
+    var last_name=input_lastname.value.trim();
+    var email=input_email.value.trim();
+    var phone=input_phone.value.trim();
+    var apikey=apikey_object.value.trim();
+
+    if(username.length===0){input_username.focus();return false;}
+    if(password.length===0){input_password.focus();return false;}
+    if(phone.length===0){input_phone.focus();return false;}
+    if(!isEmailAddress(email)){input_email.focus();return false;}
+    if(input_special_code.value!==special_code){input_special_code.focus();return false;}
+
+    var user=new faUser();
+    if(username.length!==0)user.username=username;
+    if(password.length!==0)user.password=password;
+    if(first_name.length!==0)user.first_name=first_name;
+    if(last_name.length!==0)user.last_name=last_name;
+    if(email.length!==0)user.email=email;
+    if(phone.length!==0)user.phone=phone;
+    user.call_name=username;
+
+    if(user_type===USER_TYPE_ADMIN){
+      var value=$("#select_usertype option:selected").val();
+      user.type=value;
+      if(apikey.length>0)fa.setApiKey(apikey);else fa.setApiKey(null);
+    }
+
+    fa.addUser(user,"#div_message",afterUser,user);
+    return false;/*always false*/
+  }
+  function afterUser(ptr){
+    var list=fa.ret_val_list;
+    if(list!==null&&list.length>0){
+      var ret_val=list[list.length-1];
+      if(ret_val.status==="ERROR"){
+        fa.username=temp_username;fa.password=temp_password;
+      }
+      else if(ret_val.status==="SUCCESS"){
+        $("#div_message").html('UserId='+ret_val.value);
+        var save_me=getCookie("SAVE_ME");
+        if(save_me==="true"){
+          var encode_password=encodeData(ptr.username,ptr.password);
+          setCookie(ptr.username,encode_password,365);
+          setCookie(COOKIE_CURRENT_USER,ptr.username,365);
+          setCookie(COOKIE_CURRENT_TOKEN,"",0);
+        }
+        fa.token=null;
+        /*update new current username*/
+        fa.username=ptr.username;fa.password=ptr.password;
+        getUser(fa.language);
+        /*add virtual sensor*/
+        var sensor=new faSensor();
+        sensor.user_id=ret_val.value;
+        sensor.name=ptr.call_name;
+        fa.addSensor(sensor,"#div_message",afterSensor);
+      }
+    }
+  }
+  function afterSensor(){
+    updateHeaderLanguage(fa.language);
+    /*gotoStart();*/
+    location.href=window.location.pathname;
+  }
+  function saveMe(){
+    var input_save_me=document.getElementById("input_save_me");
+    if(input_save_me!==null&&input_save_me.checked){
+      setCookie(COOKIE_SAVE_ME,true,365);
+    }
+    else{
+      setCookie(COOKIE_SAVE_ME,false,365);
+    }
+  }
+  var apikey_object=document.getElementById("input_apikey");
+  if(fa.getApiKey()!==null)apikey_object.value=fa.getApiKey();
+  /*SPECIAL CODE*/
+  var special_code;
+  function getSpecialCode(){
+    var curr_date=new Date();
+    var sec=curr_date.getSeconds(),min=curr_date.getMinutes();
+    var power1=new String(sec+min);
+    var power2=new String(sec);
+    if(power1.length===1)power1=power1+"1";else if(power1.length===3)power1=power1.substr(0,2);
+    if(power2.length===1)power2=power2+"2";
+    special_code=power1+power2;
+    return special_code;
+  }
+
+  function showUserTypes(){
+    if(user_type===USER_TYPE_ADMIN){
+      $("#select_usertype").show();
+      $("#select_usertype").append("<option value='3'>"+getUserTypenameByType(3,fa.language)+"</option>");
+      $("#select_usertype").append("<option value='2'>"+getUserTypenameByType(2,fa.language)+"</option>");
+      $("#select_usertype").append("<option value='1'>"+getUserTypenameByType(1,fa.language)+"</option>");
+    }
+  }
+
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var input_username=document.getElementById('input_username');
+    var input_password=document.getElementById('input_password');
+    var input_apikey=document.getElementById('input_apikey');
+    var input_firstname=document.getElementById('input_first_name');
+    var input_lastname=document.getElementById('input_last_name');
+    var input_email=document.getElementById('input_email');
+    var input_phone=document.getElementById('input_phone');
+    var input_special_code=document.getElementById('input_special_code');
+
+    var text_register=document.getElementById('text_register');
+    var label_save_me=document.getElementById('label_save_me');
+    var button_submit=document.getElementById('button_submit');
+    var text_registered=document.getElementById('text_registered');
+    var text_login=document.getElementById('text_login');
+    var a_login=document.getElementById('a_login');
+
+    var div_special_code=document.getElementById('div_special_code');
+
+    /*objects*/
+    input_username.placeholder=getMessage(language,1011);
+    input_password.placeholder=getMessage(language,1012);
+    input_apikey.placeholder=getMessage(language,1025);
+    input_firstname.placeholder=getMessage(language,1013);
+    input_lastname.placeholder=getMessage(language,1014);
+    input_email.placeholder=getMessage(language,1015);
+    input_phone.placeholder=getMessage(language,1016);
+    input_special_code.placeholder=getMessage(language,1017);
+
+    input_username.title=getMessage(language,1011);
+    input_password.title=getMessage(language,1012);
+    input_apikey.title=getMessage(language,1025);
+    input_firstname.title=getMessage(language,1013);
+    input_lastname.title=getMessage(language,1014);
+    input_email.title=getMessage(language,1015);
+    input_phone.title=getMessage(language,1016);
+    input_special_code.title=getMessage(language,1017);
+
+    /*captions*/
+    text_register.innerHTML=getMessage(language,1018);
+    label_save_me.innerHTML="<span></span>"+getMessage(language,1019);
+    button_submit.innerHTML=getMessage(language,1020);
+    button_submit.title=getMessage(language,1021);
+    text_registered.innerHTML=getMessage(language,1022);
+    text_login.innerHTML="&nbsp;"+getMessage(language,1023);
+    a_login.title=getMessage(language,1024);
+
+    div_special_code.innerHTML=getSpecialCode();
+
+    showUserTypes();
+  }
+  updateContentLanguage(fa.language);
+</script>

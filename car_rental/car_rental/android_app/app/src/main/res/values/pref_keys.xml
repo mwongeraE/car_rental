@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string translatable="false" name="key_hostname">key_hostname</string>
+  <string translatable="false" name="key_apikey">key_apikey</string>
+  <string translatable="false" name="key_map_provider">key_map_provider</string>
+  <string translatable="false" name="key_payment_provider">key_payment_provider</string>
+  <string translatable="false" name="key_booking_style">key_booking_style</string>
+  <string translatable="false" name="key_notifications_new_message">key_notifications_new_message</string>
+  <string translatable="false" name="key_notifications_new_message_ringtone">key_notifications_new_message_ringtone</string>
+  <string translatable="false" name="key_notifications_new_message_vibrate">key_notifications_new_message_vibrate</string>
+  <string translatable="false" name="key_notifications_show_tips">key_notifications_show_tips</string>
+  <string translatable="false" name="key_distance">key_distance</string>
+  <string translatable="false" name="key_toolbar">key_toolbar</string>
+</resources>

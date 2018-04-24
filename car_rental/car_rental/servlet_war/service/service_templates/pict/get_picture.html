@@ -1,0 +1,36 @@
+%invoke_methodthis.getClientSession().getResponse().setContentType("image/jpeg")%invoke_method
+%set_param0=@this.getExtra("user")%set_param
+%set_param1=@this.getExtra("pass")%set_param
+%set_param5=@this.getExtra("api_key")%set_param
+%if "param5" %if
+  %set_param5=SELECT get_schema_name(?5)%set_param
+  %if "param5" %if
+    <sql="USE %param5%param">
+    %set_param5=@this.getExtra("token")%set_param
+    %if "param5" %if
+      %set_param1=SELECT get_user_credentials(?5)%set_param
+      %set_param0=@tools.Convert.getParam("%param1%param","\\")%set_param
+      %set_param1=@tools.Convert.getValue("%param1%param","\\")%set_param
+    %endif%endif
+    %set_param6=SELECT get_user_type_is_active(?0,?1)%set_param
+  %elseif%elseif
+    %invoke_methodthis.setParam(6,"-1")%invoke_method
+  %endif%endif
+%elseif%elseif
+  %set_param5=@this.getExtra("token")%set_param
+  %if "param5" %if
+    %set_param1=SELECT get_user_credentials(?5)%set_param
+    %set_param0=@tools.Convert.getParam("%param1%param","\\")%set_param
+    %set_param1=@tools.Convert.getValue("%param1%param","\\")%set_param
+  %endif%endif
+  %set_param6=SELECT get_user_type_is_active(?0,?1)%set_param
+%endif%endif
+
+%if "param6>0" %if
+  %set_param7=@this.getExtra("object_name")%set_param
+  %set_param8=@this.getExtra("picture_id")%set_param
+  %set_param9=@this.getStringValue("SELECT picture FROM %param7%param WHERE id=%param8%param")%set_param
+  %if "param9" %if
+    %invoke_methodthis.writeBase64ParamAsBytesWithContentLength(9)%invoke_method
+  %endif%endif
+%endif%endif

@@ -1,0 +1,89 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=SELECT id FROM user WHERE username=?0%set_param
+
+      %set_param10=@this.getExtra("message_id")%set_param
+      %set_param11=@this.getExtra("create_date")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND create_date LIKE '%param11%param'")%invoke_method
+      %endif%endif
+
+      %set_param12=@this.getExtra("from_message_id")%set_param
+      %if "param12" %if
+        %invoke_methodthis.setParam(12," AND id>%param12%param")%invoke_method
+      %endif%endif
+
+      %set_param13=@this.getExtra("message")%set_param
+      %if "param13" %if
+        %invoke_methodthis.setParam(13," AND message LIKE '%param13%param'")%invoke_method
+      %elseif%elseif
+
+      %if "param6=1" %if
+
+        %set_param13=@this.getExtra("user_id")%set_param
+        %if "param13" %if
+
+          %set_param14=@this.getExtra("message_type")%set_param
+          %if "param14" %if
+            %if "param14=1" %if
+              %invoke_methodthis.setParam(13," AND userB_id LIKE '%param13%param' AND type=1")%invoke_method
+            %endif%endif
+            %if "param10=2" %if
+              %invoke_methodthis.setParam(13," AND userA_id LIKE '%param13%param' AND type=2")%invoke_method
+            %endif%endif
+          %elseif%elseif
+            %invoke_methodthis.setParam(13," AND (userA_id LIKE '%param13%param' OR userB_id LIKE '%param13%param')")%invoke_method
+          %endif%endif
+
+        %elseif%elseif
+          %invoke_methodthis.setParam(13," AND ((userA_id=%param9%param AND type=2) OR (userB_id=%param9%param AND type=1))")%invoke_method
+        %endif%endif
+
+      %elseif%elseif
+        %invoke_methodthis.setParam(13," AND ((userA_id=%param9%param AND type=2) OR (userB_id=%param9%param AND type=1))")%invoke_method
+      %endif%endif
+
+      %set_param14=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'message_id',CHAR(34),':',id,',',
+        CHAR(34),'message_type',CHAR(34),':',type,',',
+        CHAR(34),'userA_id',CHAR(34),':',userA_id,',',
+        CHAR(34),'userA',CHAR(34),':[',get_user(userA_id,'%param14%param'),'],',
+        CHAR(34),'userB_id',CHAR(34),':',userB_id,',',
+        CHAR(34),'userB',CHAR(34),':[',get_user(userB_id,'%param14%param'),'],',
+        CHAR(34),'message',CHAR(34),':',CHAR(34),replace_text(message),CHAR(34),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),create_date,CHAR(34),'}') AS CHAR)
+        FROM message
+        WHERE id LIKE '%param10%param'%param11%param%param12%param%param13%param
+        ORDER BY id DESC %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

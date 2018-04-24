@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+    tools:context="autozvit.com.fireart.forms.CartFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top"
+    android:background="@color/fragment_background"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="10dp"
+      android:paddingLeft="10dp"
+      android:paddingTop="10dp">
+
+      <TextView
+        style="@style/Widget.Style.ParamTextView"
+        android:id="@+id/text_view_basket_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:text="@string/cart_count"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+      <Button
+        style="@style/Widget.Style.Button"
+        android:id="@+id/button_book_delivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="@string/button_book_delivery"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+      <Button
+        android:id="@+id/button_cart"
+        style="@style/Widget.TransWhiteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/button_book_delivery"
+        android:layout_toRightOf="@+id/button_book_delivery"
+        android:onClick="onClick"
+        android:text="@string/button_incart"/>
+
+      <TextView
+        style="@style/Widget.Style.PriceTextView"
+        android:id="@+id/text_view_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.8"
+        android:text="0.00"/>
+
+      <TextView
+        android:id="@+id/text_view_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USD"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/text_view_price"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+      <TextView
+        style="@style/Widget.Style.DiscountTextView"
+        android:id="@+id/text_view_discount"
+        android:alpha="0.8"
+        android:text="0.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_currency"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+      <TextView
+        style="@style/Widget.Style.ValueTextView"
+        android:id="@+id/text_view_count_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text_view_basket_count"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/text_view_basket_count"
+        android:layout_toRightOf="@+id/text_view_basket_count"
+        android:text="0"/>
+
+      <android.support.design.widget.FloatingActionButton
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_clear_white_24dp"
+        android:id="@+id/floating_action_button_clear_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/text_view_count_value"
+        android:layout_toRightOf="@+id/text_view_count_value"
+        android:clickable="true"
+        android:onClick="onClick"/>
+    </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

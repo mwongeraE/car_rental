@@ -1,0 +1,49 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %if "param6=1"|"param6=2" %if
+        %set_param9=@this.getExtra("user_id")%set_param
+        %if "param9" %if
+          %invoke_methodthis.setParam(9,"%param9%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(9,"%")%invoke_method
+        %endif%endif
+      %elseif%elseif
+        %set_param9=SELECT id FROM user WHERE username=?0%set_param
+      %endif%endif
+
+      %set_param10=@this.getExtra("order_id")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND o.id LIKE '%param10%param'")%invoke_method
+      %endif%endif
+
+      %set_param11=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'order_id',CHAR(34),':',o.id,',',
+        CHAR(34),'status_id',CHAR(34),':',os.id,',',
+        CHAR(34),'status_name',CHAR(34),':',CHAR(34),replace_text(os.name),CHAR(34),',',
+        CHAR(34),'status_attr',CHAR(34),':[',get_attr_part(os.id,'order_status','%param11%param'),']}') AS CHAR)
+        FROM order_status os,order_AB o
+        WHERE o.user_id LIKE '%param9%param'%param10%param
+        AND os.id=o.order_status_id
+	ORDER BY o.id DESC",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

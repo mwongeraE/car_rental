@@ -1,0 +1,153 @@
+<!--content-->
+<!--LOGIN-->
+<div class="templatemo-content-widget templatemo-login-widget light-gray-bg">
+  <header class="text-center">
+    <h1 id="text_login">Login</h1>
+  </header>
+  <form action="" onsubmit="return saveToCookie();" class="templatemo-login-form">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+        <input type="text" id="input_username" class="form-control" placeholder="User name">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+        <input type="password" id="input_password" class="form-control" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group" id="div_apikey">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+        <input type="text" id="input_apikey" class="form-control" placeholder="API key">
+      </div>
+    </div>
+    <div id="div_message"></div>
+    <div class="form-group">
+      <div class="checkbox squaredTwo">
+        <input type="checkbox" id="input_save_me" onclick="saveMe();"/>
+        <label id="label_save_me" for="input_save_me"><span></span>Save me for next visit</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <button id="button_submit" type="submit" class="templatemo-blue-button width-100" title="Perform login">Login</button>
+    </div>
+  </form><br>
+  <div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12 text-right">
+    <p id="text_registered">Not yet registered?</p>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12 text-left">
+    <a href="javascript:gotoRegister();" id="a_register" class="blue-text"><i class="fa fa-pencil"></i><strong id="text_register"> Register</strong></a>
+  </div>
+</div>
+<!--END_OF_INNOCENCE-->
+
+<!--js-->
+<script type="text/javascript">
+  if(API_KEY===null||API_KEY==="api_key")$("#div_apikey").hide();
+  var username,password,apikey;
+  function saveToCookie(){
+    var username_object=document.getElementById("input_username");
+    var password_object=document.getElementById("input_password");
+    var apikey_object=document.getElementById("input_apikey");
+    if(username_object!==null&&password_object!==null&&apikey_object!==null){
+      username=username_object.value.trim();password=password_object.value.trim();
+      apikey=apikey_object.value.trim();
+      if(username.length===0){username_object.focus();return false;}
+      /*if(password.length===0){password_object.focus();return false;}*/
+      setCookie(COOKIE_CURRENT_USER,"",0);
+      setCookie(COOKIE_CURRENT_TOKEN,"",0);
+      setCookie(COOKIE_CURRENT_API_KEY,"",0);
+      fa.username=DEFAULT_USERNAME;fa.password=DEFAULT_PASSWORD;
+      fa.token=null;
+      if(apikey.length>0)fa.setApiKey(apikey);else fa.setApiKey(null);
+      fa.getUserTypeByParam(username,password,"#div_message",afterLogin);
+      return false;
+    }
+    return false;/*always false*/
+  }
+  function afterLogin(){
+    /*update new current username*/
+    var usertype=null;
+    if(fa.ret_val_list.length>0){
+      usertype=fa.ret_val_list[0].value;
+      fa.ret_val_list.length=0;
+    }
+    if(usertype!==null&&usertype>0){
+      var encode_password=encodeData(username,password);
+      setCookie(username,encode_password,365);
+      setCookie(COOKIE_CURRENT_USER,username,365);
+      if(apikey.length!==0)setCookie(COOKIE_CURRENT_API_KEY,apikey,365);
+      /*alert(encode_password);
+      password=encodeData(username,encode_password);
+      alert(password);*/
+      fa.username=username;fa.password=password;
+      getToken();
+      getUser(fa.language);
+      updateHeaderLanguage(fa.language);
+      /*gotoStart();*/
+      location.href=window.location.pathname;
+    }
+  }
+  function saveMe(){
+    var save_me_object=document.getElementById("input_save_me");
+    if(save_me_object!==null&&save_me_object.checked){
+      setCookie(COOKIE_SAVE_ME,true,365);
+    }
+    else{
+      setCookie(COOKIE_SAVE_ME,false,365);
+    }
+  }
+  var save_me=getCookie(COOKIE_SAVE_ME);
+  var save_me_object=document.getElementById("input_save_me");
+  if(save_me==="true"){
+    var username_object=document.getElementById("input_username");
+    var password_object=document.getElementById("input_password");
+    username=getCookie(COOKIE_CURRENT_USER);
+    var encode_password=getCookie(username);
+    password=encodeData(username,encode_password);
+    if(username_object!==null&&password_object!==null){
+      username_object.value=username;password_object.value=password;
+    }
+    if(save_me_object!==null)save_me_object.checked=true;
+  }
+  else{
+    if(save_me_object!==null)save_me_object.checked=false;
+  }
+  var apikey_object=document.getElementById("input_apikey");
+  if(fa.getApiKey()!==null)apikey_object.value=fa.getApiKey();
+
+  /*MULTI LANGUAGE*/
+  function updateContentLanguage(language){
+    var input_username=document.getElementById('input_username');
+    var input_password=document.getElementById('input_password');
+    var input_apikey=document.getElementById('input_apikey');
+
+    var text_login=document.getElementById('text_login');
+    var label_save_me=document.getElementById('label_save_me');
+    var button_submit=document.getElementById('button_submit');
+    var text_registered=document.getElementById('text_registered');
+    var text_register=document.getElementById('text_register');
+    var a_register=document.getElementById('a_register');
+
+    /*objects*/
+    input_username.placeholder=getMessage(language,1011);
+    input_password.placeholder=getMessage(language,1012);
+    input_apikey.placeholder=getMessage(language,1025);
+
+    input_username.title=getMessage(language,1011);
+    input_password.title=getMessage(language,1012);
+    input_apikey.title=getMessage(language,1025);
+
+    /*captions*/
+    text_login.innerHTML=getMessage(language,1051);
+    label_save_me.innerHTML="<span></span>"+getMessage(language,1019);
+    button_submit.innerHTML=getMessage(language,1020);
+    button_submit.title=getMessage(language,1052);
+    text_registered.innerHTML=getMessage(language,1053);
+    text_register.innerHTML="&nbsp;"+getMessage(language,1054);
+    a_register.title=getMessage(language,1055);
+  }
+  updateContentLanguage(fa.language);
+</script>

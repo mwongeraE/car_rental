@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/scroll_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fillViewport="true"
+              android:scrollbars="horizontal">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    android:isScrollContainer="true">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="20dp">
+      <TextView
+        android:id="@+id/text_view_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerHorizontal="true"
+        android:text="@string/payment_for_trip"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    </RelativeLayout>
+
+    <HorizontalScrollView
+      android:id="@+id/horizontal_scroll_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fillViewport="true"
+      android:scrollbars="horizontal"
+      android:layout_marginBottom="20dp">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+          android:id="@+id/edit_text_payment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:inputType="numberDecimal"
+          android:textStyle="bold"/>
+      </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_horizontal"
+      android:layout_marginBottom="20dp">
+      <Button
+        android:id="@+id/button_save"
+        style="@style/Widget.Style.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="@string/button_save"/>
+    </LinearLayout>
+  </LinearLayout>
+  </ScrollView>
+</FrameLayout>

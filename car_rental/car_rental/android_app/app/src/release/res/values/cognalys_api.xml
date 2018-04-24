@@ -1,0 +1,9 @@
+<!--cognalys website: https://www.cognalys.com-->
+<resources>
+  <string name="cognalys_app_id" translatable="false">
+    put_app_id_number_here
+  </string>
+  <string name="cognalys_access_token" translatable="false">
+    put_access_token_here
+  </string>
+</resources>

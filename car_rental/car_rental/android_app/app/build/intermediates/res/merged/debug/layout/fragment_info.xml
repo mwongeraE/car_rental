@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                tools:context="autozvit.com.fireart.forms.InfoFragment"
+                android:background="@color/md_blue_300"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/text_view_large"
+    android:text="INFO LARGE TEXT"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"/>
+
+  <TextView
+    android:id="@+id/text_view_small"
+    android:text="info medium text"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text_view_large"
+    android:layout_centerHorizontal="true"/>
+
+  <ImageView
+    android:id="@+id/image_view_picture"
+    android:src="@drawable/ic_info_outline_white_48pt_3x"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center_horizontal"
+    android:layout_above="@+id/text_view_large"
+    android:layout_centerHorizontal="true"/>
+
+  <Button
+    android:id="@+id/button_tool_window_cancel"
+    android:text="@string/button_agree"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|bottom"
+    android:layout_below="@+id/text_view_small"
+    android:layout_centerHorizontal="true"
+    android:onClick="onClick"/>
+
+</RelativeLayout>

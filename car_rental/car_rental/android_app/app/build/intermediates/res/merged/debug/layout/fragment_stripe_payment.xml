@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:stripe="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center_horizontal"
+      android:background="@color/fragment_background"
+      android:padding="20dp">
+
+        <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentTop="true"
+          android:src="@drawable/marker_b"/>
+
+        <TextView
+          android:id="@+id/text_view_order_id"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/text_view_price"
+          android:text="123"
+          android:textSize="22sp"/>
+
+        <TextView
+          android:id="@+id/text_view_payment_info"
+          style="@style/Widget.Style.TipTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:layout_below="@+id/text_view_currency"
+          android:text="Do You want to pay by order?"/>
+
+        <TextView
+          android:id="@+id/text_view_price"
+          style="@style/Widget.Style.PriceTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentTop="true"
+          android:alpha="0.8"
+          android:text="96.00"
+          android:textSize="42dp"/>
+
+        <TextView
+          android:id="@+id/text_view_currency"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/text_view_price"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:layout_alignStart="@+id/text_view_price"
+          android:layout_below="@+id/text_view_price"
+          android:text="USD"
+          android:textSize="32dp"/>
+
+        <com.stripe.android.view.CardInputWidget
+          android:id="@+id/card_input_widget"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_below="@+id/text_view_payment_info"
+          android:layout_marginTop="28dp"
+          stripe:cardTextErrorColor="@color/bad_text"
+          stripe:cardTint="@color/app_accent"/>
+
+        <Button
+          android:id="@+id/button_payment"
+          style="@style/Widget.Style.PaymentButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/card_input_widget"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="25dp"
+          android:onClick="onClick"
+          android:text="@string/button_payment"/>
+
+        <TextView
+          android:id="@+id/text_view_payment_provider"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_toEndOf="@+id/imageView"
+          android:layout_toRightOf="@+id/imageView"
+          android:background="@color/md_indigo_A400"
+          android:padding="10dp"
+          android:text="stripe"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textColor="@color/White"
+          android:textStyle="bold"/>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,16 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+  %set_param7=@getExtra("project_name")%set_param
+
+  %begin_html%begin_html
+  %set_param8=SELECT IFNULL(create_date,'') FROM project WHERE name='%param7%param'%set_param
+  %set_param9=@getStringList("SELECT IFNULL(description,'') FROM audit WHERE username='%param0%param' AND name='add_project' ORDER BY id"," ; ")%set_param
+  %end_html%end_html
+
+  {"results":[{"project_created":"%param8%param","add_project_audit":"%param9%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

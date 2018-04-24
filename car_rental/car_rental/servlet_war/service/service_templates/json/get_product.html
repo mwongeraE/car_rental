@@ -1,0 +1,83 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("product_id")%set_param
+      %set_param10=@this.getExtra("manufacture_id")%set_param
+      %if "param10" %if
+        %invoke_methodthis.setParam(10," AND p.manufacture_id=%param10%param")%invoke_method
+      %endif%endif
+      %set_param11=@this.getExtra("discount_id")%set_param
+      %if "param11" %if
+        %invoke_methodthis.setParam(11," AND d.id=%param11%param")%invoke_method
+      %endif%endif
+      %set_param12=@this.getExtra("product_code")%set_param
+      %if "param12" %if
+        %invoke_methodthis.setParam(12," AND p.code LIKE '%param12%param'")%invoke_method
+      %endif%endif
+      %set_param13=@this.getExtra("product_name")%set_param
+      %if "param13" %if
+        %invoke_methodthis.setParam(13," AND p.name LIKE '%param13%param'")%invoke_method
+      %endif%endif
+      %set_param14=@this.getExtra("description")%set_param
+      %if "param14" %if
+        %invoke_methodthis.setParam(14," AND p.description LIKE '%param14%param'")%invoke_method
+      %endif%endif
+      %set_param15=@this.getExtra("price_from")%set_param
+      %set_param16=@this.getExtra("price_to")%set_param
+      %if "param16" %if
+        %invoke_methodthis.setParam(15," AND (p.price>=%param15%param AND p.price<=%param16%param)")%invoke_method
+      %endif%endif
+      %set_param17=@this.getExtra("stock_count")%set_param
+      %if "param17" %if
+        %invoke_methodthis.setParam(17," AND (s.count>=%param17%param)")%invoke_method
+      %endif%endif
+
+      %set_param18=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'product_id',CHAR(34),':',p.id,',',
+        CHAR(34),'manufacture_id',CHAR(34),':',p.manufacture_id,',',
+        CHAR(34),'discount_code',CHAR(34),':',CHAR(34),IFNULL(p.discount_code,''),CHAR(34),',',
+        CHAR(34),'discount',CHAR(34),':[',IF(p.discount_code IS NULL,'',get_discount(p.discount_code,'%param18%param')),'],',
+        CHAR(34),'product_attr',CHAR(34),':[',get_attr_part(p.id,'product','%param18%param'),'],',
+        CHAR(34),'type_part',CHAR(34),':[',get_product_type_part(p.id,'%param18%param'),'],',
+        CHAR(34),'param_part',CHAR(34),':[',get_product_param_part(p.id,'%param18%param'),'],',
+        CHAR(34),'product_name',CHAR(34),':',CHAR(34),replace_text(p.name),CHAR(34),',',
+        CHAR(34),'description',CHAR(34),':',CHAR(34),replace_text(p.description),CHAR(34),',',
+        CHAR(34),'product_code',CHAR(34),':',CHAR(34),p.code,CHAR(34),',',
+        CHAR(34),'product_price',CHAR(34),':',p.price,',',
+        CHAR(34),'product_rate',CHAR(34),':',IF(p.review_count=0,0,ROUND(p.review_value/p.review_count,2)),',',
+        CHAR(34),'stock_count',CHAR(34),':',IFNULL(s.count,0),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),p.last_update,CHAR(34),'}') AS CHAR)
+        FROM product p LEFT JOIN discount d ON d.code=p.discount_code LEFT JOIN stock s ON s.product_id=p.id
+        WHERE p.id LIKE '%param9%param'%param10%param%param11%param%param12%param%param13%param%param14%param%param15%param%param17%param
+        ORDER BY p.id %param8%param",",")%set_param
+      %end_html%end_html
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

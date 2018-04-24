@@ -1,0 +1,61 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param7=@this.getExtra("offset")%set_param
+      %set_param8=@this.getExtra("rows")%set_param
+      %if "param8" %if
+        %if "param7" %if
+          %invoke_methodthis.setParam(8,"LIMIT %param7%param,%param8%param")%invoke_method
+        %elseif%elseif
+          %invoke_methodthis.setParam(8,"LIMIT %param8%param")%invoke_method
+        %endif%endif
+      %endif%endif
+
+      %set_param9=@this.getExtra("purchase_id")%set_param
+
+      %if "param6!=1" %if
+        %set_param10=SELECT is_my_purchase(?0,?9)%set_param
+      %elseif%elseif
+        %invoke_methodthis.setParam(10,"1")%invoke_method
+      %endif%endif
+
+      %if "param10=1" %if
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT SQL_CALC_FOUND_ROWS CAST(CONCAT('{',
+        CHAR(34),'purchase_id',CHAR(34),':',purchase_id,',',
+        CHAR(34),'payment_amount',CHAR(34),':',amount,',',
+        CHAR(34),'payment_currency',CHAR(34),':',CHAR(34),IFNULL(currency,''),CHAR(34),',',
+        CHAR(34),'description',CHAR(34),':',CHAR(34),replace_text(description),CHAR(34),',',
+        CHAR(34),'payment_status',CHAR(34),':',CHAR(34),IFNULL(status,''),CHAR(34),',',
+        CHAR(34),'transaction_id',CHAR(34),':',CHAR(34),IFNULL(transaction_id,''),CHAR(34),',',
+        CHAR(34),'phone',CHAR(34),':',CHAR(34),IFNULL(phone,''),CHAR(34),',',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),last_update,CHAR(34),'}') AS CHAR)
+        FROM payment
+        WHERE purchase_id LIKE '%param9%param'
+        ORDER BY purchase_id DESC %param8%param",",")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+
+      %if "param20!=''" %if
+        %set_param21=@this.getStringValue("SELECT FOUND_ROWS()")%set_param
+        {"results":[%param20%param],"rows":%param21%param,"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

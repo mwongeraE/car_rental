@@ -1,0 +1,4 @@
+#Wed Feb 21 12:45:57 EAT 2018
+base.0=/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/transforms/dexMerger/debug/6
+path.0=classes.dex
+renamed.0=classes.dex

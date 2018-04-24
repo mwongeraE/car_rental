@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/menu/menu_toolbar.xml",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/menu/menu_toolbar.xml"
+    },
+    {
+        "merged": "/home/evans/Documents/car_rental/car_rental/android_app/app/build/intermediates/res/merged/debug/menu/menu_nav.xml",
+        "source": "/home/evans/Documents/car_rental/car_rental/android_app/app/src/main/res/menu/menu_nav.xml"
+    }
+]

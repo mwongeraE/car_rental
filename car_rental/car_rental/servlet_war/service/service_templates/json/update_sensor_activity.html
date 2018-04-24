@@ -1,0 +1,23 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+  %set_param7=@this.getExtra("sensor_id")%set_param
+  %set_param8=@this.getExtra("activity")%set_param
+
+  %set_param20=SELECT update_sensor_activity(?0,?1,?7,?8)%set_param
+
+  %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+  %if "param21=1" %if
+    %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+    {"results":[{"message":"Update data failed","message_code":-11,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+  %elseif%elseif
+    %if "param20>-1" %if
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+    %elseif%elseif
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+  %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

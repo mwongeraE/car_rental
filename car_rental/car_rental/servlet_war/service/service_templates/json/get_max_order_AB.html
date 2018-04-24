@@ -1,0 +1,64 @@
+%writedata/json/param0%writedata
+%writedata/json/auth%writedata
+%if "param6>0" %if
+
+      %set_param9=SELECT MAX(o.id) FROM order_AB o,user u WHERE u.username=?0 AND u.id=o.user_id%set_param
+      
+      %if "param9!=''" %if
+
+      %set_param10=@this.getExtra("language")%set_param
+
+      %begin_html%begin_html
+      %set_param20=@this.getStringList("SELECT CAST(CONCAT('{',
+        CHAR(34),'order_id',CHAR(34),':',o.id,',',
+        CHAR(34),'user_id',CHAR(34),':',o.user_id,',',
+        CHAR(34),'user',CHAR(34),':[',get_user(o.user_id,'%param10%param'),'],',
+        CHAR(34),'status_id',CHAR(34),':',os.id,',',
+        CHAR(34),'status_name',CHAR(34),':',CHAR(34),replace_text(os.name),CHAR(34),',',
+        CHAR(34),'status_attr',CHAR(34),':[',get_attr_part(os.id,'order_status','%param10%param'),'],',
+        CHAR(34),'transport_id',CHAR(34),':',IFNULL(o.transport_id,'null'),',',
+        CHAR(34),'transport',CHAR(34),':[',IF(o.transport_id IS NULL,'',get_transport(o.transport_id,'%param10%param')),'],',
+        CHAR(34),'total_price',CHAR(34),':',o.total_price,',',
+        CHAR(34),'route_distance',CHAR(34),':',IFNULL(o.route_distance,'null'),',',
+        CHAR(34),'route_duration',CHAR(34),':',IFNULL(o.route_duration,'null'),',',
+        CHAR(34),'route_data',CHAR(34),':',CHAR(34),IFNULL(REPLACE(REPLACE(TO_BASE64(o.route_data),'\r',''),'\n',''),''),CHAR(34),',',
+        CHAR(34),'order_lat',CHAR(34),':',IFNULL(o.order_lat,'null'),',',
+        CHAR(34),'order_lon',CHAR(34),':',IFNULL(o.order_lon,'null'),',',
+        CHAR(34),'order_address',CHAR(34),':',CHAR(34),IF(o.order_address IS NULL,'',replace_text(o.order_address)),CHAR(34),',',
+        CHAR(34),'delivery_lat',CHAR(34),':',IFNULL(o.delivery_lat,'null'),',',
+        CHAR(34),'delivery_lon',CHAR(34),':',IFNULL(o.delivery_lon,'null'),',',
+        CHAR(34),'delivery_address',CHAR(34),':',CHAR(34),IF(o.delivery_address IS NULL,'',replace_text(o.delivery_address)),CHAR(34),',',
+        CHAR(34),'delivery_type_id',CHAR(34),':',IFNULL(o.delivery_type_id,'null'),',',
+        CHAR(34),'delivery_type_name',CHAR(34),':',CHAR(34),IF(o.delivery_type_id IS NULL,'',replace_text(dt.name)),CHAR(34),',',
+        CHAR(34),'delivery_type_attr',CHAR(34),':[',IF(o.delivery_type_id IS NULL,'',get_attr_part(o.delivery_type_id,'delivery_type','%param10%param')),'],',
+        CHAR(34),'reserved_date',CHAR(34),':',CHAR(34),IFNULL(o.reserved_date,''),CHAR(34),',',
+        CHAR(34),'reserved_hours',CHAR(34),':',IFNULL(o.reserved_hours,'null'),',',
+        CHAR(34),'purchase',CHAR(34),':[',get_purchase(o.id,'%param10%param'),'],',
+        CHAR(34),'create_date',CHAR(34),':',CHAR(34),o.create_date,CHAR(34),',',
+        CHAR(34),'last_update',CHAR(34),':',CHAR(34),o.last_update,CHAR(34),'}') AS CHAR)
+        FROM order_status os,order_AB o LEFT JOIN delivery_type dt ON dt.id=o.delivery_type_id
+        LEFT JOIN transport t ON t.id=o.transport_id
+        WHERE o.id=%param9%param
+        AND os.id=o.order_status_id")%set_param
+      %end_html%end_html
+
+      %elseif%elseif
+
+        %invoke_methodthis.setParam(20,"")%invoke_method
+
+      %endif%endif
+    
+      %if "param20!=''" %if
+        {"results":[%param20%param],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+      %elseif%elseif
+        %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+        %if "param21=1" %if
+          %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+        %elseif%elseif
+          %invoke_methodthis.setParam(21,"")%invoke_method
+        %endif%endif
+        {"results":[{"message":"Data not found","message_code":-10,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+      %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif

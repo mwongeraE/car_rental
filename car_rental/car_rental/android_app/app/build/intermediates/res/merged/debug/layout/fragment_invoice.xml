@@ -1,0 +1,208 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+    tools:context="autozvit.com.fireart.forms.InvoiceFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/easy_style_list_background">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/easy_style_fragment_background">
+
+      <!--address-->
+      <RelativeLayout
+        android:id="@+id/layout_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+          android:id="@+id/text_view_price"
+          style="@style/Widget.EasyStyle.LargeTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_dropoff_address"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="5dp"
+          android:layout_marginTop="5dp"
+          android:text="0.00"/>
+
+        <TextView
+          android:id="@+id/text_view_currency"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_price"
+          android:layout_centerHorizontal="true"
+          android:text="USD"/>
+
+        <ImageView
+          android:id="@+id/image_view_pickup_picture"
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentTop="true"
+          app:srcCompat="@drawable/pickup"/>
+
+        <TextView
+          android:id="@+id/text_view_pickup_name"
+          style="@style/Widget.EasyStyle.MiddleTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="Pickup name"/>
+
+        <TextView
+          android:id="@+id/text_view_pickup_address"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_pickup_name"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="pickup address"/>
+
+        <View
+          android:id="@+id/view_picture_divider"
+          android:layout_width="1dp"
+          android:layout_height="20dp"
+          android:layout_above="@+id/image_view_dropoff_picture"
+          android:layout_below="@+id/image_view_pickup_picture"
+          android:layout_marginLeft="12dp"
+          android:layout_marginTop="0dp"
+          android:background="@color/easy_style_light_divider_background"/>
+
+        <ImageView
+          android:id="@+id/image_view_dropoff_picture"
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          android:layout_below="@id/text_view_pickup_address"
+          android:layout_marginTop="0dp"
+          app:srcCompat="@drawable/dropoff"/>
+
+        <View
+          android:id="@+id/view_pickup_dropoff_divider"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_below="@+id/text_view_pickup_address"
+          android:layout_margin="5dp"
+          android:layout_toEndOf="@+id/image_view_dropoff_picture"
+          android:layout_toRightOf="@+id/image_view_dropoff_picture"
+          android:background="@color/easy_style_divider_background"/>
+
+        <TextView
+          android:id="@+id/text_view_dropoff_name"
+          style="@style/Widget.EasyStyle.MiddleTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/view_pickup_dropoff_divider"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="Dropoff name"/>
+
+        <TextView
+          android:id="@+id/text_view_dropoff_address"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_dropoff_name"
+          android:layout_toEndOf="@+id/image_view_pickup_picture"
+          android:layout_toRightOf="@+id/image_view_pickup_picture"
+          android:text="dropoff address"/>
+
+        <Button
+          android:id="@+id/button_transport_review"
+          style="@style/Widget.Style.Button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_currency"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="5dp"
+          android:layout_marginTop="5dp"
+          android:onClick="onClick"
+          android:text="@string/button_transport_review"/>
+      </RelativeLayout>
+
+      <!--payment-->
+      <RelativeLayout
+        android:id="@+id/layout_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_address"
+        android:background="@color/easy_style_list_background">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/image_view_user_picture"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_below="@+id/text_view_distance"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="5dp"
+          android:scaleType="centerCrop"
+          android:src="@drawable/ic_do_not_disturb_alt_white_48pt_2x"
+          app:civ_border_color="@color/app_circle_border"
+          app:civ_border_width="1dp"/>
+
+        <TextView
+          android:id="@+id/text_view_user_name"
+          style="@style/Widget.EasyStyle.SmallTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/image_view_user_picture"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="5dp"
+          android:layout_marginTop="5dp"
+          android:text="User name"/>
+
+        <RatingBar
+          android:id="@+id/rating_bar_user_rate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/text_view_user_name"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="1dp"
+          android:alpha="0.8"
+          android:clickable="true"
+          android:focusable="false"
+          android:numStars="5"
+          android:progressTint="@color/app_base"
+          android:rating="0"
+          android:stepSize="1"/>
+
+      </RelativeLayout>
+
+      <!--button-->
+      <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_payment"
+        android:orientation="horizontal"
+        android:background="@color/easy_style_list_background">
+
+        <Button
+          android:id="@+id/button_user_review"
+          style="@style/Widget.EasyStyle.Button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onClick"
+          android:text="@string/button_user_review"/>
+      </LinearLayout>
+
+    </RelativeLayout>
+  </ScrollView>
+
+</FrameLayout>

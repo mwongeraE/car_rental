@@ -1,0 +1,105 @@
+<!--head content-->
+<nav class="templatemo-site-header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <h1>fireArt</h1>
+      <a href="javascript:location.href=window.location.pathname"><p> open source CRM</p></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav"></ul>
+      <ul class="nav navbar-nav navbar-right">
+        <div class="btn-group">
+          <button class="btn btn-blue" type="button" id="button_menu_cabinet" onclick="gotoCabinet();"><i class="fa fa-user"></i><b id="text_menu_cabinet"> Cabinet</b><i id="text_menu_username"> User</i></button>
+          <button class="btn btn-blue dropdown-toggle" data-toggle="dropdown" id="button_menu_dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a id="a_cabinet" href="javascript:gotoCabinet();"> Cabinet</a></li>
+              <li class="divider"></li>
+              <li><a id="a_exit" href="javascript:removeCurrentUser();"> Exit</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" id="button_menu_login" onclick="gotoLogin();" class="btn btn-light-blue"><i class="fa fa-sign-in"></i><b id="text_menu_login"> Login</b></button>
+          <button type="button" id="button_menu_register" onclick="gotoRegister();" class="btn btn-light-blue"><i class="fa fa-pencil"></i><b id="text_menu_register"> Register</b></button>
+        </div>
+        <div class="btn-group">
+          <select type="button" class="btn btn-blue" id="select_language" onchange="updateLanguage();" data-toggle="dropdown">
+            <option value="ENGLISH">English</option>
+            <option value="RUSSIAN">Русский</option>
+            <option value="UKRAINIAN">Українська</option>
+            <option value="FRENCH" disabled>Français</option>
+            <option value="GERMAN" disabled>Deutsch</option>
+            <option value="ITALIAN" disabled>Italiano</option>
+            <option value="PORTUGAL" disabled>Português</option>
+            <option value="SPANISH" disabled>Español</option>
+            <option value="POLISH" disabled>Polski</option>
+            <option value="SERBIAN" disabled>Српски</option>
+          </select>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--end head content-->
+
+<!--js-->
+<script type="text/javascript">
+  function removeCurrentUser(){
+    setCookie(COOKIE_CURRENT_USER,"",0);
+    setCookie(COOKIE_CURRENT_TOKEN,"",0);
+    faInit();
+    /*gotoStart();*/
+    location.href=window.location.pathname;
+    updateHeaderLanguage(fa.language);
+  }
+  function updateLanguage(){
+    var language=updateCookieLanguage("select_language");
+    fa.language=language;
+    updateHeaderLanguage(language);
+    updateContentLanguage(language);
+    updateFooterLanguage(language);
+    getCurrency(language);
+    getOrderStatusAttrPart(language);
+    /*re-init map provider*/
+    /*$('script').last().remove(); - cannot remove content of script*/
+    getMapProvider(language);
+  }
+  /*MULTI LANGUAGE*/
+  function updateHeaderLanguage(language){
+    /*
+    var button_menu_login=document.getElementById('button_menu_login');
+    var button_menu_register=document.getElementById('button_menu_register');
+    */
+    var button_menu_cabinet=document.getElementById('button_menu_cabinet');
+    var button_menu_dropdown=document.getElementById('button_menu_dropdown');
+    var a_cabinet=document.getElementById('a_cabinet');
+    var a_exit=document.getElementById('a_exit');
+    var text_menu_login=document.getElementById('text_menu_login');
+    var text_menu_register=document.getElementById('text_menu_register');
+    var text_menu_cabinet=document.getElementById('text_menu_cabinet');
+    var text_menu_username=document.getElementById('text_menu_username');
+
+    /*captions*/
+    text_menu_login.innerHTML="&nbsp;"+getMessage(language,1501);
+    text_menu_register.innerHTML="&nbsp;"+getMessage(language,1502);
+    text_menu_cabinet.innerHTML="&nbsp;"+getMessage(language,1503);
+    a_cabinet.innerHTML="&nbsp;"+getMessage(language,1503);
+    a_exit.innerHTML="&nbsp;"+getMessage(language,1504);
+    if(fa.username.length>0&&fa.username!==DEFAULT_USERNAME){
+      text_menu_username.innerHTML="&nbsp;"+fa.username;
+      button_menu_cabinet.disabled=false;
+      button_menu_dropdown.disabled=false;
+    }
+    else{
+      text_menu_username.innerHTML="";
+      button_menu_cabinet.disabled=true;
+      button_menu_dropdown.disabled=true;
+    }
+    updateLanguageObject(language,"select_language");
+  }
+  updateHeaderLanguage(fa.language);
+</script>

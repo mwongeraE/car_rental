@@ -1,0 +1,42 @@
+%writedata/json/param0%writedata
+%writedata/json/auth_no_apikey%writedata
+%if "param6>0" %if
+
+  %set_param7=@this.getExtra("project_name")%set_param
+  %set_param8=@this.getExtra("description")%set_param
+
+  %if "param6=1" %if
+    %set_param9=@this.getExtra("ip_address")%set_param
+    %if "param9=''" %if
+      %set_param9=@getServletParam().getRemoteAddr()%set_param
+    %endif%endif
+  %elseif%elseif
+    %set_param9=@getServletParam().getRemoteAddr()%set_param
+  %endif%endif
+
+  %set_param20=SELECT add_project(?0,?1,?7,?8,?9)%set_param
+
+  %set_param21=@getServletParam().getSQLReturnType().toString()%set_param
+  %if "param21=1" %if
+    %set_param21=@getServletParam().getSQLErrorMessage().replaceAll("\x22","")%set_param
+    {"results":[{"message":"Update data failed","message_code":-11,"database_message":"%param21%param"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+  %elseif%elseif
+    %if "param20>-1" %if
+      %set_param20=SELECT api_key FROM project WHERE name=?7%set_param
+      %set_param21=SELECT schema_name FROM project WHERE name=?7%set_param
+      %set_param22=SELECT schema()%set_param
+
+      <sql="CALL clone_schema('%param22%param','%param21%param')">
+      <sql="CALL copy_user_data_as_admin('%param22%param','%param21%param','%param0%param')">
+
+      %set_param23=SELECT sql_create_trigger_list(?22,?21)%set_param
+      %set_param24=@autozvit.com.mysql.SQLQuery.start("fa_admin","fa_admin","%param21%param","%param23%param")%set_param
+
+      {"results":[{"value":"%param20%param","name":"returned","database_message":"%param24%param"}],"session_id":%sessionid%sessionid,"status":"SUCCESS"}
+    %elseif%elseif
+      {"results":[{"value":%param20%param,"name":"returned"}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+    %endif%endif
+  %endif%endif
+%elseif%elseif
+  {"results":[{"message":"Invalid username or password","message_code":-1}],"session_id":%sessionid%sessionid,"status":"ERROR"}
+%endif%endif
